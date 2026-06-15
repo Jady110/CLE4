@@ -34,9 +34,6 @@ export class Player extends Actor {
         let velX = 0;
         let velY = 0;
 
-
-        velX = -100
-
         const topLimit = 450;    
         const bottomLimit = 650; 
 
@@ -65,12 +62,12 @@ export class Player extends Actor {
         }
 
         if (engine.input.keyboard.isHeld(Keys.A)) {
-            velX = 50;
+            velX = -100;
             this.graphics.use(Resources.Run1.toSprite());
         }
 
         if (engine.input.keyboard.isHeld(Keys.D)) {
-            velX = 150;
+            velX = 100;
             this.graphics.use(Resources.Run1.toSprite());
         }
 
