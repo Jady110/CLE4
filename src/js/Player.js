@@ -1,7 +1,6 @@
 import { Actor, Vector, Keys, CollisionType } from "excalibur"
 import { Resources } from "./resources.js"
 import { GameOverScene } from "./GameOver.js";
-import { TumbleWeed } from "./TumbleWeed.js";
 export class Player extends Actor {
 
     constructor() {

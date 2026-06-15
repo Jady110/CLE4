@@ -15,12 +15,6 @@ export class GameOverScene extends Scene {
             })
         });
 
-        const scoreText = new Label({
-            text: `Final Score: ${this.engine.score}`,
-            pos: new Vector(450, 350)
-        });
-
         this.add(gameOver);
-        this.add(scoreText);
     }
 }

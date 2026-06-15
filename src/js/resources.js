@@ -4,9 +4,7 @@ import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 const Resources = {
     Player: new ImageSource('images/standing.webp'),
     Desert: new ImageSource('images/desert.webp'),
-    tw1: new ImageSource('images/weedOne.webp'),
-    tw2: new ImageSource('images/weedTwo.webp'),
-    tw3: new ImageSource('images/weedThree.webp'),
+    StartScreen: new ImageSource('images/startScreen.png'),
     Run1: new ImageSource('images/runningOne.webp'),
     Run2: new ImageSource('images/runningTwo.png'),
     Run3: new ImageSource('images/runningThree.webp'),

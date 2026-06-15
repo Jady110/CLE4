@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Engine, DisplayMode, } from "excalibur"
+import { Engine, DisplayMode } from "excalibur"
 import { ResourceLoader } from './resources.js'
 import { StartScene } from "./Start.js";
 import { GameScene } from "./scene.js";

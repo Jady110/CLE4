@@ -1,8 +1,6 @@
 import { Scene, Actor, Vector } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
-import { TumbleWeed } from "./TumbleWeed.js";
-import { Score } from "./Score.js";
 
 export class GameScene extends Scene {
 
@@ -15,15 +13,6 @@ export class GameScene extends Scene {
         desert.z = -1;
 
         this.add(desert);
-
-        for (let i = 0; i < 10; i++) {
-            this.add(new TumbleWeed());
-        }
-
-        const scoreLabel = new Score();
-        this.add(scoreLabel);
-
-        this.scoreLabel = scoreLabel;
 
         this.add(new Player());
     }
