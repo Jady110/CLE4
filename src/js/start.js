@@ -5,13 +5,13 @@ export class StartScene extends Scene {
 
     onInitialize(engine) {
 
-        const startScreen = new Actor();
+        // const startScreen = new Actor();
 
-        startScreen.graphics.use(Resources.StartScreen.toSprite());
-        startScreen.pos = new Vector(1280 / 2, 720 / 2);
-        startScreen.z = -1;
+        // startScreen.graphics.use(Resources.StartScreen.toSprite());
+        // startScreen.pos = new Vector(1280 / 2, 720 / 2);
+        // startScreen.z = -1;
 
-        this.add(startScreen);
+        // this.add(startScreen);
 
         const title = new Label({
             text: "Ruines of The Mind",

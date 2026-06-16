@@ -6,13 +6,13 @@ export class GameScene extends Scene {
 
     onInitialize(engine) {
 
-        const desert = new Actor();
+        const map1 = new Actor();
 
-        desert.graphics.use(Resources.Desert.toSprite());
-        desert.pos = new Vector(1280 / 2, 720 / 2);
-        desert.z = -1;
+        map1.graphics.use(Resources.Map1.toSprite());
+        map1.pos = new Vector(1280 / 2, 720 / 2);
+        map1.z = -1;
 
-        this.add(desert);
+        this.add(map1);
 
         this.add(new Player());
 
