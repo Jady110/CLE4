@@ -1,8 +1,9 @@
-import { Scene, Actor, Vector } from "excalibur";
+import { Scene, Actor, Vector, Camera } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 
-export class GameScene extends Scene {
+export class LevelOne extends Scene {
+
     onInitialize(engine) {
 
         const map1 = new Actor();
@@ -15,8 +16,9 @@ export class GameScene extends Scene {
         const player = new Player()
         this.add(player)
 
-        console.log(player.pos)
+        this.player = new Player();
+        this.add(this.player);
 
-        engine.currentScene.camera.strategy.lockToActor(player);
-}
+        this.camera.strategy.lockToActor(this.player);
+    }
 }

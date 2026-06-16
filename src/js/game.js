@@ -1,9 +1,12 @@
 import '../css/style.css'
 import { Engine, DisplayMode } from "excalibur"
 import { ResourceLoader } from './resources.js'
-import { StartScene } from "./Start.js";
-import { GameScene } from "./level1.js";
+import { LevelOne } from "./level1.js";
+import { LevelTwo } from "./level2.js";
+import { LevelThree } from "./level3.js";
+import { LevelFour } from "./level4.js";
 import { GameOverScene } from "./GameOver.js";
+import { StartScene } from './start.js';
 
 export class Game extends Engine {
 
@@ -16,8 +19,11 @@ export class Game extends Engine {
 
         this.score = 0;
 
+        this.add("level1", new LevelOne());
+        this.add("level2", new LevelTwo());
+        this.add("level3", new LevelThree());
+        this.add("level4", new LevelFour());
         this.add("start", new StartScene());
-        this.add("game", new GameScene());
         this.add("gameover", new GameOverScene());
 
         this.start(ResourceLoader).then(() => {

@@ -23,7 +23,7 @@ export class StartScene extends Scene {
         });
 
         const startText = new Label({
-            text: "Press SPACE to start",
+            text: "Press SPACE for Level1, W for level2, A for level3, S for level4.",
             pos: new Vector(450, 350),
             color: Color.White
         });
@@ -34,7 +34,19 @@ export class StartScene extends Scene {
 
     onPreUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
-            engine.goToScene("game");
+            engine.goToScene("level1");
+        }
+
+        if (engine.input.keyboard.wasPressed(Keys.W)) {
+            engine.goToScene("level2");
+        }
+
+        if (engine.input.keyboard.wasPressed(Keys.A)) {
+            engine.goToScene("level3");
+        }
+
+        if (engine.input.keyboard.wasPressed(Keys.S)) {
+            engine.goToScene("level4");
         }
     }
 }
