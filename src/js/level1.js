@@ -1,8 +1,8 @@
-import { Scene, Actor, Vector } from "excalibur";
+import { Scene, Actor, Vector, Camera } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 
-export class GameScene extends Scene {
+export class LevelOne extends Scene {
 
     onInitialize(engine) {
 
@@ -16,13 +16,9 @@ export class GameScene extends Scene {
 
         this.add(new Player());
 
-        // export interface CameraStrategy<T> {
-        //     // Target of the camera strategy that will be passed to the action
-        //     target: T;
+        this.player = new Player();
+        this.add(this.player);
 
-        //     // Camera strategies perform an action to calculate a new focus returned out of the strategy
-        //     action: (target: T, camera: Camera, engine: Engine, elapsed: number) => Vector;
-        //     game.currentScene.camera.strategy.lockToActor(actor);
-        // }
+        this.camera.strategy.lockToActor(this.player);
     }
 }

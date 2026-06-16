@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType } from "excalibur"
+import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
 import { Resources } from "./resources.js"
 import { GameOverScene } from "./GameOver.js";
 export class Player extends Actor {
@@ -15,9 +15,7 @@ export class Player extends Actor {
         this.scale = new Vector(0.3, 0.3);
         this.pos = new Vector(100, 550);
 
-        this.graphics.use(Resources.Player.toSprite());
-
-        // game.currentScene.camera.strategy.lockToActor(Actor);
+        // this.camera.strategy.lockToActor(player);
 
         // this.gameStarted = false;
 
@@ -38,12 +36,13 @@ export class Player extends Actor {
 
         // if (this.pos.x < -50) {
         //     console.log("Game Over!");
-        //     this.scene.engine.goToScene("gameover");
+        //     this.scene.engine.goToScene("level2");
         // }
 
 
         if (engine.input.keyboard.isHeld(Keys.W)) {
             velY = -100;
+        // this.graphics.use(Resources.toSprite());
         }
 
         if (engine.input.keyboard.isHeld(Keys.S)) {
