@@ -2,12 +2,9 @@ import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 
 // voeg hier jouw eigen resources toe
 const Resources = {
-    Player: new ImageSource('images/standing.webp'),
-    Desert: new ImageSource('images/placeHolderBG.jpg'),
+    Player: new ImageSource('images/karakterCLE1.png'),
+    Desert: new ImageSource('images/map1.png'),
     StartScreen: new ImageSource('images/startScreen.png'),
-    Run1: new ImageSource('images/runningOne.webp'),
-    Run2: new ImageSource('images/runningTwo.png'),
-    Run3: new ImageSource('images/runningThree.webp'),
 }
 
 
