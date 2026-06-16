@@ -15,5 +15,14 @@ export class GameScene extends Scene {
         this.add(desert);
 
         this.add(new Player());
+
+        // export interface CameraStrategy<T> {
+        //     // Target of the camera strategy that will be passed to the action
+        //     target: T;
+
+        //     // Camera strategies perform an action to calculate a new focus returned out of the strategy
+        //     action: (target: T, camera: Camera, engine: Engine, elapsed: number) => Vector;
+        //     game.currentScene.camera.strategy.lockToActor(actor);
+        // }
     }
 }

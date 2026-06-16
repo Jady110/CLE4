@@ -17,6 +17,8 @@ export class Player extends Actor {
 
         this.graphics.use(Resources.Player.toSprite());
 
+        // game.currentScene.camera.strategy.lockToActor(Actor);
+
         // this.gameStarted = false;
 
         this.body.collisionType = CollisionType.Active;        
