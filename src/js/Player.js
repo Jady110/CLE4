@@ -13,7 +13,7 @@ export class Player extends Actor {
     onInitialize(engine) {
         this.graphics.use(Resources.Player.toSprite());
         this.scale = new Vector(0.3, 0.3);
-        this.pos = new Vector(100, 550);
+        this.pos = new Vector(150, 550);
 
         this.graphics.use(Resources.Player.toSprite());
 

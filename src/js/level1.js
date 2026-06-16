@@ -3,26 +3,20 @@ import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 
 export class GameScene extends Scene {
-
     onInitialize(engine) {
 
         const map1 = new Actor();
-
         map1.graphics.use(Resources.Map1.toSprite());
-        map1.pos = new Vector(1280 / 2, 720 / 2);
+        map1.pos = new Vector(720, 200);
         map1.z = -1;
 
         this.add(map1);
 
-        this.add(new Player());
+        const player = new Player()
+        this.add(player)
 
-        // export interface CameraStrategy<T> {
-        //     // Target of the camera strategy that will be passed to the action
-        //     target: T;
+        console.log(player.pos)
 
-        //     // Camera strategies perform an action to calculate a new focus returned out of the strategy
-        //     action: (target: T, camera: Camera, engine: Engine, elapsed: number) => Vector;
-        //     game.currentScene.camera.strategy.lockToActor(actor);
-        // }
-    }
+        engine.currentScene.camera.strategy.lockToActor(player);
+}
 }
