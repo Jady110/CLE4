@@ -9,6 +9,7 @@ export class Chest extends Actor {
         })
         this.graphics.use(Resources.Chest.toSprite())
         this.scale = new Vector(0.5, 0.5);
+        this.body.collisionType = CollisionType.Passive;
     }
     onInitialize(engine){
 

@@ -1,9 +1,10 @@
-import { Scene, Actor, Vector, Camera, Color, CollisionType } from "excalibur";
+import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Chest } from "./chest.js";
 import { Key } from "./key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
+import { EnemyLoneliness } from "./enemy-loneliness.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -29,10 +30,13 @@ export class LevelOne extends Scene {
         key.pos = new Vector(900, 550)
         this.keyGrabbed = false
 
+        const enemy = new EnemyLoneliness()
+        this.add(enemy)
+        enemy.pos = new Vector(1500, 400)
+
         const player = new Player()
         this.add(player)
 
-        player.body.collisionType = CollisionType.Passive
         player.events.on('collisionstart', (event) => this.onCollision(event))
 
         engine.currentScene.camera.strategy.lockToActor(player)
@@ -54,11 +58,16 @@ export class LevelOne extends Scene {
             } 
         }
         if (event.other.owner instanceof Puzzlepiece1) {
-            this.puzzlepieveGrabbed = true;
-            console.log(this.puzzlepieveGrabbed)
+            this.puzzlepieceGrabbed = true;
+            console.log(this.puzzlepieceGrabbed)
             event.other.owner.kill()
-
-            
+        }
+        if (event.other.owner instanceof EnemyLoneliness){
+            if (this.puzzlepieceGrabbed === true){
+                this.engine.goToScene("level2")
+            } else {
+                this.engine.goToScene("gameover");
+            }
         }
     }
 }

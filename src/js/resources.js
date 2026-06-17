@@ -8,6 +8,7 @@ const Resources = {
     Ghost: new ImageSource('images/ghost-loneliness.png'),
 
     StressEnemy: new ImageSource('images/Enemy_stress.png'),
+    LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
 
     Shadow: new ImageSource('images/shadowForward.png'),
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
@@ -27,9 +28,6 @@ const Resources = {
 
     FullHeart: new ImageSource('images/Full_heart.png'),
     EmptyHeart: new ImageSource('images/Empty_heart.png'),
-
-    Chest : new ImageSource('images/chest.png'),
-    Key : new ImageSource('images/key.png'),
 
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
