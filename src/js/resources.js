@@ -3,6 +3,7 @@ import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 // voeg hier jouw eigen resources toe
 const Resources = {
     Player: new ImageSource('images/karakterCLE1.png'),
+    PlayerIdle: new ImageSource('images/player-idle.png'),
 
     Ghost: new ImageSource('images/ghost-loneliness.png'),
 
@@ -18,10 +19,13 @@ const Resources = {
     FullHeart: new ImageSource('images/Full_heart.png'),
     EmptyHeart: new ImageSource('images/Empty_heart.png'),
 
+    Chest : new ImageSource('images/chest.png'),
+    Key : new ImageSource('images/key.png'),
+
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
 
-    Eenzaamheid: new ImageSource('images/Puzzlestuk_Eenzaamheid.png'),
+    Eenzaamheid: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
     Stress: new ImageSource('images/Puzzlestuk_stress.png'),
     Angst: new ImageSource('images/Puzzelstuk_angst.png'),
     Zelftwijfel: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),

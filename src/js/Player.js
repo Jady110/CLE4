@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
+import { Actor, Vector, Keys, CollisionType, Camera, SpriteSheet, Animation } from "excalibur"
 import { Resources } from "./resources.js"
 import { GameOverScene } from "./GameOver.js";
 
@@ -12,9 +12,22 @@ export class Player extends Actor {
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.Player.toSprite());
-        this.scale = new Vector(0.3, 0.3);
-        // this.pos = new Vector(150, 550);
+        const idleSheet = SpriteSheet.fromImageSource({
+            image: Resources.PlayerIdle,
+            grid: {
+                rows: 2,
+                columns: 1,
+                spriteWidth: Resources.PlayerIdle.width,
+                spriteHeight: Resources.PlayerIdle.height / 2
+            }
+        })
+        this.idleAnimation = Animation.fromSpriteSheet(idleSheet, [0, 1], 800)
+        this.graphics.use(this.idleAnimation)
+
+
+
+        this.scale = new Vector(0.4, 0.4);
+        this.pos = new Vector(150, 550);
 
         this.addTag("player");
 
