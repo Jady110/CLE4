@@ -28,6 +28,7 @@ const Resources = {
     Schaamte: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
     StartScreen: new ImageSource('images/startScreen.png'),
+    Chest: new ImageSource('images/chest.png')
 }
 
 
