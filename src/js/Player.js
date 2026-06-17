@@ -1,23 +1,22 @@
 import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
 import { Resources } from "./resources.js"
 import { GameOverScene } from "./GameOver.js";
+
 export class Player extends Actor {
 
     constructor() {
         super({
-            width: 50,
-            height: 50
+            width: 120,
+            height: 420
         });
     }
 
     onInitialize(engine) {
         this.graphics.use(Resources.Player.toSprite());
         this.scale = new Vector(0.3, 0.3);
-        this.pos = new Vector(150, 550);
+        // this.pos = new Vector(150, 550);
 
-        // this.camera.strategy.lockToActor(player);
-
-        // this.gameStarted = false;
+        this.addTag("player");
 
         this.body.collisionType = CollisionType.Active;        
     }
