@@ -22,3 +22,6 @@ export class LevelFour extends Scene {
         this.camera.strategy.lockToActor(this.player);
     }
 }
+
+
+
