@@ -15,13 +15,16 @@ export class Puzzelstuk extends Actor {
         this.graphics.use(Resources.Schaamte.toSprite());
         this.scale = new Vector(0.1, 0.1);
 
-        this.body.collisionType = CollisionType.Passive;        
+        this.body.collisionType = CollisionType.Passive;
+        
+        this.puzzleCollected = false;
     }
 
 
     onCollisionStart(event) {
 
         console.log("Player touched me");
+        this.scene.puzzleCollected = true;
         this.kill();
 
         // this.scene.engine.goToScene("gameover");

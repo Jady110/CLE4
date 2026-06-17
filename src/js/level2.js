@@ -2,6 +2,7 @@ import { Scene, Actor, Vector, Collider, CollisionType } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
+import { ShadowEnemy } from "./Shadowenemy.js";
 
 export class LevelTwo extends Scene {
 
@@ -17,6 +18,10 @@ export class LevelTwo extends Scene {
         this.puzzelstuk = new Puzzelstuk();
         this.puzzelstuk.pos = new Vector(1325, 650);
         this.add(this.puzzelstuk);
+
+        this.enemy1 = new ShadowEnemy();
+        this.enemy1.pos = new Vector(100, 100);
+        this.add(this.enemy1)
 
         this.player = new Player();
         this.player.pos = new Vector(-75, 700);
