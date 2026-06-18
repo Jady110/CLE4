@@ -5,6 +5,7 @@ import { Chest } from "./chest.js";
 import { Key } from "./key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
 import { EnemyLoneliness } from "./enemy-loneliness.js";
+import { Ghost } from "./ghost.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -37,6 +38,8 @@ export class LevelOne extends Scene {
         const player = new Player()
         this.add(player)
 
+        this.ghostfound = 0
+
         player.events.on('collisionstart', (event) => this.onCollision(event))
 
         engine.currentScene.camera.strategy.lockToActor(player)
@@ -47,27 +50,34 @@ export class LevelOne extends Scene {
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true
             console.log(this.keyGrabbed)
-
             event.other.owner.kill()
         }
         if (event.other.owner instanceof Chest){
             if (this.keyGrabbed === true ){
-                const puzzlePiece1 = new Puzzlepiece1()
-                this.add(puzzlePiece1)
-                puzzlePiece1.pos = new Vector(1120, -150)
+            this.ghost1 = new Ghost()
+            this.ghost1.pos = new Vector(150, 50)
+            this.add(this.ghost1)
+
+            this.ghost2 = new Ghost()
+            this.ghost2.pos = new Vector(1500, -150)
+            this.add(this.ghost2)
+
+            this.ghost3 = new Ghost()
+            this.ghost3.pos = new Vector(900, 450)
+            this.add(this.ghost3)
             } 
         }
-        if (event.other.owner instanceof Puzzlepiece1) {
-            this.puzzlepieceGrabbed = true;
-            console.log(this.puzzlepieceGrabbed)
-            event.other.owner.kill()
-        }
         if (event.other.owner instanceof EnemyLoneliness){
-            if (this.puzzlepieceGrabbed === true){
+            if (this.ghostfound === 3){
                 this.engine.goToScene("level2")
             } else {
                 this.engine.goToScene("gameover");
             }
+        }
+        if (event.other.owner instanceof Ghost){
+            event.other.owner.kill()
+            this.ghostfound++
+            console.log(this.ghostfound)
         }
     }
 }
