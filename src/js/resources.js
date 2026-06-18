@@ -7,7 +7,6 @@ const Resources = {
 
     Ghost: new ImageSource('images/ghost-loneliness.png'),
     LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
-    StressEnemy: new ImageSource('images/enemy-stress.png'),
 
     Shadow: new ImageSource('images/shadowForward.png'),
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
