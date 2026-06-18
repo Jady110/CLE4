@@ -1,4 +1,5 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
+import { GhostDoubt } from './enemies/ghostDoubt'
 
 // voeg hier jouw eigen resources toe
 const Resources = {
@@ -14,6 +15,10 @@ const Resources = {
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
     ShadowRight: new ImageSource('images/shadowRight.png'),
 
+
+    GhostDoubt: new ImageSource('images/Ghost-Doubt'),
+    GhostDoubtIdle: new ImageSource('images/Ghost-Zelftwijfel.png'),
+
     Map1: new ImageSource('images/map1.png'),
     Map2: new ImageSource('images/map2.png'),
     Map3: new ImageSource('images/map3.png'),
@@ -23,6 +28,8 @@ const Resources = {
     GreyWall: new ImageSource('images/Grey_wall.png'),
     VineWall: new ImageSource('images/Wall_vines.png'),
 
+
+    chestLvl3: new ImageSource('images/chestLvl3.png'),
     Chest: new ImageSource('images/chest.png'),
     Key: new ImageSource('images/key.png'),
 

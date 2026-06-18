@@ -6,8 +6,8 @@ export class Player extends Actor {
 
     constructor() {
         super({
-            width: 120,
-            height: 420
+            width: Resources.Player.width /2,
+            height: Resources.Player.height
         });
     }
 
@@ -53,20 +53,20 @@ export class Player extends Actor {
 
 
         if (engine.input.keyboard.isHeld(Keys.W)) {
-            velY = -100;
+            velY = -400;
         // this.graphics.use(Resources.toSprite());
         }
 
         if (engine.input.keyboard.isHeld(Keys.S)) {
-            velY = 100;
+            velY = 400;
         }
 
         if (engine.input.keyboard.isHeld(Keys.A)) {
-            velX = -100;
+            velX = -400;
         }
 
         if (engine.input.keyboard.isHeld(Keys.D)) {
-            velX = 100;
+            velX = 400;
         }
 
         this.vel = new Vector(velX, velY);
