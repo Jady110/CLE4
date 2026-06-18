@@ -6,8 +6,6 @@ const Resources = {
     PlayerIdle: new ImageSource('images/player-idle.png'),
 
     Ghost: new ImageSource('images/ghost-loneliness.png'),
-
-    StressEnemy: new ImageSource('images/Enemy_stress.png'),
     LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
 
     Shadow: new ImageSource('images/shadowForward.png'),
