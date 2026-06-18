@@ -6,6 +6,7 @@ export class Ghost extends Actor {
         super({
             width: 30,
             height: 30,
+            z: -1
         })
         this.scale = new Vector(0.4, 0.4);
         this.body.collisionType = CollisionType.Passive;
