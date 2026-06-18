@@ -1,13 +1,19 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 
+
 // voeg hier jouw eigen resources toe
 const Resources = {
     Player: new ImageSource('images/karakterCLE1.png'),
     PlayerIdle: new ImageSource('images/player-idle.png'),
+    PlayerForward: new ImageSource('images/player-walk-forward.png'),
+    PlayerBackward: new ImageSource('images/player-walk-back.png'),
+    PlayerLeft: new ImageSource('images/player-walk-left.png'),
+    PlayerRight: new ImageSource('images/player-walk-right.png'),
 
-    Ghost: new ImageSource('images/ghost-loneliness.png'),
-
-    StressEnemy: new ImageSource('images/Enemy_stress.png'),
+    LonelinessGhost: new ImageSource('images/ghost.png'),
+    LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
+    StressEnemy: new ImageSource('images/Enemy_stress_animation.png'),
+    StressNPC: new ImageSource('images/Stress_NPC.png'),
 
     Shadow: new ImageSource('images/shadowForward.png'),
     ShadowLaughing: new ImageSource('images/shadowForwardLaughing.png'),
@@ -32,9 +38,6 @@ const Resources = {
     FullHeart: new ImageSource('images/Full_heart.png'),
     EmptyHeart: new ImageSource('images/Empty_heart.png'),
 
-    Chest : new ImageSource('images/chest.png'),
-    Key : new ImageSource('images/key.png'),
-
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
     Laughter: new ImageSource('images/powerupShame.webp'),
@@ -46,6 +49,7 @@ const Resources = {
     Schaamte: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
     StartScreen: new ImageSource('images/startScreen.png'),
+    Chest: new ImageSource('images/chest.png')
 }
 
 

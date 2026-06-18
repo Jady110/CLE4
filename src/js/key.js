@@ -9,6 +9,7 @@ export class Key extends Actor {
         })
         this.graphics.use(Resources.Key.toSprite())
         this.scale = new Vector(0.4, 0.4);
+        this.body.collisionType = CollisionType.Passive;
     }
     onInitialize(engine){
         

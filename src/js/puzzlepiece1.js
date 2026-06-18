@@ -10,6 +10,7 @@ export class Puzzlepiece1 extends Actor {
         })
         this.graphics.use(Resources.Eenzaamheid.toSprite())
         this.scale = new Vector(0.1, 0.1);
+        this.body.collisionType = CollisionType.Passive;
     }
     onInitialize(engine){
 
