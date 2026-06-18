@@ -1,5 +1,6 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 
+
 // voeg hier jouw eigen resources toe
 const Resources = {
     Player: new ImageSource('images/karakterCLE1.png'),
@@ -7,6 +8,8 @@ const Resources = {
 
     Ghost: new ImageSource('images/ghost-loneliness.png'),
     LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
+    StressEnemy: new ImageSource('images/Enemy_stress_animation.png'),
+    StressNPC: new ImageSource('images/Stress_NPC.png'),
 
     Shadow: new ImageSource('images/shadowForward.png'),
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
