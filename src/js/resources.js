@@ -5,8 +5,12 @@ import { ImageSource, Sound, Resource, Loader } from 'excalibur'
 const Resources = {
     Player: new ImageSource('images/karakterCLE1.png'),
     PlayerIdle: new ImageSource('images/player-idle.png'),
+    PlayerForward: new ImageSource('images/player-walk-forward.png'),
+    PlayerBackward: new ImageSource('images/player-walk-back.png'),
+    PlayerLeft: new ImageSource('images/player-walk-left.png'),
+    PlayerRight: new ImageSource('images/player-walk-right.png'),
 
-    Ghost: new ImageSource('images/ghost-loneliness.png'),
+    LonelinessGhost: new ImageSource('images/ghost.png'),
     LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
     StressEnemy: new ImageSource('images/Enemy_stress_animation.png'),
     StressNPC: new ImageSource('images/Stress_NPC.png'),
