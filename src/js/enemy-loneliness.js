@@ -11,16 +11,6 @@ export class EnemyLoneliness extends Actor {
         this.body.collisionType = CollisionType.Passive;
     }
     onInitialize(engine) {
-        const enemySheet = SpriteSheet.fromImageSource({
-                    image: Resources.LonelinessEnemy,
-                    grid: {
-                        rows: 2,
-                        columns: 1,
-                        spriteWidth: Resources.LonelinessEnemy.width,
-                        spriteHeight: Resources.LonelinessEnemy.height / 2
-                    }
-                })
-                this.enemyAnimation = Animation.fromSpriteSheet(enemySheet, [0, 1], 800)
-                this.graphics.use(this.enemyAnimation)
+        this.graphics.use(Resources.LonelinessEnemy.toSprite())
     }
 }

@@ -5,6 +5,7 @@ import { Chest } from "./chest.js";
 import { Key } from "./key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
 import { EnemyLoneliness } from "./enemy-loneliness.js";
+import { Ghost } from "./ghost.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -52,15 +53,14 @@ export class LevelOne extends Scene {
         }
         if (event.other.owner instanceof Chest){
             if (this.keyGrabbed === true ){
-                const puzzlePiece1 = new Puzzlepiece1()
-                this.add(puzzlePiece1)
-                puzzlePiece1.pos = new Vector(1120, -150)
+            this.ghost1 = new Ghost()
+            this.ghost1.pos = new Vector(150, 50)
+            this.add(this.ghost1)
+
+            this.ghost2 = new Ghost()
+            this.ghost2.pos = new Vector(1500, -150)
+            this.add(this.ghost2)
             } 
-        }
-        if (event.other.owner instanceof Puzzlepiece1) {
-            this.puzzlepieceGrabbed = true;
-            console.log(this.puzzlepieceGrabbed)
-            event.other.owner.kill()
         }
         if (event.other.owner instanceof EnemyLoneliness){
             if (this.puzzlepieceGrabbed === true){
@@ -68,6 +68,9 @@ export class LevelOne extends Scene {
             } else {
                 this.engine.goToScene("gameover");
             }
+        }
+        if (event.other.owner instanceof Ghost){
+
         }
     }
 }
