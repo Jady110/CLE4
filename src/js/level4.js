@@ -4,6 +4,7 @@ import { Player } from "./Player.js";
 import { Chest } from "./chest.js";
 import { Key }  from "./key.js"; 
 import { StressEnemy } from "./stress-enemy.js";
+import { StressNPC } from "./stressnpc.js";
 
 
 export class LevelFour extends Scene {
@@ -27,6 +28,17 @@ export class LevelFour extends Scene {
         this.add(this.stressEnemy);
         this.stressEnemy.pos = new Vector(220, 1100);
 
+        this.stressNPC = new StressNPC();
+        this.stressNPC.pos = new Vector(950, 200);
+        this.add(this.stressNPC);
+        this.stressNPC.z = 1;
+
+        this.stressNPC = new StressNPC();
+        this.stressNPC.pos = new Vector(870, 800);
+        this.add(this.stressNPC);
+        this.stressNPC.z = 1;
+
+
         this.chest = new Chest();
         this.add(this.chest);
 
@@ -41,12 +53,12 @@ export class LevelFour extends Scene {
 
         this.Key = new Key();
         this.add(this.Key);
-        this.Key.pos = new Vector(950, 200);
+        this.Key.pos = new Vector(950, 50);
         this.keyGrabbed = false
         
         this.Key = new Key();
         this.add(this.Key);
-        this.Key.pos = new Vector(900, 800);
+        this.Key.pos = new Vector(820, 800);
         this.keyGrabbed = false
 
         this.camera.strategy.lockToActor(this.player);
