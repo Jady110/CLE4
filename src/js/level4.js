@@ -1,9 +1,8 @@
-import { Scene, Actor, Vector, Camera } from "excalibur";
+import { Scene, Actor, Vector, Camera} from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";   
 import { Chest } from "./chest.js";
-import { Key }  from "./key.js";
-import { Stress } from "./stress.js";
+import { Key }  from "./key.js"; 
 
 
 export class LevelFour extends Scene {
@@ -21,11 +20,6 @@ export class LevelFour extends Scene {
         this.player = new Player();
         this.add(this.player);
 
-        this.stress = new Stress();
-        this.add(this.stress);
-        this.stress.pos = new Vector(640, 360);
-        this.stress.z = 1;
-
         this.chest = new Chest();
         this.add(this.chest);
 
@@ -41,13 +35,23 @@ export class LevelFour extends Scene {
         this.Key = new Key();
         this.add(this.Key);
         this.Key.pos = new Vector(950, 200);
+        this.keyGrabbed = false
         
         this.Key = new Key();
         this.add(this.Key);
         this.Key.pos = new Vector(250, 800);
+        this.keyGrabbed = false
 
         this.camera.strategy.lockToActor(this.player);
     }
+
+
+
+
+
+
+
+    
 }
 
 
