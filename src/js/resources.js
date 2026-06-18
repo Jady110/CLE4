@@ -6,8 +6,6 @@ const Resources = {
     PlayerIdle: new ImageSource('images/player-idle.png'),
 
     Ghost: new ImageSource('images/ghost-loneliness.png'),
-
-    StressEnemy: new ImageSource('images/Enemy_stress.png'),
     LonelinessEnemy: new ImageSource('images/enemy-loneliness.png'),
     LonelinessGhost: new ImageSource('images/ghost.png'),
 
@@ -40,6 +38,7 @@ const Resources = {
     Schaamte: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
     StartScreen: new ImageSource('images/startScreen.png'),
+    Chest: new ImageSource('images/chest.png')
 }
 
 
