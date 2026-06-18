@@ -20,5 +20,8 @@ export class LevelThree extends Scene {
         this.add(this.player);
 
         this.camera.strategy.lockToActor(this.player);
+
+        const wall = new Wall(200, 200, 64, 32);
+        engine.currentScene.add(wall);
     }
 }
