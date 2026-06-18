@@ -10,8 +10,12 @@ const Resources = {
     StressEnemy: new ImageSource('images/Enemy_stress.png'),
 
     Shadow: new ImageSource('images/shadowForward.png'),
+    ShadowLaughing: new ImageSource('images/shadowForwardLaughing.png'),
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
+    ShadowLeftLaughing: new ImageSource('images/ShadowLeftLaughing.png'),
     ShadowRight: new ImageSource('images/shadowRight.png'),
+    ShadowRightLaughing: new ImageSource('images/ShadowRightLaughing.png'),
+
 
     Map1: new ImageSource('images/map1.png'),
     Map2: new ImageSource('images/map2.png'),
@@ -33,6 +37,7 @@ const Resources = {
 
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
+    Laughter: new ImageSource('images/powerupShame.webp'),
 
     Eenzaamheid: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
     Stress: new ImageSource('images/Puzzlestuk_stress.png'),

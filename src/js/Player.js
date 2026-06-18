@@ -27,7 +27,7 @@ export class Player extends Actor {
 
 
         this.scale = new Vector(0.4, 0.4);
-        this.pos = new Vector(150, 550);
+        // this.pos = new Vector(150, 550);
 
         this.addTag("player");
 
