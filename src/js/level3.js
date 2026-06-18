@@ -1,9 +1,10 @@
-import { Scene, Actor, Vector, Camera } from "excalibur";
+import { Scene, Actor, Vector, Camera, BoundingBox } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Wall } from "./wall.js";
-import { GhostDoubt } from "./enemies/ghostDoubt.js";
+import { GhostDoubt } from "./ghostDoubt.js";
 import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
+import { Key } from "./key.js";
 
 export class LevelThree extends Scene {
 
@@ -19,11 +20,21 @@ export class LevelThree extends Scene {
 
         this.player = new Player();
         this.add(this.player);
-        this.camera.strategy.lockToActor(this.player);
+
+
+        // this.camera.strategy.lockToActor(this.player)
+        // let boundingBox = new BoundingBox(200, 200, 200, 200);
+        this.camera.strategy.radiusAroundActor(this.player, 50);
+        // this.camera.strategy.limitCameraBounds(boundingBox);
+        // game.currentScene.camera.strategy.radiusAroundActor(actor, radius);
 
 
         this.puzzelPieceDoubt = new PuzzelPieceDoubt();
         this.add(this.puzzelPieceDoubt);
+
+        this.key = new Key();
+        this.add(this.key);
+        this.key.pos = new Vector(800, 800)
 
 
         this.createWall = (x, y, w, h) => {

@@ -1,5 +1,5 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
-import { GhostDoubt } from './enemies/ghostDoubt'
+import { GhostDoubt } from './ghostDoubt'
 
 
 // voeg hier jouw eigen resources toe
