@@ -4,10 +4,10 @@ import { Resources } from "./resources.js";
 export class StressEnemy extends Actor {
     constructor() {
         super({
-            width: 120,
-            height: 420
+            width: 200,
+            height: 1000
         });
-        this.scale = new Vector(0.6, 0.6);
+        this.scale = new Vector(0.15, 0.15);
         this.body.collisionType = CollisionType.Passive;
     }
     onInitialize(engine) {
