@@ -73,5 +73,4 @@ onCollisionStart(event) {
         event.other.owner.kill();
     }
 }
-
 }
