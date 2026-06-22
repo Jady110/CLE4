@@ -1,6 +1,7 @@
 import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
 import { Resources } from "./resources.js"
 import { Player } from "./Player.js";
+import { ChestLevel2 } from "./chest.js";
 
 export class Puzzelstuk extends Actor {
 
@@ -23,11 +24,15 @@ export class Puzzelstuk extends Actor {
 
     onCollisionStart(event) {
 
+        if (!this.scene.openedChest) {
+            console.log("The chest is still closed.");
+            return;
+        }
+
         console.log("Player picked up puzzle piece.");
         this.scene.puzzleCollected = true;
         this.kill();
-
-        // this.scene.engine.goToScene("gameover");
+        this.scene.engine.goToScene("level3");
     }
 
 
