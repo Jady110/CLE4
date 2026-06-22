@@ -5,10 +5,16 @@ import { Puzzelstuk } from "./Puzzelstuk.js";
 import { ShadowEnemy, ShadowEnemyKey, ShadowEnemyLeft, ShadowEnemyRight } from "./Shadowenemy.js";
 import { Key } from "./key.js";
 import { PowerLaughter } from "./Powerup.js";
+import { ChestLevel2 } from "./chest.js";
 
 export class LevelTwo extends Scene {
 
     onInitialize(engine) {
+
+        this.powerCollected = false;
+        this.keyCollected = false;
+        this.openedChest = false;
+        this.puzzleCollected = false;
 
         const map2 = new Actor();
 
@@ -19,7 +25,12 @@ export class LevelTwo extends Scene {
 
         this.puzzelstuk = new Puzzelstuk();
         this.puzzelstuk.pos = new Vector(1325, 650);
+        this.puzzelstuk.graphics.visible = false;
         this.add(this.puzzelstuk);
+
+        this.chest = new ChestLevel2();
+        this.chest.pos = new Vector(1325, 650);
+        this.add(this.chest);
 
         this.powerup = new PowerLaughter();
         this.powerup.pos = new Vector(650, 750);
