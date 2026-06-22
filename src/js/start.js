@@ -2,6 +2,12 @@ import { Scene, Label, Vector, Color, Font, Keys, Actor } from "excalibur";
 import { Resources } from "./resources.js"
 
 export class StartScene extends Scene {
+    constructor() {
+        super({
+            name: 'start'
+        })
+        this.backgroundColor = Color.Black
+    }
 
     onInitialize(engine) {
 

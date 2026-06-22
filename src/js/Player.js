@@ -6,8 +6,8 @@ export class Player extends Actor {
 
     constructor() {
         super({
-            width: 120,
-            height: 420
+            width: Resources.Player.width /2,
+            height: Resources.Player.height
         });
     }
 
@@ -95,16 +95,16 @@ export class Player extends Actor {
 
 
         if (engine.input.keyboard.isHeld(Keys.W)) {
-            velY = -100;
+            velY = -300;
             this.graphics.use(this.backwardAnimation)
         } else if (engine.input.keyboard.isHeld(Keys.S)) {
-            velY = 100;
+            velY = 300;
             this.graphics.use(this.forwardAnimation)
         } else if (engine.input.keyboard.isHeld(Keys.A)) {
-            velX = -100;
+            velX = -300;
             this.graphics.use(this.leftAnimation)
         } else if (engine.input.keyboard.isHeld(Keys.D)) {
-            velX = 100;
+            velX = 300;
             this.graphics.use(this.rightAnimation)
         } else {
             this.graphics.use(this.idleAnimation)
