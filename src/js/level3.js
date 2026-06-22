@@ -5,6 +5,7 @@ import { Wall } from "./wall.js";
 import { GhostDoubt } from "./ghostDoubt.js";
 import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
 import { Key } from "./key.js";
+import { HeartEmotion } from "./heart.js";
 
 export class LevelThree extends Scene {
 
@@ -38,6 +39,9 @@ export class LevelThree extends Scene {
         this.key.pos = new Vector(800, 800)
         this.keyGrabbed = false
 
+        this.hearts = new HeartEmotion(this.player);
+        this.add(this.hearts)
+
 
         this.createWall = (x, y, w, h) => {
             this.add(new Wall(x, y, w, h));
@@ -67,6 +71,10 @@ export class LevelThree extends Scene {
     }
 
     onCollision(event) {
-        
+        if (event.other.owner instanceof Key){
+            this.keyGrabbed = true
+            console.log(this.keyGrabbed)
+            event.other.owner.kill()
+        }
     }
 }

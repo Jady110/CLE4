@@ -1,6 +1,7 @@
 import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
 import { Resources } from "./resources.js"
 import { Player } from "./Player.js";
+import { HeartEmotion } from "./heart.js";
 
 export class PuzzelPieceDoubt extends Actor {
 
@@ -11,25 +12,41 @@ export class PuzzelPieceDoubt extends Actor {
         });
 
         this.pos = new Vector(1450, 450)
+        this.body.collisionType = CollisionType.Passive;
+
     }
 
     onInitialize(engine) {
         this.graphics.use(Resources.Chest.toSprite());
         this.scale = new Vector(0.4, 0.4);
-        this.body.collisionType = CollisionType.Passive;
         this.puzzleCollected = false;
     }
 
+    openChest() {
+        this.scene.puzzleCollected = true;
+
+        console.log("Chest opened!");
+
+        this.graphics.use(Resources.Zelftwijfel.toSprite());
+        this.scale = new Vector(1.1, 1.1);
+        this.vel = new Vector(0, -50);
+
+        this.events.on("exitviewport", () => this.kill());
+    }
 
     onCollisionStart(event) {
+        
         if (!this.scene.keyGrabbed) {
             console.log("You need a key first!");
             return;
         }
 
+        this.openChest();
+
         this.scene.puzzleCollected = true;
 
         this.scene.puzzleCollected = true;
+        this.scene.hearts.activate();
         this.graphics.use(Resources.Zelftwijfel.toSprite());
         this.scale = new Vector(1.1, 1.1);
         this.vel = new Vector(0, -50);
