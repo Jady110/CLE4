@@ -23,7 +23,7 @@ export class Puzzelstuk extends Actor {
 
     onCollisionStart(event) {
 
-        console.log("Player touched me");
+        console.log("Player picked up puzzle piece.");
         this.scene.puzzleCollected = true;
         this.kill();
 

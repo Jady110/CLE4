@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine } from "excalibur";
+import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Chest } from "./chest.js";
@@ -38,6 +38,36 @@ export class LevelOne extends Scene {
         const player = new Player()
         this.add(player)
 
+        this.numberLabel = new Label({
+            text: 'Level one:',
+            pos: new Vector(-100, 550),
+            color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 100
+            }),
+            z: 2
+        })
+        this.add(this.numberLabel)
+        setTimeout(() => {
+            this.numberLabel.kill()
+            this.nameLabel = new Label({
+                text: 'Loneliness',
+                pos: new Vector(-200, 550),
+                color: Color.White,
+                font: new Font({ 
+                    family: "Georgia, serif",
+                    size: 150
+                }),
+                z: 2
+            })
+            this.add(this.nameLabel)
+            setTimeout(() => {
+                this.nameLabel.kill()
+            }, 2000)
+        }, 2000)
+
+
         this.ghostfound = 0
 
         player.events.on('collisionstart', (event) => this.onCollision(event))
@@ -65,6 +95,22 @@ export class LevelOne extends Scene {
             this.ghost3 = new Ghost()
             this.ghost3.pos = new Vector(900, 450)
             this.add(this.ghost3)
+
+            this.find = new Label({
+            text: 'Find the memories to get your powers!',
+            pos: new Vector(850, -450),
+            color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 40
+            }),
+            z: 2
+            })
+            this.add(this.find)
+            setTimeout(() => {
+                this.find.kill()
+            }, 1500)
+
             } 
         }
         if (event.other.owner instanceof EnemyLoneliness){
