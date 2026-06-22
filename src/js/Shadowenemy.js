@@ -26,7 +26,7 @@ export class ShadowEnemy extends Actor {
 
         if (this.scene.puzzleCollected) {
             console.log("Shadow defeated");
-            this.kill;
+            this.kill();
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player touched me but I'm a Shadow");
@@ -70,7 +70,7 @@ export class ShadowEnemyLeft extends Actor {
 
         if (this.scene.puzzleCollected) {
             console.log("Shadow defeated");
-            this.kill;
+            this.kill();
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player touched me but I'm a Shadow");
@@ -113,7 +113,7 @@ export class ShadowEnemyRight extends Actor {
 
         if (this.scene.puzzleCollected) {
             console.log("Shadow defeated");
-            this.kill;
+            this.kill();
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player touched me but I'm a Shadow");
@@ -150,7 +150,7 @@ export class ShadowEnemyKey extends Actor {
 
         this.body.collisionType = CollisionType.Active;
 
-        this.keyCollected = false;
+        // this.keyCollected = false;
         
         this.key = new Key();
         this.key.pos = new Vector(25, 0);
@@ -169,33 +169,24 @@ export class ShadowEnemyKey extends Actor {
             this.kill;
             this.scene.engine.goToScene("level3");
         } else {
-            console.log("Player touched me but I'm a Shadow");
+            console.log("Player tried to use their previous power but it didnt work..");
             // this.scene.engine.goToScene("gameover");
         }
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing and gave you the key!");
-            this.scene.dialogueText = "The shadow laughs and drops the key!";
+            this.scene.dialogueText =
+                "The shadow laughs and drops the key!";
             this.scene.keyCollected = true;
             this.key.kill();
-
-            // const idleSheet = SpriteSheet.fromImageSource({
-            //     image: Resources.ShadowRightLaughing,
-            //     grid: {
-            //         rows: 2,
-            //         columns: 1,
-            //         spriteWidth: Resources.ShadowRightLaughing.width,
-            //         spriteHeight: Resources.ShadowRightLaughing.height / 2
-            //     }
-            // })
-            // this.idleAnimation = Animation.fromSpriteSheet(idleSheet, [0, 1, 2, 3, 4, 5, 6, 7, 8], 800)
-            // this.graphics.use(this.idleAnimation)
-
         } else {
-            console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
+            console.log(
+                "You stare at the shadow, not sure what to say."
+            );
+            this.scene.dialogueText =
+                "You stare at the shadow, not sure what to say.";
         }
-    }
+}
 
     onPreUpdate(engine) {
         // let velX = 0;
