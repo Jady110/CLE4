@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Collider, CollisionType } from "excalibur";
+import { Scene, Actor, Vector, Collider, CollisionType, Color } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
@@ -6,8 +6,15 @@ import { ShadowEnemy, ShadowEnemyKey, ShadowEnemyLeft, ShadowEnemyRight } from "
 import { Key } from "./key.js";
 import { PowerLaughter } from "./Powerup.js";
 import { ChestLevel2 } from "./chest.js";
+import { Wall } from "./wall.js";
 
 export class LevelTwo extends Scene {
+    constructor() {
+        super({
+            name: 'level2'
+        })
+        this.backgroundColor = Color.Black
+    }
 
     onInitialize(engine) {
 
@@ -22,6 +29,21 @@ export class LevelTwo extends Scene {
         map2.pos = new Vector(1280 / 2, 720 / 2);
         map2.z = -1;
         this.add(map2);
+
+        this.createWall = (x, y, w, h) => {
+            this.add(new Wall(x, y, w, h));
+        };
+
+        this.createWall(1000, 860, 1000, 50); // wall onder chest
+        this.createWall(1500, 700, 50, 600); // wall rechts van chest
+        this.createWall(1450, 365, 500, 50); // wall boven chest
+        this.createWall(1220, 150, 50, 500); // wall 1
+        this.createWall(500, -140, 1500, 50); // wall 2
+        this.createWall(-285, 330, 50, 1100); // wall 3 (Links van player spawn)
+        this.createWall(-100, 860, 400, 50); // wall 4 (player spawn muur)
+        this.createWall(125, 660, 50, 520); // wall 5 (rechts van player spawn)
+        this.createWall(300, 425, 400, 50); // wall 6
+        this.createWall(520, 640, 50, 480); // wall 7
 
         this.puzzelstuk = new Puzzelstuk();
         this.puzzelstuk.pos = new Vector(1325, 650);

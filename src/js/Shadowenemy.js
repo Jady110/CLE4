@@ -150,7 +150,7 @@ export class ShadowEnemyKey extends Actor {
 
         this.body.collisionType = CollisionType.Active;
 
-        this.keyCollected = false;
+        // this.keyCollected = false;
         
         this.key = new Key();
         this.key.pos = new Vector(25, 0);

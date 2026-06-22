@@ -17,7 +17,7 @@ export class PowerLaughter extends Actor {
 
         this.body.collisionType = CollisionType.Passive;
         
-        this.powerCollected = false;
+        // this.powerCollected = false;
     }
 
 

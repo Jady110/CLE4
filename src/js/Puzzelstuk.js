@@ -18,7 +18,7 @@ export class Puzzelstuk extends Actor {
 
         this.body.collisionType = CollisionType.Passive;
         
-        this.puzzleCollected = false;
+        // this.puzzleCollected = false;
     }
 
 
