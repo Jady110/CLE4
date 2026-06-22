@@ -4,8 +4,8 @@ import { Resources } from "./resources.js"
 export class Key extends Actor {
     constructor() {
         super({
-            width: 30,
-            height: 30,
+            width: Resources.Key.width /4,
+            height: Resources.Key.height /4,
         })
         this.graphics.use(Resources.Key.toSprite())
         this.scale = new Vector(0.4, 0.4);
