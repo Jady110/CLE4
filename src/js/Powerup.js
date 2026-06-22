@@ -2,32 +2,30 @@ import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
 import { Resources } from "./resources.js"
 import { Player } from "./Player.js";
 
-export class Puzzelstuk extends Actor {
+export class PowerLaughter extends Actor {
 
     constructor() {
         super({
-            width: 400,
-            height: 400
+            width: 800,
+            height: 1300
         });
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.Schaamte.toSprite());
-        this.scale = new Vector(0.1, 0.1);
+        this.graphics.use(Resources.Laughter.toSprite());
+        this.scale = new Vector(0.05, 0.05);
 
         this.body.collisionType = CollisionType.Passive;
         
-        this.puzzleCollected = false;
+        this.powerCollected = false;
     }
 
 
     onCollisionStart(event) {
 
-        console.log("Player picked up puzzle piece.");
-        this.scene.puzzleCollected = true;
+        console.log("Player collected powerup");
+        this.scene.powerCollected = true;
         this.kill();
-
-        // this.scene.engine.goToScene("gameover");
     }
 
 

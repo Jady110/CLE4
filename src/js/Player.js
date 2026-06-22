@@ -69,7 +69,7 @@ export class Player extends Actor {
             this.rightAnimation = Animation.fromSpriteSheet(rightSheet, [0, 1, 2, 3], 300)
 
         this.scale = new Vector(0.4, 0.4);
-        this.pos = new Vector(150, 550);
+        // this.pos = new Vector(150, 550);
 
         this.addTag("player");
 
