@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, BoundingBox } from "excalibur";
+import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Wall } from "./wall.js";
@@ -20,6 +20,7 @@ export class LevelThree extends Scene {
 
         this.player = new Player();
         this.add(this.player);
+        this.player.pos = new Vector(-30,300)
 
 
         // this.camera.strategy.lockToActor(this.player)
@@ -35,6 +36,7 @@ export class LevelThree extends Scene {
         this.key = new Key();
         this.add(this.key);
         this.key.pos = new Vector(800, 800)
+        this.keyGrabbed = false
 
 
         this.createWall = (x, y, w, h) => {
@@ -59,7 +61,12 @@ export class LevelThree extends Scene {
         this.enemyGhost.pos = new Vector(50, 50);
         this.add(this.enemyGhost)
 
+        this.player.events.on('collisionstart', (event) => this.onCollision(event))
 
         engine.showDebug(true);
+    }
+
+    onCollision(event) {
+        
     }
 }

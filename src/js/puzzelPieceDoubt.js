@@ -15,14 +15,20 @@ export class PuzzelPieceDoubt extends Actor {
 
     onInitialize(engine) {
         this.graphics.use(Resources.Chest.toSprite());
-        this.scale = new Vector(0.2, 0.2);
+        this.scale = new Vector(0.4, 0.4);
         this.body.collisionType = CollisionType.Passive;
         this.puzzleCollected = false;
     }
 
 
     onCollisionStart(event) {
-        console.log("Player touched me");
+        if (!this.scene.keyGrabbed) {
+            console.log("You need a key first!");
+            return;
+        }
+
+        this.scene.puzzleCollected = true;
+
         this.scene.puzzleCollected = true;
         this.graphics.use(Resources.Zelftwijfel.toSprite());
         this.scale = new Vector(1.1, 1.1);
