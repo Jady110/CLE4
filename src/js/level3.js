@@ -19,6 +19,7 @@ export class LevelThree extends Scene {
 
         this.add(map3);
 
+
         this.player = new Player();
         this.add(this.player);
         this.player.pos = new Vector(-30,300)
@@ -59,6 +60,9 @@ export class LevelThree extends Scene {
         this.createWall(1550, 400, 50, 450);
         this.createWall(1405, 650, 300, 50);
         this.createWall(1280, 800, 50, 350);
+
+        this.add(new Wall(400, 300, 200, 40, "brick"));
+
 
 
         this.enemyGhost = new GhostDoubt(this.player);
