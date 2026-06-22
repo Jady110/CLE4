@@ -6,6 +6,7 @@ import { Key } from "./key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
 import { EnemyLoneliness } from "./enemy-loneliness.js";
 import { Ghost } from "./ghost.js";
+import { Wall } from "./wall.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -22,6 +23,18 @@ export class LevelOne extends Scene {
         map1.z = -1;
         this.add(map1);
 
+        this.createWall = (x, y, w, h) => {
+            this.add(new Wall(x, y, w, h));
+        };
+        
+        this.createWall(50, 300, 50, 800);
+        this.createWall(850, 680, 1650, 50);
+        this.createWall(540, -95, 1000, 50);
+        this.createWall(1015, -230, 50, 250);
+        this.createWall(1320, -320, 650, 50);
+        this.createWall(1640, 170, 50, 1000)
+
+
         const chest = new Chest()
         this.add(chest)
         chest.pos = new Vector(1120, -250)
@@ -37,35 +50,36 @@ export class LevelOne extends Scene {
 
         const player = new Player()
         this.add(player)
+        player.pos = new Vector(150, 550)
 
-        this.numberLabel = new Label({
-            text: 'Level one:',
-            pos: new Vector(-100, 550),
-            color: Color.White,
-            font: new Font({ 
-                family: "Georgia, serif",
-                size: 100
-            }),
-            z: 2
-        })
-        this.add(this.numberLabel)
-        setTimeout(() => {
-            this.numberLabel.kill()
-            this.nameLabel = new Label({
-                text: 'Loneliness',
-                pos: new Vector(-200, 550),
-                color: Color.White,
-                font: new Font({ 
-                    family: "Georgia, serif",
-                    size: 150
-                }),
-                z: 2
-            })
-            this.add(this.nameLabel)
-            setTimeout(() => {
-                this.nameLabel.kill()
-            }, 2000)
-        }, 2000)
+        // this.numberLabel = new Label({
+        //     text: 'Level one:',
+        //     pos: new Vector(-100, 550),
+        //     color: Color.White,
+        //     font: new Font({ 
+        //         family: "Georgia, serif",
+        //         size: 100
+        //     }),
+        //     z: 2
+        // })
+        // this.add(this.numberLabel)
+        // setTimeout(() => {
+        //     this.numberLabel.kill()
+        //     this.nameLabel = new Label({
+        //         text: 'Loneliness',
+        //         pos: new Vector(-200, 550),
+        //         color: Color.White,
+        //         font: new Font({ 
+        //             family: "Georgia, serif",
+        //             size: 150
+        //         }),
+        //         z: 2
+        //     })
+        //     this.add(this.nameLabel)
+        //     setTimeout(() => {
+        //         this.nameLabel.kill()
+        //     }, 2000)
+        // }, 2000)
 
 
         this.ghostfound = 0
@@ -73,6 +87,8 @@ export class LevelOne extends Scene {
         player.events.on('collisionstart', (event) => this.onCollision(event))
 
         engine.currentScene.camera.strategy.lockToActor(player)
+
+        engine.showDebug(true);
     }
 
     onCollision(event) {

@@ -4,8 +4,8 @@ import { Resources } from "./resources.js"
 export class Chest extends Actor {
     constructor() {
         super({
-            width: 30,
-            height: 30,
+            width: Resources.Chest.width /2,
+            height: Resources.Chest.height /3,
         })
         this.graphics.use(Resources.Chest.toSprite())
         this.scale = new Vector(0.5, 0.5);

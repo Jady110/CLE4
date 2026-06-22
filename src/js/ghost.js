@@ -4,8 +4,8 @@ import { Resources } from "./resources.js"
 export class Ghost extends Actor {
     constructor(){
         super({
-            width: 30,
-            height: 30,
+            width: Resources.LonelinessGhost.width /4,
+            height: Resources.LonelinessGhost.height /3 ,
             z: -1
         })
         this.scale = new Vector(0.4, 0.4);
