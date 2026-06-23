@@ -21,7 +21,7 @@ export class HeartUI extends Actor {
                 height: 32
             });
 
-            heart.scale = new Vector(0.2, 0.2);
+            heart.scale = new Vector(0.1, 0.1);
 
             heart.graphics.use(Resources.FullHeart.toSprite());
 
