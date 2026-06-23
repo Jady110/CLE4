@@ -71,7 +71,7 @@ export class LevelFour extends Scene {
         this.chest = new Chest();
         this.add(this.chest);
 
-        this.chest.pos = new Vector(640, -325);
+        this.chest.pos = new Vector(640, -300);
         this.chest.z = 1;
 
         this.purple = new Purple();
@@ -145,7 +145,7 @@ onCollisionStart(event) {
 
         this.textNPC = new Label({
             text: 'Killed the NPC!',
-            pos: new Vector(800, 200),
+            pos: new Vector(800, 800),
             color: Color.White,
             font: new Font({ 
                 family: "Georgia, serif",
