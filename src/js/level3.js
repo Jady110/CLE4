@@ -5,7 +5,8 @@ import { Wall } from "./wall.js";
 import { GhostDoubt } from "./ghostDoubt.js";
 import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
 import { Key } from "./key.js";
-import { HeartEmotion } from "./heart.js";
+import { Heart } from "./heart.js";
+import { HeartUI } from "./heartUi.js";
 
 export class LevelThree extends Scene {
 
@@ -25,11 +26,7 @@ export class LevelThree extends Scene {
         this.player.pos = new Vector(-30,300)
 
 
-        // this.camera.strategy.lockToActor(this.player)
-        // let boundingBox = new BoundingBox(200, 200, 200, 200);
         this.camera.strategy.radiusAroundActor(this.player, 50);
-        // this.camera.strategy.limitCameraBounds(boundingBox);
-        // game.currentScene.camera.strategy.radiusAroundActor(actor, radius);
 
 
         this.puzzelPieceDoubt = new PuzzelPieceDoubt();
@@ -40,8 +37,8 @@ export class LevelThree extends Scene {
         this.key.pos = new Vector(800, 800)
         this.keyGrabbed = false
 
-        this.hearts = new HeartEmotion(this.player);
-        this.add(this.hearts)
+        this.hearts = new HeartUI(3);
+        this.add(this.hearts);
 
 
         this.createWall = (x, y, w, h) => {
@@ -75,6 +72,13 @@ export class LevelThree extends Scene {
     }
 
     onCollision(event) {
+        
+        this.enemyGhost.events.on("collisionstart", (event) => {
+        if (event.other.owner === this.player) {
+            this.hearts.takeDamage();
+            }
+        });
+        
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true
             console.log("key grabbed")

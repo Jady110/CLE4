@@ -1,76 +1,26 @@
-import { Actor, Vector, CollisionType } from "excalibur";
-import { Resources } from "./resources.js";
-import { Player } from "./Player.js";
+import { Actor, Vector } from "excalibur";
 
-export class HeartEmotion extends Actor {
-    constructor(player) {
+export class Heart extends Actor {
+    constructor(index) {
         super({
-            width: 30,
-            height: 20
+            width: 32,
+            height: 32
         });
 
-        this.player = player;
-        this.scale = new Vector(2, 2);
-        this.body.collisionType = CollisionType.Passive;
-
-        this.currentHeart = 0;
+        this.index = index;
+        this.full = true;
     }
 
     onInitialize(engine) {
-        this.graphics.visible = false;
-
-        this.hearts = [
-            Resources.Heart1.toSprite(), // leeg
-            Resources.Heart2.toSprite(), // half
-            Resources.Heart3.toSprite()  // vol
-        ];
-
-        
-        this.graphics.use(this.hearts[0]);
-
-         this.on("collisionstart", (event) => {
-        console.log("Heart geraakt!");
-        });
-        }
-
-    activate() {
-        this.graphics.visible = true;
-        this.body.collisionType = CollisionType.Fixed; // of Active
+        this.pos = new Vector(0, 0);
+        this.z = 9999;
     }
 
-    showHeart() {
-        this.graphics.visible = true;
-    }
+    setFull(isFull, spriteFull, spriteEmpty) {
+        this.full = isFull;
 
-    onPostUpdate() {
-    if (!this.scene) return;
-
-    if (this.scene.puzzleCollected) {
-        this.graphics.visible = true;
-    } else {
-        this.graphics.visible = false;
-    }
-}
-
-setPositionForState() {
-    const positions = [
-        new Vector(1000, 100),
-        new Vector(700, 100),
-        new Vector(300, 800)
-    ];
-
-    this.pos = positions[this.currentHeart];
-}
-
-    onCollisionStart(event) {
-        if ((event.other instanceof Player)) return;
-
-        if (this.currentHeart < 2) {
-            this.currentHeart++;
-            this.graphics.use(this.hearts[this.currentHeart]);
-             this.setPositionForState();
-        }
-
-        console.log("Heart:", this.currentHeart);
+        this.graphics.use(
+            isFull ? spriteFull.toSprite() : spriteEmpty.toSprite()
+        );
     }
 }
