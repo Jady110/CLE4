@@ -18,20 +18,28 @@ export class StartScene extends Scene {
         // startScreen.z = -1;
 
         // this.add(startScreen);
+    
 
         const title = new Label({
-            text: "Ruines of The Mind",
-            pos: new Vector(450, 250),
+            text: "Ruins of The Mind",
+            pos: new Vector(380, 330),
             color: Color.White,
-            font: new Font({
-                size: 48
-            })
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 50
+            }),
+            z: 10
         });
 
         const startText = new Label({
             text: "Press SPACE for Level1, W for level2, A for level3, S for level4.",
-            pos: new Vector(450, 350),
-            color: Color.White
+            pos: new Vector(380, 400),
+            color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 14
+            }),
+            z: 10
         });
 
         this.add(title);
@@ -39,6 +47,13 @@ export class StartScene extends Scene {
     }
 
     onPreUpdate(engine) {
+        this.image = new Actor()
+        this.image.pos = new Vector(620, 360)
+        this.image.graphics.use(Resources.LevelInfos.toSprite())
+        this.image.scale = new Vector(1.6, 1.6)
+        this.add(this.image)
+
+
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
             engine.goToScene("level1");
         }

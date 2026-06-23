@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, Color, CollisionType, Label, Font} from "excalibur";
+import { Scene, Actor, Vector, Camera, Color, CollisionType, Label, Font, ScreenElement} from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";   
 import { Chest } from "./chest.js";
@@ -9,7 +9,7 @@ import { Puzzlepiece4 } from "./puzzlepiece4.js";
 import { Wall } from "./wall.js";
 import { Purple } from "./purple.js"
 import { Task } from "./task.js";
-
+import { LevelInfo } from "./levelInfo.js";
 
 
 export class LevelFour extends Scene {
@@ -50,7 +50,16 @@ export class LevelFour extends Scene {
         this.createWall(620, 240, 350, 60);
         this.createWall(1130, -400, 75, 420);
 
+        this.lightCirlce = new ScreenElement({
+             pos: new Vector(
+                    engine.drawWidth / 300,
+                    engine.drawHeight / 10000
+                )
+            });
         
+        this.lightCirlce.graphics.use(Resources.Darkness.toSprite());
+        this.lightCirlce.z = 9;
+        this.add(this.lightCirlce);
 
         this.player = new Player();
         this.add(this.player);
@@ -92,12 +101,23 @@ export class LevelFour extends Scene {
           
         this.tasksUI = new Task()
         this.add(this.tasksUI)
+
+        this.levelInfo = new LevelInfo()
+                this.add(this.levelInfo)
+                setTimeout(() => {
+                    this.levelInfo.kill()
+                }, 2000)
     }
 
      onPreUpdate(engine){
-        // only set the default task text if it is currently empty
+        
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
+
+        if (this.levelInfo){
+            this.levelInfo.updateLevelNumber('Level four')
+            this.levelInfo.updateLevelName('Stress')
+        }
         }
     }
 

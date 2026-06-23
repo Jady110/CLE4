@@ -9,7 +9,7 @@ export class LevelInfo extends Actor {
             coordPlane: CoordPlane.Screen,
         })
         this.graphics.use(Resources.LevelInfos.toSprite())
-        this.scale = new Vector(1.5, 1.5)
+        this.scale = new Vector(1.6, 1.6)
     }
     onInitialize(engine){
         this.levelNumber = new Label({
@@ -25,7 +25,7 @@ export class LevelInfo extends Actor {
         this.addChild(this.levelNumber)
         this.levelName = new Label({
             text: '',
-            pos: new Vector(-130, 20),
+            pos: new Vector(-120, 20),
             color: Color.White,
             font: new Font({ 
                 family: "Georgia, serif",

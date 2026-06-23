@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane } from "excalibur";
+import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane, ScreenElement } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Chest } from "./chest.js";
@@ -9,6 +9,7 @@ import { Ghost } from "./ghost.js";
 import { Wall } from "./wall.js";
 import { Task } from "./task.js";
 import { LevelInfo } from "./levelInfo.js";
+import { HeartUI } from "./heartUi.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -35,6 +36,19 @@ export class LevelOne extends Scene {
         this.createWall(1015, -230, 50, 250);
         this.createWall(1320, -320, 650, 50);
         this.createWall(1640, 170, 50, 1000);
+
+        this.lightCircle = new ScreenElement({
+            pos: new Vector(
+                engine.drawWidth / 2,
+                engine.drawHeight / 2
+                )
+        });
+                
+        this.lightCircle.graphics.use(Resources.Darkness.toSprite());
+        this.lightCircle.anchor = new Vector(0.49, 0.45)
+        this.lightCircle.scale = new Vector(1.5, 1.5)
+        this.lightCircle.z = 9;
+        this.add(this.lightCircle);
 
         // chest, key, enemy en speler in map zetten
         const chest = new Chest()
@@ -72,7 +86,11 @@ export class LevelOne extends Scene {
             this.levelInfo.kill()
         }, 2000)
 
+        this.hearts = new HeartUI(3);
+        this.add(this.hearts);
+
     }
+    
     onPreUpdate(engine){
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
