@@ -14,48 +14,32 @@ export class Wall extends ex.Actor {
     }
 
     onInitialize() {
-        let sprite = null;
-        const steenWidth = Resources.BaksteenMuur.width
-        const steenHeight = Resources.BaksteenMuur.height
-
-        const vineWidth = Resources.BaksteenMuur.width
-        const vineHeight = Resources.BaksteenMuur.height
-
-        const greyWidth = Resources.BaksteenMuur.width
-        const greyHeight = Resources.BaksteenMuur.height
-
+        let resource;
 
         switch (this.wallType) {
             case "brick":
-                sprite = Resources.BaksteenMuur.toSprite();
-                break;
-
-            case "test":
-                sprite = Resources.Fireball.toSprite();
+                resource = Resources.BaksteenMuur;
                 break;
 
             case "vine":
-                sprite = Resources.VineWall.toSprite();
+                resource = Resources.VineWall;
                 break;
 
             case "greyWall":
-                sprite = Resources.GreyWall.toSprite();
+                resource = Resources.GreyWall;
                 break;
 
             default:
-                this.graphics.use(null);
                 return;
         }
 
-        const scaleX = this.width / 200
-        const scaleY = this.height / 200
+        const sprite = resource.toSprite();
 
-        console.log(scaleX)
-        console.log(scaleY)
+        sprite.scale = ex.vec(
+            this.width / resource.width,
+            this.height / resource.height
+        );
 
-
-        sprite.scale = ex.vec(scaleX, scaleY);
         this.graphics.use(sprite);
-
-    }
+            }
 }

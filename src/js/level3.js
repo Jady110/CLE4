@@ -76,7 +76,7 @@ export class LevelThree extends Scene {
         this.createWall(1405, 650, 300, 50);
         this.createWall(1280, 800, 50, 350);
 
-        this.add(new Wall(400, 300, 300, 40, "test"));
+        this.add(new Wall(400, 300, 300, 40, "vine"));
 
 
 

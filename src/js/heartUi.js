@@ -4,7 +4,7 @@ import { Resources } from "./resources.js";
 export class HeartUI extends Actor {
     constructor(maxHealth = 3) {
         super({
-            pos: new Vector(800, 20),
+            pos: new Vector(20, 20),
             z: 1000,
             coordPlane: CoordPlane.Screen
         });
