@@ -21,9 +21,9 @@ export class HeartUI extends Actor {
                 height: 32
             });
 
-            heart.scale = new Vector(0.5, 0.5);
+            heart.scale = new Vector(0.2, 0.2);
 
-            heart.graphics.use(Resources.Heart3.toSprite());
+            heart.graphics.use(Resources.FullHeart.toSprite());
 
             this.hearts.push(heart);
             this.scene.add(heart); // belangrijk: direct in scene
@@ -77,8 +77,8 @@ export class HeartUI extends Actor {
         for (let i = 0; i < this.hearts.length; i++) {
             const sprite =
                 i < this.health
-                    ? Resources.Heart3.toSprite()
-                    : Resources.Heart1.toSprite();
+                    ? Resources.FullHeart.toSprite()
+                    : Resources.EmptyHeart.toSprite();
 
             this.hearts[i].graphics.use(sprite);
         }
