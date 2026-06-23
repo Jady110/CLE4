@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Collider, CollisionType, Color } from "excalibur";
+import { Scene, Actor, Vector, Collider, CollisionType, Color, ScreenElement } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
