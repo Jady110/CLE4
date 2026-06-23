@@ -42,9 +42,6 @@ export class GhostDoubt extends Actor {
         engine.showDebug(true);
     }
 
-    onCollisionStart(event) {
-        // this.scene.engine.goToScene("gameover");
-    }
 
     onPreUpdate(engine) {
 

@@ -77,7 +77,7 @@ export class LevelThree extends Scene {
     onCollision(event) {
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true
-            console.log(this.keyGrabbed)
+            console.log("key grabbed")
             event.other.owner.kill()
         }
     }

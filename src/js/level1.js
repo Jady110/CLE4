@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font } from "excalibur";
+import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Chest } from "./chest.js";
@@ -7,6 +7,7 @@ import { Puzzlepiece1 } from "./puzzlepiece1.js"
 import { EnemyLoneliness } from "./enemy-loneliness.js";
 import { Ghost } from "./ghost.js";
 import { Wall } from "./wall.js";
+import { Task } from "./task.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -32,7 +33,7 @@ export class LevelOne extends Scene {
         this.createWall(540, -95, 1000, 50);
         this.createWall(1015, -230, 50, 250);
         this.createWall(1320, -320, 650, 50);
-        this.createWall(1640, 170, 50, 1000)
+        this.createWall(1640, 170, 50, 1000);
 
         // chest, key, enemy en speler in map zetten
         const chest = new Chest()
@@ -91,14 +92,27 @@ export class LevelOne extends Scene {
         // camera beweegt met de speler mee
         engine.currentScene.camera.strategy.lockToActor(player)
 
+        this.tasksUI = new Task()
+        this.add(this.tasksUI)
+
         engine.showDebug(true);
     }
+    onPreUpdate(engine){
+        // only set the default task text if it is currently empty
+        if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
+            this.tasksUI.updateText('Find the key')
+        }
+    }
+
 
     onCollision(event) {
         console.log(event.other.owner)
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true
             console.log(this.keyGrabbed)
+
+            this.tasksUI.updateText('Find the chest')
+              
             event.other.owner.kill()
         }
         if (event.other.owner instanceof Chest){
@@ -115,22 +129,9 @@ export class LevelOne extends Scene {
             this.ghost3.pos = new Vector(900, 450)
             this.add(this.ghost3)
 
-            this.find = new Label({
-            text: 'Find the memories to get your powers!',
-            pos: new Vector(850, -450),
-            color: Color.White,
-            font: new Font({ 
-                family: "Georgia, serif",
-                size: 40
-            }),
-            z: 2
-            })
-            this.add(this.find)
-            setTimeout(() => {
-                this.find.kill()
-            }, 1500)
+            this.tasksUI.updateText('Find the memories')
+            }
 
-            } 
         }
         if (event.other.owner instanceof EnemyLoneliness){
             if (this.ghostfound === 3){
@@ -143,6 +144,9 @@ export class LevelOne extends Scene {
             event.other.owner.kill()
             this.ghostfound++
             console.log(this.ghostfound)
+            if (this.ghostfound === 3){
+                this.tasksUI.updateText('Kill the enemy')
+            }
         }
     }
 }
