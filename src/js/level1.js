@@ -6,6 +6,7 @@ import { Key } from "./key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
 import { EnemyLoneliness } from "./enemy-loneliness.js";
 import { Ghost } from "./ghost.js";
+import { Wall } from "./wall.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -16,12 +17,24 @@ export class LevelOne extends Scene {
     }
 
     onInitialize(engine) {
+        // map en muren
         const map1 = new Actor();
         map1.graphics.use(Resources.Map1.toSprite());
         map1.pos = new Vector(720, 200);
         map1.z = -1;
         this.add(map1);
 
+        this.createWall = (x, y, w, h) => {
+            this.add(new Wall(x, y, w, h));
+        };
+        this.createWall(50, 300, 50, 800);
+        this.createWall(850, 680, 1650, 50);
+        this.createWall(540, -95, 1000, 50);
+        this.createWall(1015, -230, 50, 250);
+        this.createWall(1320, -320, 650, 50);
+        this.createWall(1640, 170, 50, 1000)
+
+        // chest, key, enemy en speler in map zetten
         const chest = new Chest()
         this.add(chest)
         chest.pos = new Vector(1120, -250)
@@ -37,7 +50,9 @@ export class LevelOne extends Scene {
 
         const player = new Player()
         this.add(player)
+        player.pos = new Vector(150, 550)
 
+        // label van level nummer en naam
         this.numberLabel = new Label({
             text: 'Level one:',
             pos: new Vector(-100, 550),
@@ -67,12 +82,16 @@ export class LevelOne extends Scene {
             }, 2000)
         }, 2000)
 
-
+        // aantal geesten gevonden
         this.ghostfound = 0
 
+        // na collision naar method
         player.events.on('collisionstart', (event) => this.onCollision(event))
 
+        // camera beweegt met de speler mee
         engine.currentScene.camera.strategy.lockToActor(player)
+
+        engine.showDebug(true);
     }
 
     onCollision(event) {

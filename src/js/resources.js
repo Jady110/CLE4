@@ -23,7 +23,11 @@ const Resources = {
     ShadowRight: new ImageSource('images/shadowRight.png'),
     ShadowRightLaughing: new ImageSource('images/ShadowRightLaughing.png'),
 
-
+    Hearts: new ImageSource('images/hearts.png'),
+    Heart1: new ImageSource('images/empty-heart.png'),
+    Heart2: new ImageSource('images/half-heart.png'),
+    Heart3: new ImageSource('images/full-heart.png'),
+    
 
     GhostDoubt: new ImageSource('images/Ghost-Doubt'),
     GhostDoubtIdle: new ImageSource('images/Ghost-Zelftwijfel.png'),
