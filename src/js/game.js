@@ -17,8 +17,6 @@ export class Game extends Engine {
             displayMode: DisplayMode.FitScreen
         });
 
-        this.score = 0;
-
         this.add("level1", new LevelOne());
         this.add("level2", new LevelTwo());
         this.add("level3", new LevelThree());

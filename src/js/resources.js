@@ -49,6 +49,8 @@ const Resources = {
     FullHeart: new ImageSource('images/Full_heart.png'),
     EmptyHeart: new ImageSource('images/Empty_heart.png'),
 
+    TaskBar: new ImageSource('images/taskbar.png'),
+
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
     Laughter: new ImageSource('images/powerShame.png'),
