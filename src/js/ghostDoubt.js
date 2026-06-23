@@ -42,6 +42,11 @@ export class GhostDoubt extends Actor {
         engine.showDebug(true);
     }
 
+    onCollisionStart(event) {
+        if (event.other === this.player) {
+            this.scene.hearts.takeDamage(1);
+        }
+    }
 
     onPreUpdate(engine) {
 

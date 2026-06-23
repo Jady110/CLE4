@@ -1,7 +1,6 @@
 import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
 import { Resources } from "./resources.js"
 import { Player } from "./Player.js";
-import { HeartEmotion } from "./heart.js";
 
 export class PuzzelPieceDoubt extends Actor {
 
@@ -46,7 +45,6 @@ export class PuzzelPieceDoubt extends Actor {
         this.scene.puzzleCollected = true;
 
         this.scene.puzzleCollected = true;
-        this.scene.hearts.activate();
         this.graphics.use(Resources.Zelftwijfel.toSprite());
         this.scale = new Vector(1.1, 1.1);
         this.vel = new Vector(0, -50);
