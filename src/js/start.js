@@ -21,11 +21,12 @@ export class StartScene extends Scene {
     
 
         const title = new Label({
-            text: "Ruines of The Mind",
+            text: "Ruins of The Mind",
             pos: new Vector(380, 330),
             color: Color.White,
-            font: new Font({
-                size: 48
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 50
             }),
             z: 10
         });
@@ -34,6 +35,10 @@ export class StartScene extends Scene {
             text: "Press SPACE for Level1, W for level2, A for level3, S for level4.",
             pos: new Vector(380, 400),
             color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 14
+            }),
             z: 10
         });
 

@@ -9,7 +9,7 @@ export class LevelInfo extends Actor {
             coordPlane: CoordPlane.Screen,
         })
         this.graphics.use(Resources.LevelInfos.toSprite())
-        this.scale = new Vector(1.5, 1.5)
+        this.scale = new Vector(1.6, 1.6)
     }
     onInitialize(engine){
         this.levelNumber = new Label({
