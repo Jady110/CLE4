@@ -5,6 +5,8 @@ export class GameOverScene extends Scene {
     onInitialize() {
 
         this.clear();
+        
+        this.levelinfo = new this.levelinfo();
 
         const gameOver = new Label({
             text: "GAME OVER",
