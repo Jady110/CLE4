@@ -8,6 +8,7 @@ import { StressNPC } from "./stressnpc.js";
 import { Puzzlepiece4 } from "./puzzlepiece4.js";
 import { Wall } from "./wall.js";
 import { Purple } from "./purple.js"
+import { Task } from "./task.js";
 
 
 
@@ -89,13 +90,23 @@ export class LevelFour extends Scene {
 
         this.camera.strategy.lockToActor(this.player);
           
+        this.tasksUI = new Task()
+        this.add(this.tasksUI)
     }
 
+     onPreUpdate(engine){
+        // only set the default task text if it is currently empty
+        if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
+            this.tasksUI.updateText('Find the key')
+        }
+    }
 
 onCollisionStart(event) {
     if (event.other.owner instanceof Key) {
         this.keyGrabbed = true;
         console.log(this.keyGrabbed);
+        
+        this.tasksUI.updateText('Find the chest')
 
         event.other.owner.kill();
     }
@@ -106,6 +117,8 @@ onCollisionStart(event) {
 
             this.purpleCollected = true;
             console.log("Power-up collect")
+
+        this.tasksUI.updateText('Kill the enemy')
 
         this.textPower = new Label({
             text: 'You collected the power-up!',
@@ -130,6 +143,7 @@ onCollisionStart(event) {
 
     if (event.other.owner instanceof StressEnemy) {
         this.enemyKilled = true;
+          this.engine.goToScene("gameover");
 
         console.log("StressEnemy killed!");
         

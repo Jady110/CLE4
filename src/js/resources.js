@@ -37,6 +37,9 @@ const Resources = {
     Map3: new ImageSource('images/map3.png'),
     Map4: new ImageSource('images/map4.png'),
 
+    Darkness: new ImageSource('images/darkness.png'),
+
+
     BaksteenMuur: new ImageSource('images/Baksteen_muur.png'),
     GreyWall: new ImageSource('images/Grey_wall.png'),
     VineWall: new ImageSource('images/Wall_vines.png'),
@@ -50,6 +53,7 @@ const Resources = {
     EmptyHeart: new ImageSource('images/Empty_heart.png'),
 
     TaskBar: new ImageSource('images/taskbar.png'),
+    LevelInfos: new ImageSource('images/levelName.png'),
 
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),

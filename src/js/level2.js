@@ -7,6 +7,7 @@ import { Key } from "./key.js";
 import { PowerLaughter } from "./Powerup.js";
 import { ChestLevel2 } from "./chest.js";
 import { Wall } from "./wall.js";
+import { LevelInfo } from "./levelInfo.js";
 
 export class LevelTwo extends Scene {
     constructor() {
@@ -29,6 +30,17 @@ export class LevelTwo extends Scene {
         map2.pos = new Vector(1280 / 2, 720 / 2);
         map2.z = -1;
         this.add(map2);
+
+        this.lightCirlce = new ScreenElement({
+            pos: new Vector(
+                engine.drawWidth / 300,
+                engine.drawHeight / 10000
+            )
+        });
+
+        this.lightCirlce.graphics.use(Resources.Darkness.toSprite());
+        this.lightCirlce.z = 9;
+        this.add(this.lightCirlce);
 
         this.createWall = (x, y, w, h) => {
             this.add(new Wall(x, y, w, h));
@@ -89,5 +101,18 @@ export class LevelTwo extends Scene {
         engine.showDebug(true);
 
         this.camera.strategy.lockToActor(this.player);
+
+        this.levelInfo = new LevelInfo()
+                this.add(this.levelInfo)
+                setTimeout(() => {
+                    this.levelInfo.kill()
+                }, 2000)
+    }
+
+    onPreUpdate(engine){
+        if (this.levelInfo){
+            this.levelInfo.updateLevelNumber('Level two')
+            this.levelInfo.updateLevelName('Shame')
+        }
     }
 }
