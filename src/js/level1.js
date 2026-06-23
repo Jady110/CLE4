@@ -90,6 +90,7 @@ export class LevelOne extends Scene {
         this.add(this.hearts);
 
     }
+    
     onPreUpdate(engine){
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
