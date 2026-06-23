@@ -9,6 +9,7 @@ import { Ghost } from "./ghost.js";
 import { Wall } from "./wall.js";
 import { Task } from "./task.js";
 import { LevelInfo } from "./levelInfo.js";
+import { HeartUI } from "./heartUi.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -71,6 +72,9 @@ export class LevelOne extends Scene {
         setTimeout(() => {
             this.levelInfo.kill()
         }, 2000)
+
+        this.hearts = new HeartUI(3);
+        this.add(this.hearts);
 
     }
     onPreUpdate(engine){
