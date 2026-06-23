@@ -52,7 +52,7 @@ export class LevelOne extends Scene {
 
         const player = new Player()
         this.add(player)
-        player.pos = new Vector(150, 550)
+        player.pos = new Vector(550, 200)
 
         // aantal geesten gevonden
         this.ghostfound = 0
