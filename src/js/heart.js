@@ -18,7 +18,6 @@ export class HeartEmotion extends Actor {
 
     onInitialize(engine) {
         this.graphics.visible = false;
-        this.pos = new Vector(1000, 100);
 
         this.hearts = [
             Resources.Heart1.toSprite(), // leeg
