@@ -72,7 +72,7 @@ export class LevelThree extends Scene {
     }
 
     onCollision(event) {
-        
+
         this.enemyGhost.events.on("collisionstart", (event) => {
         if (event.other.owner === this.player) {
             this.hearts.takeDamage();
