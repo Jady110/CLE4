@@ -8,6 +8,7 @@ import { EnemyLoneliness } from "./enemy-loneliness.js";
 import { Ghost } from "./ghost.js";
 import { Wall } from "./wall.js";
 import { Task } from "./task.js";
+import { LevelInfo } from "./levelInfo.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -53,36 +54,6 @@ export class LevelOne extends Scene {
         this.add(player)
         player.pos = new Vector(150, 550)
 
-        // label van level nummer en naam
-        this.numberLabel = new Label({
-            text: 'Level one:',
-            pos: new Vector(-100, 550),
-            color: Color.White,
-            font: new Font({ 
-                family: "Georgia, serif",
-                size: 100
-            }),
-            z: 2
-        })
-        this.add(this.numberLabel)
-        setTimeout(() => {
-            this.numberLabel.kill()
-            this.nameLabel = new Label({
-                text: 'Loneliness',
-                pos: new Vector(-200, 550),
-                color: Color.White,
-                font: new Font({ 
-                    family: "Georgia, serif",
-                    size: 150
-                }),
-                z: 2
-            })
-            this.add(this.nameLabel)
-            setTimeout(() => {
-                this.nameLabel.kill()
-            }, 2000)
-        }, 2000)
-
         // aantal geesten gevonden
         this.ghostfound = 0
 
@@ -95,12 +66,21 @@ export class LevelOne extends Scene {
         this.tasksUI = new Task()
         this.add(this.tasksUI)
 
-        engine.showDebug(true);
+        this.levelInfo = new LevelInfo()
+        this.add(this.levelInfo)
+        setTimeout(() => {
+            this.levelInfo.kill()
+        }, 2000)
+
     }
     onPreUpdate(engine){
-        // only set the default task text if it is currently empty
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
+        }
+
+        if (this.levelInfo){
+            this.levelInfo.updateLevelNumber('Level one')
+            this.levelInfo.updateLevelName('Loneliness')
         }
     }
 

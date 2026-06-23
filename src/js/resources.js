@@ -50,6 +50,7 @@ const Resources = {
     EmptyHeart: new ImageSource('images/Empty_heart.png'),
 
     TaskBar: new ImageSource('images/taskbar.png'),
+    LevelInfos: new ImageSource('images/levelName.png'),
 
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
