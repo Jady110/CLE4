@@ -15,6 +15,15 @@ export class Wall extends ex.Actor {
 
     onInitialize() {
         let sprite = null;
+        const steenWidth = Resources.BaksteenMuur.width
+        const steenHeight = Resources.BaksteenMuur.height
+
+        const vineWidth = Resources.BaksteenMuur.width
+        const vineHeight = Resources.BaksteenMuur.height
+
+        const greyWidth = Resources.BaksteenMuur.width
+        const greyHeight = Resources.BaksteenMuur.height
+
 
         switch (this.wallType) {
             case "brick":
@@ -34,7 +43,14 @@ export class Wall extends ex.Actor {
                 return;
         }
 
+        const scaleX = this.width / 750
+        const scaleY = this.height / 600
 
+        console.log(scaleX)
+        console.log(scaleY)
+
+
+        sprite.scale = ex.vec(scaleX, scaleY);
         this.graphics.use(sprite);
 
     }
