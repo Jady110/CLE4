@@ -25,7 +25,7 @@ export class LevelInfo extends Actor {
         this.addChild(this.levelNumber)
         this.levelName = new Label({
             text: '',
-            pos: new Vector(-130, 20),
+            pos: new Vector(-120, 20),
             color: Color.White,
             font: new Font({ 
                 family: "Georgia, serif",
