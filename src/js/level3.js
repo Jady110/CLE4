@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType } from "excalibur";
+import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
 import { Wall } from "./wall.js";
@@ -9,6 +9,12 @@ import { Heart } from "./heart.js";
 import { HeartUI } from "./heartUi.js";
 
 export class LevelThree extends Scene {
+    constructor() {
+        super({
+            name: 'level1'
+        })
+        this.backgroundColor = Color.Black
+    }
 
     onInitialize(engine) {
 
@@ -26,7 +32,19 @@ export class LevelThree extends Scene {
         this.player.pos = new Vector(-30,300)
 
 
-        this.camera.strategy.radiusAroundActor(this.player, 50);
+        this.camera.strategy.lockToActor(this.player);
+        // this.lightCircle = new ScreenElement({
+        //     pos: new Vector(engine.drawWidth / 2, engine.drawHeight / 2)
+        // });
+
+        // this.lightCircle.graphics.use(Resources.Darkness.toSprite());
+
+        // this.lightCircle.anchor = new Vector(0.49, 0.45);
+
+        // this.lightCircle.scale = new Vector(2, 2);
+        // this.lightCircle.z = 9;
+
+        // this.add(this.lightCircle);
 
 
         this.puzzelPieceDoubt = new PuzzelPieceDoubt();
@@ -58,7 +76,7 @@ export class LevelThree extends Scene {
         this.createWall(1405, 650, 300, 50);
         this.createWall(1280, 800, 50, 350);
 
-        this.add(new Wall(400, 300, 200, 40, "brick"));
+        this.add(new Wall(400, 300, 300, 40, "test"));
 
 
 

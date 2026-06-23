@@ -30,6 +30,10 @@ export class Wall extends ex.Actor {
                 sprite = Resources.BaksteenMuur.toSprite();
                 break;
 
+            case "test":
+                sprite = Resources.Fireball.toSprite();
+                break;
+
             case "vine":
                 sprite = Resources.VineWall.toSprite();
                 break;
@@ -43,8 +47,8 @@ export class Wall extends ex.Actor {
                 return;
         }
 
-        const scaleX = this.width / 750
-        const scaleY = this.height / 600
+        const scaleX = this.width / 200
+        const scaleY = this.height / 200
 
         console.log(scaleX)
         console.log(scaleY)

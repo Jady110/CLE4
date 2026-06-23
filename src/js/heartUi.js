@@ -1,86 +1,49 @@
-import { Actor, Vector } from "excalibur";
+import { Actor, Vector, CoordPlane } from "excalibur";
 import { Resources } from "./resources.js";
 
 export class HeartUI extends Actor {
     constructor(maxHealth = 3) {
-        super();
+        super({
+            pos: new Vector(800, 20),
+            z: 1000,
+            coordPlane: CoordPlane.Screen
+        });
 
         this.maxHealth = maxHealth;
         this.health = maxHealth;
 
         this.hearts = [];
-        this.invulnerable = false;
     }
 
     onInitialize(engine) {
 
-        // maak 3 heart actors
         for (let i = 0; i < this.maxHealth; i++) {
             const heart = new Actor({
-                width: 32,
-                height: 32
+                pos: new Vector(i * 20 + 20, 20),
+                coordPlane: CoordPlane.Screen,
+                scale: new Vector(0.1, 0.1),
+                z: 1000
             });
-
-            heart.scale = new Vector(0.2, 0.2);
 
             heart.graphics.use(Resources.FullHeart.toSprite());
 
             this.hearts.push(heart);
-            this.scene.add(heart); // belangrijk: direct in scene
+            this.scene.add(heart);
         }
     }
 
-    onPreUpdate(engine) {
-        const cam = engine.currentScene.camera.pos;
-
-        const startX = cam.x - engine.drawWidth / 2 + 40;
-        const startY = cam.y - engine.drawHeight / 2 + 40;
-
-        for (let i = 0; i < this.hearts.length; i++) {
-            this.hearts[i].pos = new Vector(
-                startX + i * 40,
-                startY
-            );
-        }
-    }
-
-    takeDamage(amount = 1) {
-        if (this.invulnerable) return;
-
-        this.health -= amount;
-
-        if (this.health < 0) {
-            this.health = 0;
-        }
-
-        this.updateHearts();
-
-        // cooldown zodat je niet instant dood gaat
-        this.invulnerable = true;
-
-        setTimeout(() => {
-            this.invulnerable = false;
-        }, 800);
-    }
-
-    heal(amount = 1) {
-        this.health += amount;
-
-        if (this.health > this.maxHealth) {
-            this.health = this.maxHealth;
-        }
-
+    takeDamage() {
+        this.health = Math.max(0, this.health - 1);
         this.updateHearts();
     }
 
     updateHearts() {
         for (let i = 0; i < this.hearts.length; i++) {
-            const sprite =
+            this.hearts[i].graphics.use(
                 i < this.health
                     ? Resources.FullHeart.toSprite()
-                    : Resources.EmptyHeart.toSprite();
-
-            this.hearts[i].graphics.use(sprite);
+                    : Resources.EmptyHeart.toSprite()
+            );
         }
     }
 }
