@@ -48,6 +48,7 @@ const Resources = {
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
     Laughter: new ImageSource('images/powerupShame.webp'),
+    Purple: new ImageSource('images/purple-powerup.png'),
 
     Eenzaamheid: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
     Stress: new ImageSource('images/Puzzlestuk_stress.png'),
