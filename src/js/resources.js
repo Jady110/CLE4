@@ -37,6 +37,9 @@ const Resources = {
     Map3: new ImageSource('images/map3.png'),
     Map4: new ImageSource('images/map4.png'),
 
+    Darkness: new ImageSource('images/darkness.png'),
+
+
     BaksteenMuur: new ImageSource('images/Baksteen_muur.png'),
     GreyWall: new ImageSource('images/Grey_wall.png'),
     VineWall: new ImageSource('images/Wall_vines.png'),
