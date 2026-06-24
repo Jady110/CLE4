@@ -21,7 +21,7 @@ export class Task extends Actor {
             }),
             z: 2
         })
-        this.addChild(this.taskText)
+        this.addChild(this.taskText) 
     }
 
     updateText(givenText) {
