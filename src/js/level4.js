@@ -6,7 +6,7 @@ import { Key }  from "./key.js";
 import { StressEnemy } from "./stress-enemy.js";
 import { StressNPC } from "./stressnpc.js";
 import { Puzzlepiece4 } from "./puzzlepiece4.js";
-import { Wall } from "./wall.js";
+import { SolidObjects } from "./solidObjects.js";
 import { Purple } from "./purple.js"
 import { Task } from "./task.js";
 import { LevelInfo } from "./levelInfo.js";
@@ -30,7 +30,7 @@ export class LevelFour extends Scene {
         this.add(map4);
 
         this.createWall = (x, y, w, h) => {
-            this.add(new Wall(x, y, w, h));
+            this.add(new SolidObjects(x, y, w, h));
         };
 
         this.createWall(450, 530, 600, 60);
