@@ -56,9 +56,11 @@ const Resources = {
     LevelInfos: new ImageSource('images/levelName.png'),
 
     Fireball: new ImageSource('images/fireballPowerup.gif'),
-    Light: new ImageSource('images/lightPower.gif'),
+    Light: new ImageSource('images/light.png'),
     Laughter: new ImageSource('images/powerupShame.webp'),
     Purple: new ImageSource('images/purple-powerup.png'),
+    Shame: new ImageSource('images/powerShame.png'),
+    Truesight: new ImageSource('images/truesight.png'),
 
     Eenzaamheid: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
     Stress: new ImageSource('images/Puzzlestuk_stress.png'),

@@ -1,6 +1,10 @@
 import { Actor, Vector, Keys, CollisionType, Camera, SpriteSheet, Animation } from "excalibur"
 import { Resources } from "./resources.js"
-import { GameOverScene } from "./GameOver.js";
+import { Purple } from "./purple.js"; 
+import { Light } from "./light.js";
+import { Shame } from "./shame.js";
+import { Truesight } from "./truesight.js";
+
 
 export class Player extends Actor {
 
@@ -73,7 +77,31 @@ export class Player extends Actor {
 
         this.addTag("player");
 
-        this.body.collisionType = CollisionType.Active;        
+        this.body.collisionType = CollisionType.Active;
+        
+        
+        //Power up level 1
+        this.light = new Light();
+        this.addChild(this.light);
+        this.lightPower = false; 
+     
+        //Power up level 2
+        this.shame = new Shame();
+        this.addChild(this.shame);
+        this.shamePower = false; 
+
+        //Power up level 3
+        this.truesight = new Truesight();
+        this.addChild(this.truesight);
+        this.truesightPower = false; 
+
+
+        //Power up level 4
+        this.purple = new Purple();
+        this.addChild(this.purple);
+        this.purplePower = false; 
+
+
     }
 
 
@@ -93,6 +121,9 @@ export class Player extends Actor {
         //     this.scene.engine.goToScene("level2");
         // }
 
+         if (engine.input.keyboard.isHeld(Keys.Num1)&& this.lightPower){
+                
+             }
 
         if (engine.input.keyboard.isHeld(Keys.W)) {
             if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
@@ -128,4 +159,12 @@ export class Player extends Actor {
 
         this.vel = new Vector(velX, velY);
     }
+
+     
+
+    shoot(engine) {
+    
+     }
 }
+
+ 
