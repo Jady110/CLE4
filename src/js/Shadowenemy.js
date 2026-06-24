@@ -35,6 +35,9 @@ export class ShadowEnemy extends Actor {
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing at a joke you told!");
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log("Player touched me but I'm a Shadow");
             // this.scene.engine.goToScene("gameover");
@@ -79,6 +82,9 @@ export class ShadowEnemyLeft extends Actor {
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing at a joke you told!");
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log("Player touched me but I'm a Shadow");
             // this.scene.engine.goToScene("gameover");
@@ -122,6 +128,9 @@ export class ShadowEnemyRight extends Actor {
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing at a joke you told!");
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log("Player touched me but I'm a Shadow");
             // this.scene.engine.goToScene("gameover");
@@ -180,7 +189,7 @@ export class ShadowEnemyKey extends Actor {
             this.scene.keyCollected = true;
             this.key.kill();
 
-            // m
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
 
         } else {
             console.log(

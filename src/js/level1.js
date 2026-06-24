@@ -68,6 +68,7 @@ export class LevelOne extends Scene {
         const player = new Player()
         this.add(player)
         player.pos = new Vector(550, 200)
+        this.player = player
 
         // aantal geesten gevonden
         this.ghostfound = 0
@@ -148,6 +149,7 @@ export class LevelOne extends Scene {
             console.log(this.ghostfound)
             if (this.ghostfound === 3){
                 this.tasksUI.updateText('Kill the enemy')
+                this.player.lightPower = true
             }
         }
     }

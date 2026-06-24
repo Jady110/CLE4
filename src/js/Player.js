@@ -81,38 +81,27 @@ export class Player extends Actor {
         
         
         //Power up level 1
-        this.light = new Light();
-        this.addChild(this.light);
         this.lightPower = false; 
         this.lightPowerEquipped = false
      
         //Power up level 2
-        this.shame = new Shame();
-        this.addChild(this.shame);
         this.shamePower = false; 
         this.shamePowerEquipped = false
 
         //Power up level 3
-        this.truesight = new Truesight();
-        this.addChild(this.truesight);
         this.truesightPower = false; 
         this.truesightPowerEquipped = false
 
         //Power up level 4
-        this.purple = new Purple();
-        this.addChild(this.purple);
         this.purplePower = false; 
         this.purplePowerEquipped = false
+
+        this.lastDirection = new Vector(1, 0);
 
     }
     onPreUpdate(engine) {
         let velX = 0;
         let velY = 0;
-
-        // if (this.pos.x < -50) {
-        //     console.log("Game Over!");
-        //     this.scene.engine.goToScene("level2");
-        // }
 
         if (engine.input.keyboard.isHeld(Keys.W)) {
             if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
@@ -121,6 +110,7 @@ export class Player extends Actor {
             velY = -150;
             }
             this.graphics.use(this.backwardAnimation)
+            this.lastDirection = new Vector(0, -1);
         } else if (engine.input.keyboard.isHeld(Keys.S)) {
             if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
             velY = 250;
@@ -128,6 +118,7 @@ export class Player extends Actor {
             velY = 150;
             }
             this.graphics.use(this.forwardAnimation)
+            this.lastDirection = new Vector(0, 1);
         } else if (engine.input.keyboard.isHeld(Keys.A)) {
             if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
             velX = -250;
@@ -135,6 +126,7 @@ export class Player extends Actor {
             velX = -150;
             }
             this.graphics.use(this.leftAnimation)
+            this.lastDirection = new Vector(-1, 0);
         } else if (engine.input.keyboard.isHeld(Keys.D)) {
             if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
             velX = 250;
@@ -142,27 +134,32 @@ export class Player extends Actor {
             velX = 150;
             }
             this.graphics.use(this.rightAnimation)
+            this.lastDirection = new Vector(1, 0);
         } else {
             this.graphics.use(this.idleAnimation)
         }
 
         this.vel = new Vector(velX, velY);
 
-        if (engine.input.keyboard.wasPressed(Keys.Num1)){
+        if (engine.input.keyboard.wasPressed(Keys.Space)){
+            this.shoot()
+        }
+
+
+        if (engine.input.keyboard.wasPressed(Keys.Digit1)){
             if (this.lightPower === true){
                 this.lightPowerEquipped = true
-                console.log(this.lightPowerEquipped)
             }
             console.log(this.lightPower)
-        }else if (engine.input.keyboard.wasPressed(Keys.Num2)){
+        }else if (engine.input.keyboard.wasPressed(Keys.Digit2)){
             if (this.shamePower === true){
                 this.shamePowerEquipped = true
             }
-        }else if (engine.input.keyboard.wasPressed(Keys.Num3)){
+        }else if (engine.input.keyboard.wasPressed(Keys.Digit3)){
             if (this.truesightPower === true){
                 this.truesightPowerEquipped = true
             }
-        }else if (engine.input.keyboard.wasPressed(Keys.Num4)){
+        }else if (engine.input.keyboard.wasPressed(Keys.Digit4)){
             if (this.purplePower === true){
                 this.purplePowerEquipped = true
             }
@@ -170,8 +167,31 @@ export class Player extends Actor {
     }
 
     shoot(engine) {
-    
-     }
-}
+        console.log('biem')
+        const speed = 400;
+        const direction = this.lastDirection || new Vector(1, 0);
+        const bulletVel = direction.scale(speed);
 
- 
+        if (this.lightPowerEquipped){
+            const bulletLight = new Light();
+            bulletLight.pos = this.pos.add(direction.scale(30));
+            bulletLight.vel = bulletVel;
+            this.scene.add(bulletLight);
+        } else if (this.shamePowerEquipped){
+            const bulletShame = new Shame();
+            bulletShame.pos = this.pos.add(direction.scale(30));
+            bulletShame.vel = bulletVel;
+            this.scene.add(bulletShame);
+        } else if (this.truesightPowerEquipped){
+            const bulletSight = new Truesight();
+            bulletSight.pos = this.pos.add(direction.scale(30));
+            bulletSight.vel = bulletVel;
+            this.scene.add(bulletSight);
+        } else if (this.purplePowerEquipped){
+            const bulletPurple = new Purple();
+            bulletPurple.pos = this.pos.add(direction.scale(30));
+            bulletPurple.vel = bulletVel;
+            this.scene.add(bulletPurple);
+        }
+    }
+}
