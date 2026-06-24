@@ -84,34 +84,27 @@ export class Player extends Actor {
         this.light = new Light();
         this.addChild(this.light);
         this.lightPower = false; 
+        this.lightPowerEquipped = false
      
         //Power up level 2
         this.shame = new Shame();
         this.addChild(this.shame);
         this.shamePower = false; 
+        this.shamePowerEquipped = false
 
         //Power up level 3
         this.truesight = new Truesight();
         this.addChild(this.truesight);
         this.truesightPower = false; 
-
+        this.truesightPowerEquipped = false
 
         //Power up level 4
         this.purple = new Purple();
         this.addChild(this.purple);
         this.purplePower = false; 
-
+        this.purplePowerEquipped = false
 
     }
-
-
-    onCollisionStart(event) {
-        // console.log("hacker spotted, je bent geraakt");
-
-        // this.scene.engine.goToScene("gameover");
-    }
-
-
     onPreUpdate(engine) {
         let velX = 0;
         let velY = 0;
@@ -120,10 +113,6 @@ export class Player extends Actor {
         //     console.log("Game Over!");
         //     this.scene.engine.goToScene("level2");
         // }
-
-         if (engine.input.keyboard.isHeld(Keys.Num1)&& this.lightPower){
-                
-             }
 
         if (engine.input.keyboard.isHeld(Keys.W)) {
             if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
@@ -158,9 +147,27 @@ export class Player extends Actor {
         }
 
         this.vel = new Vector(velX, velY);
-    }
 
-     
+        if (engine.input.keyboard.wasPressed(Keys.Num1)){
+            if (this.lightPower === true){
+                this.lightPowerEquipped = true
+                console.log(this.lightPowerEquipped)
+            }
+            console.log(this.lightPower)
+        }else if (engine.input.keyboard.wasPressed(Keys.Num2)){
+            if (this.shamePower === true){
+                this.shamePowerEquipped = true
+            }
+        }else if (engine.input.keyboard.wasPressed(Keys.Num3)){
+            if (this.truesightPower === true){
+                this.truesightPowerEquipped = true
+            }
+        }else if (engine.input.keyboard.wasPressed(Keys.Num4)){
+            if (this.purplePower === true){
+                this.purplePowerEquipped = true
+            }
+        }
+    }
 
     shoot(engine) {
     
