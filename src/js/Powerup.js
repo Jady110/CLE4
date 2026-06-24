@@ -16,28 +16,12 @@ export class PowerLaughter extends Actor {
         this.scale = new Vector(0.05, 0.05);
 
         this.body.collisionType = CollisionType.Passive;
-        
-        // this.powerCollected = false;
     }
-
 
     onCollisionStart(event) {
 
         console.log("Player collected powerup");
         this.scene.powerCollected = true;
         this.kill();
-    }
-
-
-    onPreUpdate(engine) {
-        // let velX = 0;
-        // let velY = 0;
-
-        // if (this.pos.x < -50) {
-        //     console.log("Game Over!");
-        //     this.scene.engine.goToScene("level2");
-        // }
-
-        // this.vel = new Vector(velX, velY);
     }
 }
