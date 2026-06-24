@@ -10,6 +10,7 @@ import { Wall } from "./wall.js";
 import { Task } from "./task.js";
 import { LevelInfo } from "./levelInfo.js";
 import { HeartUI } from "./heartUi.js";
+import { InventoryBar } from "./inventory.js";
 
 export class LevelOne extends Scene {
     constructor() {
@@ -89,8 +90,11 @@ export class LevelOne extends Scene {
         this.hearts = new HeartUI(3);
         this.add(this.hearts);
 
+        this.inventory = new InventoryBar()
+        this.add(this.inventory)
+
     }
-    
+
     onPreUpdate(engine){
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')

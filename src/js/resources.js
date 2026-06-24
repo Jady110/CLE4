@@ -54,6 +54,7 @@ const Resources = {
 
     TaskBar: new ImageSource('images/taskbar.png'),
     LevelInfos: new ImageSource('images/levelName.png'),
+    Inventory: new ImageSource('images/inventorybar.png'),
 
     Fireball: new ImageSource('images/fireballPowerup.gif'),
     Light: new ImageSource('images/lightPower.gif'),
