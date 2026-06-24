@@ -1,5 +1,6 @@
-import { Actor, Vector, CoordPlane } from "excalibur";
+import { Actor, Vector, CoordPlane, Scene } from "excalibur";
 import { Resources } from "./resources.js";
+import { GameOverScene } from "./GameOver.js";
 
 export class HeartUI extends Actor {
     constructor(maxHealth = 3) {
@@ -13,9 +14,11 @@ export class HeartUI extends Actor {
         this.health = maxHealth;
 
         this.hearts = [];
+        this.invulnerable = false;
     }
 
     onInitialize(engine) {
+        this.engine = engine
 
         for (let i = 0; i < this.maxHealth; i++) {
             const heart = new Actor({
@@ -32,9 +35,24 @@ export class HeartUI extends Actor {
         }
     }
 
-    takeDamage() {
-        this.health = Math.max(0, this.health - 1);
+    takeDamage(amount = 1) {
+        if (this.invulnerable) return;
+
+        this.health -= amount;
+        if (this.health < 0) this.health = 0;
+
         this.updateHearts();
+
+        this.invulnerable = true;
+
+        setTimeout(() => {
+            this.invulnerable = false;
+        }, 1000);
+
+        if (this.health === 0) {
+            this.engine.goToScene("gameover")
+        };
+
     }
 
     updateHearts() {
