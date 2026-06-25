@@ -1,5 +1,5 @@
 import { Scene, Label, Vector, Color, Font, Actor, Keys} from "excalibur";
-import { Resources } from "./Resources";
+import { Resources } from "./resources";
 import { LevelOne } from "./level1.js";
 import { LevelTwo } from "./level2.js";
 import { LevelThree } from "./level3.js";
@@ -29,7 +29,7 @@ export class GameOverScene extends Scene {
 
         const restartText = new Label({
             text: "Druk op SPACE om opnieuw te beginnen",
-            pos: new Vector(300, 380),
+            pos: new Vector(380, 450),
             color: Color.White,
             font: new Font({
                 family: "Georgia, serif",

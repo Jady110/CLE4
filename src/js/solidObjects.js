@@ -18,7 +18,7 @@ export class SolidObjects extends ex.Actor {
 
         switch (this.objectType) {
             case "brickWall":
-                resource = Resources.BaksteenMuur;
+                resource = Resources.NormalWall;
                 break;
 
             case "vineWall":

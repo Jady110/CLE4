@@ -1,5 +1,5 @@
-import { Actor, Vector, SpriteSheet, Animation, CollisionType, VectorView } from "excalibur";
-import { Resources } from "./Resources.js";
+import { Actor, Vector, SpriteSheet, Animation, CollisionType, VectorView, Label, Font, Color } from "excalibur";
+import { Resources } from "./resources.js";
 
 export class GhostDoubt extends Actor {
     constructor(player) {
@@ -13,6 +13,17 @@ export class GhostDoubt extends Actor {
         this.speed = 20;
         this.scale = new Vector(2.5, 2.5);
         this.body.collisionType = CollisionType.Fixed;
+
+        this.quotes = [
+            "Je bent niet goed genoeg...",
+            "Waarom probeer je het steeds?",
+            "Je gaat toch falen.",
+            "Iedereen is beter dan jij.",
+            "Geef gewoon op.",
+            "Denk je echt dat dit gaat lukken?",
+            "Niemand gelooft in je.",
+            "Je verspilt je tijd."
+        ];
     }
 
     onInitialize(engine) {
@@ -35,11 +46,39 @@ export class GhostDoubt extends Actor {
         
 
         this.pos = new Vector(600, 300);
-
-
         anim.loop = true;
         this.graphics.use(anim);
+
+
+        this.quoteLabel = new Label({
+            text: "",
+            pos: new Vector(-40, -40),
+            color: Color.White,
+            font: new Font({
+                size: 10
+            })
+        });
+
+        this.addChild(this.quoteLabel);
+        setInterval(() => {
+            this.sayRandomQuote();
+        }, 8000);
+
         engine.showDebug(true);
+    }
+
+    sayRandomQuote() {
+
+        const randomIndex = Math.floor(
+            Math.random() * this.quotes.length
+        );
+
+        this.quoteLabel.text =
+            this.quotes[randomIndex];
+
+        setTimeout(() => {
+            this.quoteLabel.text = "";
+        }, 3000);
     }
 
     onCollisionStart(event) {
