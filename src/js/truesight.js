@@ -14,7 +14,7 @@ export class Truesight extends Actor {
 
     onInitialize(engine) {
 
-        this.graphics.use(Resources.Light.toSprite())
+        this.graphics.use(Resources.Truesight.toSprite())
         
     
     }

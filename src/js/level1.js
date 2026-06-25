@@ -6,7 +6,7 @@ import { Key } from "./key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
 import { EnemyLoneliness } from "./enemy-loneliness.js";
 import { Ghost } from "./ghost.js";
-import { Wall } from "./wall.js";
+import { SolidObjects } from "./solidObjects.js";
 import { Task } from "./task.js";
 import { LevelInfo } from "./levelInfo.js";
 import { HeartUI } from "./heartUi.js";
@@ -29,7 +29,7 @@ export class LevelOne extends Scene {
         this.add(map1);
 
         this.createWall = (x, y, w, h) => {
-            this.add(new Wall(x, y, w, h));
+            this.add(new SolidObjects(x, y, w, h));
         };
         this.createWall(50, 300, 50, 800);
         this.createWall(850, 680, 1650, 50);
@@ -68,6 +68,7 @@ export class LevelOne extends Scene {
         const player = new Player()
         this.add(player)
         player.pos = new Vector(550, 200)
+        this.player = player
 
         // aantal geesten gevonden
         this.ghostfound = 0
@@ -148,6 +149,7 @@ export class LevelOne extends Scene {
             console.log(this.ghostfound)
             if (this.ghostfound === 3){
                 this.tasksUI.updateText('Kill the enemy')
+                this.player.lightPower = true
             }
         }
     }

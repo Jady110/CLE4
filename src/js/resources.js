@@ -43,6 +43,7 @@ const Resources = {
     BaksteenMuur: new ImageSource('images/Baksteen_muur.png'),
     GreyWall: new ImageSource('images/Grey_wall.png'),
     VineWall: new ImageSource('images/Wall_vines.png'),
+    WoodBarrel: new ImageSource('images/WoodenBarrel.png'),
 
 
     chestLvl3: new ImageSource('images/chestLvl3.png'),

@@ -1,17 +1,19 @@
-import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement } from "excalibur";
+import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement, randomInRange } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
-import { Wall } from "./wall.js";
+import { SolidObjects } from "./solidObjects.js";
 import { GhostDoubt } from "./ghostDoubt.js";
 import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
 import { Key } from "./key.js";
 import { Heart } from "./heart.js";
 import { HeartUI } from "./heartUi.js";
+import { LevelInfo } from "./levelInfo.js";
+import { Task } from "./task.js";
 
 export class LevelThree extends Scene {
     constructor() {
         super({
-            name: 'level1'
+            name: 'level3'
         })
         this.backgroundColor = Color.Black
     }
@@ -60,7 +62,7 @@ export class LevelThree extends Scene {
 
 
         this.createWall = (x, y, w, h) => {
-            this.add(new Wall(x, y, w, h));
+            this.add(new SolidObjects(x, y, w, h));
         };
 
         this.createWall(730, 920, 1160, 50);
@@ -75,27 +77,55 @@ export class LevelThree extends Scene {
         this.createWall(1550, 400, 50, 450);
         this.createWall(1405, 650, 300, 50);
         this.createWall(1280, 800, 50, 350);
+        this.chestDoor = this.add(new SolidObjects(1280, 425, 50, 400, "greyWall"))
+        this.add(new SolidObjects(365, 200, 300, 50, "vineWall"));
 
-        this.add(new Wall(400, 300, 300, 40, "vine"));
 
 
+        this.enemyPosX = [1800, 700, -200];
+        this.enemyPosY = [1000, -300];
 
         this.enemyGhost = new GhostDoubt(this.player);
         this.enemyGhost.pos = new Vector(50, 50);
         this.add(this.enemyGhost)
 
+        this.tasksUI = new Task()
+        this.add(this.tasksUI)
+
+        this.levelInfo = new LevelInfo()
+        this.add(this.levelInfo)
+        setTimeout(() => {
+            this.levelInfo.kill()
+        }, 2000)
+
         this.player.events.on('collisionstart', (event) => this.onCollision(event))
+
+        this.enemyGhost.events.on("collisionstart", (event) => {
+        if (event.other.owner === this.player) {
+            let xPos = Math.floor(randomInRange(0,3))
+            let yPos = Math.floor(randomInRange(0,2))
+
+            this.hearts.takeDamage();
+            this.enemyGhost.pos = new Vector(this.enemyPosX[xPos], this.enemyPosY[yPos]);
+            }
+        });
 
         engine.showDebug(true);
     }
 
-    onCollision(event) {
+    onPreUpdate(engine){
+        if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
+            this.tasksUI.updateText('Find the key')
+        }
 
-        this.enemyGhost.events.on("collisionstart", (event) => {
-        if (event.other.owner === this.player) {
-            this.hearts.takeDamage();
-            }
-        });
+        if (this.levelInfo){
+            this.levelInfo.updateLevelNumber('Level Three')
+            this.levelInfo.updateLevelName('Self Doubt')
+        }
+    }
+
+    onCollision(event) {
+        
         
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true

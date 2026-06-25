@@ -18,7 +18,7 @@ export class ShadowEnemy extends Actor {
         this.graphics.use(Resources.Shadow.toSprite());
         this.scale = new Vector(1, 1);
 
-        this.body.collisionType = CollisionType.Active;        
+        this.body.collisionType = CollisionType.Passive;        
     }
 
 
@@ -35,6 +35,9 @@ export class ShadowEnemy extends Actor {
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing at a joke you told!");
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log("Player touched me but I'm a Shadow");
             // this.scene.engine.goToScene("gameover");
@@ -62,7 +65,7 @@ export class ShadowEnemyLeft extends Actor {
         this.graphics.use(Resources.ShadowLeft.toSprite());
         this.scale = new Vector(1, 1);
 
-        this.body.collisionType = CollisionType.Active;        
+        this.body.collisionType = CollisionType.Passive;        
     }
 
 
@@ -79,6 +82,9 @@ export class ShadowEnemyLeft extends Actor {
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing at a joke you told!");
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log("Player touched me but I'm a Shadow");
             // this.scene.engine.goToScene("gameover");
@@ -105,7 +111,7 @@ export class ShadowEnemyRight extends Actor {
         this.graphics.use(Resources.ShadowRight.toSprite());
         this.scale = new Vector(1, 1);
 
-        this.body.collisionType = CollisionType.Active;        
+        this.body.collisionType = CollisionType.Passive;        
     }
 
 
@@ -122,6 +128,9 @@ export class ShadowEnemyRight extends Actor {
 
         if (this.scene.powerCollected) {
             console.log("Shadow started laughing at a joke you told!");
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log("Player touched me but I'm a Shadow");
             // this.scene.engine.goToScene("gameover");
@@ -148,7 +157,7 @@ export class ShadowEnemyKey extends Actor {
         this.graphics.use(Resources.ShadowRight.toSprite());
         this.scale = new Vector(1, 1);
 
-        this.body.collisionType = CollisionType.Active;
+        this.body.collisionType = CollisionType.Passive;
 
         // this.keyCollected = false;
         
@@ -179,6 +188,9 @@ export class ShadowEnemyKey extends Actor {
                 "The shadow laughs and drops the key!";
             this.scene.keyCollected = true;
             this.key.kill();
+
+            // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+
         } else {
             console.log(
                 "You stare at the shadow, not sure what to say."
