@@ -14,7 +14,17 @@ export class Truesight extends Actor {
 
     onInitialize(engine) {
 
-        this.graphics.use(Resources.Truesight.toSprite())
+         const trueSheet = SpriteSheet.fromImageSource({
+            image: Resources.Truesight,
+            grid: {
+                rows: 2,
+                columns: 2,
+                spriteWidth: Resources.Truesight.width / 2,
+                spriteHeight: Resources.Truesight.height / 2
+            }
+        })
+        this.trueAnimation = Animation.fromSpriteSheet(trueSheet, [0, 1, 2, 3], 800)
+        this.graphics.use(this.trueAnimation)
         
     
     }

@@ -12,5 +12,8 @@ export class EnemyLoneliness extends Actor {
     }
     onInitialize(engine) {
         this.graphics.use(Resources.LonelinessEnemy.toSprite())
+
+
+        this.health = 100;
     }
 }
