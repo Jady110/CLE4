@@ -137,12 +137,8 @@ export class LevelOne extends Scene {
 
         }
         if (event.other.owner instanceof EnemyLoneliness){
-            if (this.ghostfound === 3){
-                this.engine.goToScene("level2")
-            } else {
                 window.restartScene = "level1";
                 this.hearts.takeDamage();
-            }
         }
         if (event.other.owner instanceof Ghost){
             event.other.owner.kill()
