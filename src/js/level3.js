@@ -77,7 +77,8 @@ export class LevelThree extends Scene {
         this.createWall(1550, 400, 50, 450);
         this.createWall(1405, 650, 300, 50);
         this.createWall(1280, 800, 50, 350);
-        this.chestDoor = this.add(new SolidObjects(1280, 425, 50, 400, "greyWall"))
+        this.chestDoor = new SolidObjects(1280, 425, 50, 400, "greyWall");
+        this.add(this.chestDoor);
         this.add(new SolidObjects(365, 200, 300, 50, "vineWall"));
 
 
@@ -115,7 +116,7 @@ export class LevelThree extends Scene {
 
     onPreUpdate(engine){
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
-            this.tasksUI.updateText('Find the key')
+            this.tasksUI.updateText('Find the key and open the door')
         }
 
         if (this.levelInfo){
@@ -131,6 +132,7 @@ export class LevelThree extends Scene {
             this.keyGrabbed = true
             console.log("key grabbed")
             event.other.owner.kill()
+            this.chestDoor.kill();
         }
     }
 }

@@ -8,7 +8,7 @@ export class Puzzlepiece1 extends Actor {
             width: 30,
             height: 30,
         })
-        this.graphics.use(Resources.Eenzaamheid.toSprite())
+        this.graphics.use(Resources.Lonelyness.toSprite())
         this.scale = new Vector(0.1, 0.1);
         this.body.collisionType = CollisionType.Passive;
     }

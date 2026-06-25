@@ -13,7 +13,7 @@ export class Puzzelstuk extends Actor {
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.Schaamte.toSprite());
+        this.graphics.use(Resources.Shame.toSprite());
         this.scale = new Vector(0.1, 0.1);
 
         this.body.collisionType = CollisionType.Passive;

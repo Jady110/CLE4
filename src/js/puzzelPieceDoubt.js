@@ -26,8 +26,8 @@ export class PuzzelPieceDoubt extends Actor {
 
         console.log("Chest opened!");
 
-        this.graphics.use(Resources.Zelftwijfel.toSprite());
-        this.scale = new Vector(1.1, 1.1);
+        this.graphics.use(Resources.SelfDoubt.toSprite());
+        this.scale = new Vector(0.8, 0.8);
         this.vel = new Vector(0, -50);
 
         this.events.on("exitviewport", () => this.kill());
@@ -45,8 +45,8 @@ export class PuzzelPieceDoubt extends Actor {
         this.scene.puzzleCollected = true;
 
         this.scene.puzzleCollected = true;
-        this.graphics.use(Resources.Zelftwijfel.toSprite());
-        this.scale = new Vector(1.1, 1.1);
+        this.graphics.use(Resources.SelfDoubt.toSprite());
+        this.scale = new Vector(0.8, 0.8);
         this.vel = new Vector(0, -50);
         this.events.on("exitviewport", (event) => this.kill(event));
     }

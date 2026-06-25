@@ -23,12 +23,6 @@ const Resources = {
     ShadowRight: new ImageSource('images/shadowRight.png'),
     ShadowRightLaughing: new ImageSource('images/ShadowRightLaughing.png'),
 
-    Hearts: new ImageSource('images/hearts.png'),
-    Heart1: new ImageSource('images/empty-heart.png'),
-    Heart2: new ImageSource('images/half-heart.png'),
-    Heart3: new ImageSource('images/full-heart.png'),
-    
-
     GhostDoubt: new ImageSource('images/Ghost-Doubt'),
     GhostDoubtIdle: new ImageSource('images/Ghost-Zelftwijfel.png'),
 
@@ -39,14 +33,11 @@ const Resources = {
 
     Darkness: new ImageSource('images/darkness.png'),
 
-
-    BaksteenMuur: new ImageSource('images/Baksteen_muur.png'),
+    NormalWall: new ImageSource('images/Baksteen_muur.png'),
     GreyWall: new ImageSource('images/Grey_wall.png'),
     VineWall: new ImageSource('images/Wall_vines.png'),
     WoodBarrel: new ImageSource('images/WoodenBarrel.png'),
 
-
-    chestLvl3: new ImageSource('images/chestLvl3.png'),
     Chest: new ImageSource('images/chest.png'),
     Key: new ImageSource('images/key.png'),
 
@@ -64,11 +55,11 @@ const Resources = {
     Shame: new ImageSource('images/powerShame.png'),
     Truesight: new ImageSource('images/truesight.png'),
 
-    Eenzaamheid: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
+    Lonelyness: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
     Stress: new ImageSource('images/Puzzlestuk_stress.png'),
-    Angst: new ImageSource('images/Puzzelstuk_angst.png'),
-    Zelftwijfel: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),
-    Schaamte: new ImageSource('images/Puzzelstuk_schaamte.png'),
+    Fear: new ImageSource('images/Puzzelstuk_angst.png'),
+    SelfDoubt: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),
+    Shame: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
     StartScreen: new ImageSource('images/startScreen.png'),
     Chest: new ImageSource('images/chest.png')
