@@ -32,6 +32,7 @@ export class LevelFour extends Scene {
 
         this.add(map4);
 
+        //Voegt de murencollision toe
         this.wallFour = new WallFour();
         this.add(this.wallFour);
 
