@@ -1,5 +1,5 @@
 import { Scene, Label, Vector, Color, Font, Actor} from "excalibur";
-import { Resources } from "./resources";
+import { Resources } from "./Resources";
 
 
 export class GameOverScene extends Scene {

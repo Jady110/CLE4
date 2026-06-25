@@ -1,5 +1,5 @@
 import * as ex from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 
 export class SolidObjects extends ex.Actor {
     constructor(x, y, width, height, objectType) {

@@ -1,5 +1,5 @@
 import { Actor, Vector, Keys, CollisionType, Camera, SpriteSheet, Animation } from "excalibur"
-import { Resources } from "./resources.js"
+import { Resources } from "./Resources.js"
 
 export class Ghost extends Actor {
     constructor(){

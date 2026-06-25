@@ -1,9 +1,9 @@
 import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane } from "excalibur";
-import { Resources } from "./resources.js";
-import { Light } from "./light.js";
-import { Shame } from "./shame.js";
-import { Truesight } from "./truesight.js";
-import { Purple } from "./purple.js";
+import { Resources } from "./Resources.js";
+import { Light } from "./Light.js";
+import { Shame } from "./Shame.js";
+import { Truesight } from "./TrueSight.js";
+import { Purple } from "./Purple.js";
 
 export class InventoryBar extends Actor {
     constructor(){

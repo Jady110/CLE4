@@ -1,5 +1,5 @@
 import { Scene, Actor, Vector, CollisionType } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 
 export class StressNPC extends Actor {
     constructor() {

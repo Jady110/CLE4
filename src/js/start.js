@@ -1,5 +1,5 @@
 import { Scene, Label, Vector, Color, Font, Keys, Actor } from "excalibur";
-import { Resources } from "./resources.js"
+import { Resources } from "./Resources.js"
 
 export class StartScene extends Scene {
     constructor() {
