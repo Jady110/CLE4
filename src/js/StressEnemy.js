@@ -28,7 +28,11 @@ export class StressEnemy extends Actor {
     }
 
     onPreUpdate(engine){
-   
+        
+
+    }
+
+    onCollisionStart (engine) {
 
     }
 
