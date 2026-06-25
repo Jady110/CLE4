@@ -1,5 +1,5 @@
 import { Scene, Label, Vector, Color, Font, Actor, Keys} from "excalibur";
-import { Resources } from "./resources";
+import { Resources } from "./Resources";
 import { LevelOne } from "./level1.js";
 import { LevelTwo } from "./level2.js";
 import { LevelThree } from "./level3.js";
