@@ -9,6 +9,7 @@ import { Heart } from "./Heart.js";
 import { HeartUI } from "./HeartUI.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { Task } from "./Task.js";
+import { InventoryBar } from "./Inventory.js";
 
 export class LevelThree extends Scene {
     constructor() {

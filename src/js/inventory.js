@@ -13,18 +13,6 @@ export class InventoryBar extends Actor {
             coordPlane: CoordPlane.Screen
         })
         this.graphics.use(Resources.Inventory.toSprite())
-        // outline that will be moved to the equipped slot
-        const size = 64
-        const half = size / 2
-        const top = new Line({ start: new Vector(-half, -half), end: new Vector(half, -half), thickness: 3, color: Color.White })
-        const bottom = new Line({ start: new Vector(-half, half), end: new Vector(half, half), thickness: 3, color: Color.White })
-        const left = new Line({ start: new Vector(-half, -half), end: new Vector(-half, half), thickness: 3, color: Color.White })
-        const right = new Line({ start: new Vector(half, -half), end: new Vector(half, half), thickness: 3, color: Color.White })
-        const group = new GraphicsGroup({ members: [ { graphic: top, offset: new Vector(0,0) }, { graphic: bottom, offset: new Vector(0,0) }, { graphic: left, offset: new Vector(0,0) }, { graphic: right, offset: new Vector(0,0) } ] })
-        this.equipOutline = new Actor({ pos: new Vector(-192, -10), z: 12, coordPlane: CoordPlane.Screen, width: size, height: size })
-        this.equipOutline.graphics.use(group)
-        this.equipOutline.visible = false
-        this.addChild(this.equipOutline)
     }
 
     addPowerup1(){

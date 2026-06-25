@@ -8,6 +8,7 @@ import { PowerLaughter } from "./Powerup.js";
 import { ChestLevel2 } from "./Chest.js";
 import { SolidObjects } from "./SolidObjects.js";
 import { LevelInfo } from "./LevelInfo.js";
+import { InventoryBar } from "./Inventory.js";
 
 export class LevelTwo extends Scene {
     constructor() {
