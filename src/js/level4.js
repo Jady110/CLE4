@@ -5,14 +5,13 @@ import { Chest } from "./Chest.js";
 import { Key }  from "./Key.js"; 
 import { StressEnemy } from "./StressEnemy.js";
 import { StressNPC } from "./StressNPC.js";
-import { Puzzlepiece4 } from "./puzzlepiece4.js";
-import { SolidObjects } from "./SolidObjects.js";
 import { Purple } from "./Purple.js"
 import { Task } from "./Task.js";
 import { LevelInfo } from "./LevelInfo.js";
-import { GameOverScene } from "./gameover.js";
+import { GameOverScene } from "./GameOver.js";
 import { HeartUI } from "./HeartUI.js";
 import { InventoryBar } from "./Inventory.js";
+import { WallFour } from "./walls.js";
 
 
 
@@ -33,26 +32,8 @@ export class LevelFour extends Scene {
 
         this.add(map4);
 
-        this.createWall = (x, y, w, h) => {
-            this.add(new SolidObjects(x, y, w, h));
-        };
-
-        this.createWall(450, 530, 600, 60);
-        this.createWall(190, -20, 75, 1150);
-        this.createWall(660, -570, 1020, 60);
-        this.createWall(1130, 600, 75, 1350);
-        this.createWall(780, 750, 75, 400);
-        this.createWall(660, 1250, 1020, 60);
-        this.createWall(120, 980, 75, 650);
-        this.createWall(300, 690, 450, 70);
-        this.createWall(620, 950, 380, 30);
-        this.createWall(450, 800, 75, 300);
-        this.createWall(480, 20, 75, 500);
-        this.createWall(770, 80, 75, 350);
-        this.createWall(950, -50, 400, 60);
-        this.createWall(850, -200, 650, 60);
-        this.createWall(620, 240, 350, 60);
-        this.createWall(1130, -400, 75, 420);
+        this.wallFour = new WallFour();
+        this.add(this.wallFour);
 
         this.lightCircle = new ScreenElement({
              pos: new Vector(
@@ -99,10 +80,6 @@ export class LevelFour extends Scene {
         this.add(this.Key);
         this.Key.pos = new Vector(1050, 750);
         this.keyGrabbed = false
-
-        this.puzzlePiece4 = new Puzzlepiece4();
-        this.add(this.puzzlePiece4);
-        this.puzzleOwned = false;
 
         this.hearts = new HeartUI(3);
         this.add(this.hearts);
@@ -182,14 +159,10 @@ onCollisionStart(event) {
 
     if (event.other.owner instanceof StressEnemy) {
         this.enemyKilled = true;
+   
+        this.hearts.takeDamage()
 
         window.restartScene = "level4"; 
-        this.engine.goToScene("gameover");
-
-
-        console.log("StressEnemy killed!");
-        event.other.owner.kill();
-        
 
         }
 
