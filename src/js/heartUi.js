@@ -3,13 +3,13 @@ import { Resources } from "./Resources.js";
 import { GameOverScene } from "./GameOver.js";
 
 export class HeartUI extends Actor {
-    constructor(maxHealth = 3) {
+    constructor(maxHealth = 3, level) {
         super({
             pos: new Vector(20, 20),
             z: 1000,
             coordPlane: CoordPlane.Screen
         });
-
+        this.currentLevel = level
         this.maxHealth = maxHealth;
         this.health = maxHealth;
 
@@ -50,6 +50,7 @@ export class HeartUI extends Actor {
         }, 1000);
 
         if (this.health === 0) {
+            window.restartScene = this.currentLevel;
             this.engine.goToScene("gameover")
         };
 

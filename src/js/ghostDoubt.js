@@ -14,15 +14,15 @@ export class GhostDoubt extends Actor {
         this.scale = new Vector(2.5, 2.5);
         this.body.collisionType = CollisionType.Fixed;
 
-        this.quotes = [
-            "Je bent niet goed genoeg...",
-            "Waarom probeer je het steeds?",
-            "Je gaat toch falen.",
-            "Iedereen is beter dan jij.",
-            "Geef gewoon op.",
-            "Denk je echt dat dit gaat lukken?",
-            "Niemand gelooft in je.",
-            "Je verspilt je tijd."
+this.quotes = [
+            "You're not good enough...",
+            "Why do you keep trying?",
+            "You're going to fail anyway.",
+            "Everyone is better than you.",
+            "Just give up.",
+            "Do you really think this will work?",
+            "No one believes in you.",
+            "You're wasting your time."
         ];
     }
 
