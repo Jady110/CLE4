@@ -1,7 +1,7 @@
 import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement, randomInRange } from "excalibur";
 import { Resources } from "./resources.js";
 import { Player } from "./Player.js";
-import { Wall } from "./wall.js";
+import { SolidObjects } from "./solidObjects.js";
 import { GhostDoubt } from "./ghostDoubt.js";
 import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
 import { Key } from "./key.js";
@@ -62,7 +62,7 @@ export class LevelThree extends Scene {
 
 
         this.createWall = (x, y, w, h) => {
-            this.add(new Wall(x, y, w, h));
+            this.add(new SolidObjects(x, y, w, h));
         };
 
         this.createWall(730, 920, 1160, 50);
@@ -77,8 +77,8 @@ export class LevelThree extends Scene {
         this.createWall(1550, 400, 50, 450);
         this.createWall(1405, 650, 300, 50);
         this.createWall(1280, 800, 50, 350);
-        this.chestDoor = this.add(new Wall(1280, 425, 50, 400, "vine"))
-        this.add(new Wall(365, 200, 300, 50, "vine"));
+        this.chestDoor = this.add(new SolidObjects(1280, 425, 50, 400, "greyWall"))
+        this.add(new SolidObjects(365, 200, 300, 50, "vineWall"));
 
 
 

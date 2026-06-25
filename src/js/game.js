@@ -5,7 +5,7 @@ import { LevelOne } from "./level1.js";
 import { LevelTwo } from "./level2.js";
 import { LevelThree } from "./level3.js";
 import { LevelFour } from "./level4.js";
-import { GameOverScene } from "./GameOver.js";
+import { GameOverScene } from "./gameover.js";
 import { StartScene } from './start.js';
 
 export class Game extends Engine {
@@ -31,3 +31,4 @@ export class Game extends Engine {
 }
 
 new Game()
+

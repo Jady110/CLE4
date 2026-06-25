@@ -1,8 +1,8 @@
 import * as ex from "excalibur";
 import { Resources } from "./resources.js";
 
-export class Wall extends ex.Actor {
-    constructor(x, y, width, height, wallType) {
+export class SolidObjects extends ex.Actor {
+    constructor(x, y, width, height, objectType) {
         super({
             pos: new ex.Vector(x, y),
             width,
@@ -10,26 +10,30 @@ export class Wall extends ex.Actor {
             collisionType: ex.CollisionType.Fixed
         });
 
-        this.wallType = wallType; // mag undefined zijn
+        this.objectType = objectType; // mag undefined zijn
     }
 
     onInitialize() {
         let resource;
 
-        switch (this.wallType) {
-            case "brick":
+        switch (this.objectType) {
+            case "brickWall":
                 resource = Resources.BaksteenMuur;
                 break;
 
-            case "vine":
+            case "vineWall":
                 resource = Resources.VineWall;
                 break;
 
             case "greyWall":
                 resource = Resources.GreyWall;
                 break;
+            
+            case "woodBarrel":
+                resource = Resources.WoodBarrel;
+                break;
 
-            default:
+            default: // Fixed barrier met niks erin
                 return;
         }
 

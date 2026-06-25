@@ -19,9 +19,9 @@ const Resources = {
     Shadow: new ImageSource('images/shadowForward.png'),
     ShadowLaughing: new ImageSource('images/shadowForwardLaughing.png'),
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
-    ShadowLeftLaughing: new ImageSource('images/ShadowLeftLaughing.png'),
+    ShadowLeftLaughing: new ImageSource('images/shadowLeftLaughing.png'),
     ShadowRight: new ImageSource('images/shadowRight.png'),
-    ShadowRightLaughing: new ImageSource('images/ShadowRightLaughing.png'),
+    ShadowRightLaughing: new ImageSource('images/shadowRightLaughing.png'),
 
     Hearts: new ImageSource('images/hearts.png'),
     Heart1: new ImageSource('images/empty-heart.png'),
@@ -29,7 +29,7 @@ const Resources = {
     Heart3: new ImageSource('images/full-heart.png'),
     
 
-    GhostDoubt: new ImageSource('images/Ghost-Doubt'),
+    GhostDoubt: new ImageSource('images/Ghost-Doubt.png'),
     GhostDoubtIdle: new ImageSource('images/Ghost-Zelftwijfel.png'),
 
     Map1: new ImageSource('images/map1.png'),
@@ -43,6 +43,7 @@ const Resources = {
     BaksteenMuur: new ImageSource('images/Baksteen_muur.png'),
     GreyWall: new ImageSource('images/Grey_wall.png'),
     VineWall: new ImageSource('images/Wall_vines.png'),
+    WoodBarrel: new ImageSource('images/WoodenBarrel.png'),
 
 
     chestLvl3: new ImageSource('images/chestLvl3.png'),
@@ -64,12 +65,13 @@ const Resources = {
     Truesight: new ImageSource('images/truesight.png'),
 
     Eenzaamheid: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
-    Stress: new ImageSource('images/Puzzlestuk_stress.png'),
+    Stress: new ImageSource('images/Puzzelstuk_Stress.png'),
     Angst: new ImageSource('images/Puzzelstuk_angst.png'),
-    Zelftwijfel: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),
+    Zelftwijfel: new ImageSource('images/Puzzelstuk_ zelftwijfel.png'),
     Schaamte: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
-    StartScreen: new ImageSource('images/startScreen.png'),
+    // Dit plaatje staat niet in de map images
+    // StartScreen: new ImageSource('images/startScreen.png'),
     Chest: new ImageSource('images/chest.png')
 }
 

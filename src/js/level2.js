@@ -6,7 +6,7 @@ import { ShadowEnemy, ShadowEnemyKey, ShadowEnemyLeft, ShadowEnemyRight } from "
 import { Key } from "./key.js";
 import { PowerLaughter } from "./Powerup.js";
 import { ChestLevel2 } from "./chest.js";
-import { Wall } from "./wall.js";
+import { SolidObjects } from "./solidObjects.js";
 import { LevelInfo } from "./levelInfo.js";
 
 export class LevelTwo extends Scene {
@@ -43,7 +43,7 @@ export class LevelTwo extends Scene {
         this.add(this.lightCirlce);
 
         this.createWall = (x, y, w, h) => {
-            this.add(new Wall(x, y, w, h));
+            this.add(new SolidObjects(x, y, w, h));
         };
 
         this.createWall(1000, 860, 1000, 50); // wall onder chest
