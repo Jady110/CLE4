@@ -1,16 +1,16 @@
 import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane, ScreenElement } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
-import { Chest } from "./chest.js";
-import { Key } from "./key.js"
+import { Chest } from "./Chest.js";
+import { Key } from "./Key.js"
 import { Puzzlepiece1 } from "./puzzlepiece1.js"
-import { EnemyLoneliness } from "./enemy-loneliness.js";
-import { Ghost } from "./ghost.js";
-import { SolidObjects } from "./solidObjects.js";
-import { Task } from "./task.js";
-import { LevelInfo } from "./levelInfo.js";
-import { HeartUI } from "./heartUi.js";
-import { InventoryBar } from "./inventory.js";
+import { EnemyLoneliness } from "./EnemyLoneliness.js";
+import { Ghost } from "./Ghost.js";
+import { SolidObjects } from "./SolidObjects.js";
+import { Task } from "./Task.js";
+import { LevelInfo } from "./LevelInfo.js";
+import { HeartUI } from "./HeartUI.js";
+import { InventoryBar } from "./Inventory.js";
 
 export class LevelOne extends Scene {
     constructor() {

@@ -1,13 +1,13 @@
 import { Scene, Actor, Vector, Collider, CollisionType, Color, ScreenElement } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
-import { ShadowEnemy, ShadowEnemyKey, ShadowEnemyLeft, ShadowEnemyRight } from "./Shadowenemy.js";
-import { Key } from "./key.js";
+import { ShadowEnemy, ShadowEnemyKey, ShadowEnemyLeft, ShadowEnemyRight } from "./ShadowEnemy.js";
+import { Key } from "./Key.js";
 import { PowerLaughter } from "./Powerup.js";
-import { ChestLevel2 } from "./chest.js";
-import { SolidObjects } from "./solidObjects.js";
-import { LevelInfo } from "./levelInfo.js";
+import { ChestLevel2 } from "./Chest.js";
+import { SolidObjects } from "./SolidObjects.js";
+import { LevelInfo } from "./LevelInfo.js";
 
 export class LevelTwo extends Scene {
     constructor() {

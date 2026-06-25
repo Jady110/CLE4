@@ -1,5 +1,5 @@
 import { Actor, Vector, CoordPlane, Scene } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 import { GameOverScene } from "./GameOver.js";
 
 export class HeartUI extends Actor {

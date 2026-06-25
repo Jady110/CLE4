@@ -1,5 +1,5 @@
 import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
-import { Resources } from "./resources.js"
+import { Resources } from "./Resources.js"
 import { Player } from "./Player.js";
 
 export class PuzzelPieceDoubt extends Actor {

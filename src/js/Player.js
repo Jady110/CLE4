@@ -1,9 +1,9 @@
 import { Actor, Vector, Keys, CollisionType, Camera, SpriteSheet, Animation } from "excalibur"
-import { Resources } from "./resources.js"
-import { Purple } from "./purple.js"; 
-import { Light } from "./light.js";
-import { Shame } from "./shame.js";
-import { Truesight } from "./truesight.js";
+import { Resources } from "./Resources.js"
+import { Purple } from "./Purple.js"; 
+import { Light } from "./Light.js";
+import { Shame } from "./Shame.js";
+import { Truesight } from "./TrueSight.js";
 
 
 export class Player extends Actor {

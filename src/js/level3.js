@@ -1,14 +1,14 @@
 import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement, randomInRange } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
-import { SolidObjects } from "./solidObjects.js";
-import { GhostDoubt } from "./ghostDoubt.js";
+import { SolidObjects } from "./SolidObjects.js";
+import { GhostDoubt } from "./GhostDoubt.js";
 import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
-import { Key } from "./key.js";
-import { Heart } from "./heart.js";
-import { HeartUI } from "./heartUi.js";
-import { LevelInfo } from "./levelInfo.js";
-import { Task } from "./task.js";
+import { Key } from "./Key.js";
+import { Heart } from "./Heart.js";
+import { HeartUI } from "./HeartUI.js";
+import { LevelInfo } from "./LevelInfo.js";
+import { Task } from "./Task.js";
 
 export class LevelThree extends Scene {
     constructor() {
