@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane } from "excalibur";
+import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane, Line, GraphicsGroup } from "excalibur";
 import { Resources } from "./Resources.js";
 import { Light } from "./Light.js";
 import { Shame } from "./Shame.js";
@@ -9,7 +9,7 @@ export class InventoryBar extends Actor {
     constructor(){
         super({
             pos: new Vector(630, 670),
-            z: 9,
+            z: 10,
             coordPlane: CoordPlane.Screen
         })
         this.graphics.use(Resources.Inventory.toSprite())
@@ -38,5 +38,30 @@ export class InventoryBar extends Actor {
         this.powerUp4.scale= new Vector(1, 1)
         this.powerUp4.pos= new Vector(90, -10)
         this.addChild(this.powerUp4)
+    }
+
+    equipPowerup1(){
+        if (this.equipOutline){
+            this.equipOutline.pos = new Vector(-192, -10)
+            this.equipOutline.visible = true
+        }
+    }
+    equipPowerup2(){
+        if (this.equipOutline){
+            this.equipOutline.pos = new Vector(-100, -10)
+            this.equipOutline.visible = true
+        }
+    }
+    equipPowerup3(){
+        if (this.equipOutline){
+            this.equipOutline.pos = new Vector(0, -10)
+            this.equipOutline.visible = true
+        }
+    }
+    equipPowerup4(){
+        if (this.equipOutline){
+            this.equipOutline.pos = new Vector(90, -10)
+            this.equipOutline.visible = true
+        }
     }
 }

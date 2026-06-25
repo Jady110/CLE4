@@ -8,6 +8,7 @@ import { PowerLaughter } from "./Powerup.js";
 import { ChestLevel2 } from "./Chest.js";
 import { SolidObjects } from "./SolidObjects.js";
 import { LevelInfo } from "./LevelInfo.js";
+import { InventoryBar } from "./Inventory.js";
 
 export class LevelTwo extends Scene {
     constructor() {
@@ -66,9 +67,17 @@ export class LevelTwo extends Scene {
         this.chest.pos = new Vector(1325, 650);
         this.add(this.chest);
 
-        this.powerup = new PowerLaughter();
-        this.powerup.pos = new Vector(650, 750);
-        this.add(this.powerup);
+        this.powerup1 = new PowerLaughter();
+        this.powerup1.pos = new Vector(650, 750);
+        this.add(this.powerup1);
+
+        this.powerup2 = new PowerLaughter();
+        this.powerup2.pos = new Vector(1050, 30);
+        this.add(this.powerup2);
+
+        this.powerup3 = new PowerLaughter();
+        this.powerup3.pos = new Vector(-230, 800);
+        this.add(this.powerup3);
 
         this.enemy1 = new ShadowEnemy();
         this.enemy1.pos = new Vector(250, -50);
@@ -97,6 +106,9 @@ export class LevelTwo extends Scene {
         this.player = new Player();
         this.player.pos = new Vector(-75, 700);
         this.add(this.player);
+
+        this.inventory = new InventoryBar()
+        this.add(this.inventory)
 
         engine.showDebug(true);
 
