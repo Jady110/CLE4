@@ -132,7 +132,7 @@ export class LevelOne extends Scene {
             this.ghost3.pos = new Vector(900, 450)
             this.add(this.ghost3)
 
-            this.tasksUI.updateText('Find the memories')
+            this.tasksUI.updateText(`Find the memories ${this.ghostfound} / 3`)
             }
 
         }
@@ -141,12 +141,13 @@ export class LevelOne extends Scene {
                 this.engine.goToScene("level2")
             } else {
                 window.restartScene = "level1";
-                this.engine.goToScene("gameover");
+                this.hearts.takeDamage();
             }
         }
         if (event.other.owner instanceof Ghost){
             event.other.owner.kill()
             this.ghostfound++
+            this.tasksUI.updateText(`Find the memories ${this.ghostfound} / 3`)
             console.log(this.ghostfound)
             if (this.ghostfound === 3){
                 this.tasksUI.updateText('Kill the enemy')

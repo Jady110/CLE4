@@ -1,54 +1,53 @@
-import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
-import { Resources } from "./Resources.js"
-import { Player } from "./Player.js";
+import { Actor, Vector, CollisionType } from "excalibur";
+import { Resources } from "./Resources.js";
 
-export class PuzzelPieceDoubt extends Actor {
+export class Puzzelstuk extends Actor {
 
-    constructor() {
+    constructor(x, y) {
         super({
-            width: Resources.Chest.width / 2,
-            height: Resources.Chest.height / 2
+            pos: new Vector(x, y),
+            width: 400,
+            height: 400
         });
 
-        this.pos = new Vector(1450, 450)
-        this.body.collisionType = CollisionType.Passive;
-
+        this.collected = false;
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.Chest.toSprite());
-        this.scale = new Vector(0.4, 0.4);
-        this.puzzleCollected = false;
+        this.graphics.use(Resources.SelfDoubtPuzzlepiece.toSprite());
+
+        this.scale = new Vector(0.1, 0.1);
+
+        this.body.collisionType = CollisionType.Passive;
+
+        this.graphics.isVisible = false;
     }
 
-    openChest() {
-        this.scene.puzzleCollected = true;
+    // 👇 handig: spawn / verplaatsen
+    setPosition(x, y) {
+        this.pos = new Vector(x, y);
+    }
 
-        console.log("Chest opened!");
-
-        this.graphics.use(Resources.SelfDoubt.toSprite());
-        this.scale = new Vector(0.8, 0.8);
-        this.vel = new Vector(0, -50);
-
-        this.events.on("exitviewport", () => this.kill());
+    // 👇 zichtbaar maken
+    show() {
+        this.graphics.isVisible = true;
     }
 
     onCollisionStart(event) {
-        
-        if (!this.scene.keyGrabbed) {
-            console.log("You need a key first!");
-            return;
+
+        const actor = event.other?.owner ?? event.other;
+
+        if (!actor) return;
+        if (this.collected) return;
+
+        if (actor.tags?.has("player")) {
+
+            console.log("Player picked up puzzle piece.");
+
+            this.collected = true;
+            this.scene.puzzleCollected = true;
+
+            this.kill();
         }
-
-        this.openChest();
-
-        this.scene.puzzleCollected = true;
-
-        this.scene.puzzleCollected = true;
-        this.graphics.use(Resources.SelfDoubt.toSprite());
-        this.scale = new Vector(0.8, 0.8);
-        this.vel = new Vector(0, -50);
-        this.events.on("exitviewport", (event) => this.kill(event));
     }
-
 }

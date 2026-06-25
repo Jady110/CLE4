@@ -13,7 +13,7 @@ export class Task extends Actor {
     onInitialize(engine){
         this.taskText = new Label({
             text: '',
-            pos: new Vector(-100, -40),
+            pos: new Vector(-110, -40),
             color: Color.White,
             font: new Font({ 
                 family: "Georgia, serif",
