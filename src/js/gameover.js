@@ -29,7 +29,7 @@ export class GameOverScene extends Scene {
 
         const restartText = new Label({
             text: "Druk op SPACE om opnieuw te beginnen",
-            pos: new Vector(300, 380),
+            pos: new Vector(380, 450),
             color: Color.White,
             font: new Font({
                 family: "Georgia, serif",
