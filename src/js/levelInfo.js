@@ -1,5 +1,5 @@
 import { Scene, Actor, Vector, Camera, Color, CollisionType, Engine, Label, Font, CoordPlane } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 
 export class LevelInfo extends Actor {
     constructor(){

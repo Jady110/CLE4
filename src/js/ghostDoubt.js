@@ -1,5 +1,5 @@
 import { Actor, Vector, SpriteSheet, Animation, CollisionType, VectorView } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 
 export class GhostDoubt extends Actor {
     constructor(player) {

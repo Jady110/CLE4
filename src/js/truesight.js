@@ -1,5 +1,5 @@
 import { Scene, Actor, Vector, SpriteSheet, Animation, CollisionType } from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 
 export class Truesight extends Actor {
     constructor() {
@@ -7,7 +7,7 @@ export class Truesight extends Actor {
             width: 200,
             height: 1000
         });
-        this.scale = new Vector(0.15, 0.15);
+        this.scale = new Vector(0.3, 0.3);
         this.body.collisionType = CollisionType.Passive;
     }
 

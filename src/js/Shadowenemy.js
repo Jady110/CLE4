@@ -1,8 +1,8 @@
 import { Actor, Vector, Keys, CollisionType, Camera, PointerEvent, SpriteSheet, Animation } from "excalibur"
-import { Resources } from "./resources.js"
+import { Resources } from "./Resources.js"
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
-import { Key } from "./key.js";
+import { Key } from "./Key.js";
 import { PowerLaughter } from "./Powerup.js";
 
 export class ShadowEnemy extends Actor {

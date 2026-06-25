@@ -1,7 +1,7 @@
 import { Actor, Vector, Keys, CollisionType, Camera, PointerEvent } from "excalibur"
-import { Resources } from "./resources.js"
+import { Resources } from "./Resources.js"
 import { Puzzelstuk } from "./Puzzelstuk.js"
-import { ShadowEnemyKey } from "./Shadowenemy.js"
+import { ShadowEnemyKey } from "./ShadowEnemy.js"
 
 export class Chest extends Actor {
     constructor() {
