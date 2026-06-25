@@ -9,7 +9,7 @@ export class InventoryBar extends Actor {
     constructor(){
         super({
             pos: new Vector(630, 670),
-            z: 9,
+            z: 10,
             coordPlane: CoordPlane.Screen
         })
         this.graphics.use(Resources.Inventory.toSprite())

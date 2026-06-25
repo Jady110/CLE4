@@ -12,6 +12,7 @@ import { Task } from "./Task.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { GameOverScene } from "./gameover.js";
 import { HeartUI } from "./HeartUI.js";
+import { InventoryBar } from "./Inventory.js";
 
 
 
@@ -111,11 +112,15 @@ export class LevelFour extends Scene {
         this.tasksUI = new Task()
         this.add(this.tasksUI)
 
+        this.inventory = new InventoryBar()
+        this.add(this.inventory)
+
         this.levelInfo = new LevelInfo()
                 this.add(this.levelInfo)
-                setTimeout(() => {s
+                setTimeout(() => {
                     this.levelInfo.kill()
                 }, 2000)
+
     }
 
    
@@ -166,6 +171,9 @@ onCollisionStart(event) {
                 this.textPower.kill()
             }, 1500)
 
+
+        this.player.purplePower = true
+        this.inventory.addPowerup4()
         
         } else {
             console.log("Chest is locked.");
