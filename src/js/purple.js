@@ -13,8 +13,16 @@ export class Purple extends Actor {
 
 
     onInitialize(engine) {
-
-        this.graphics.use(Resources.Purple.toSprite())
-    
+        const purpleSheet = SpriteSheet.fromImageSource({
+            image: Resources.Purple,
+            grid: {
+                rows: 2,
+                columns: 2,
+                spriteWidth: Resources.Purple.width / 2,
+                spriteHeight: Resources.Purple.height / 2
+            }
+        })
+        this.purpleAnimation = Animation.fromSpriteSheet(purpleSheet, [0, 1, 2, 3], 800)
+        this.graphics.use(this.purpleAnimation)
     }
 }
