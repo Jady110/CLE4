@@ -1,11 +1,11 @@
 import '../css/style.css'
 import { Engine, DisplayMode } from "excalibur"
 import { ResourceLoader } from './Resources.js'
-import { LevelOne } from "./level1.js";
-import { LevelTwo } from "./level2.js";
-import { LevelThree } from "./level3.js";
-import { LevelFour } from "./level4.js";
-import { GameOverScene } from "./gameover.js";
+import { LevelOne } from "./Level1.js";
+import { LevelTwo } from "./Level2.js";
+import { LevelThree } from "./Level3.js";
+import { LevelFour } from "./Level4.js";
+import { GameOverScene } from "./GameOver.js";
 import { StartScene } from './Start.js';
 
 export class Game extends Engine {

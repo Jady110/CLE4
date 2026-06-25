@@ -10,7 +10,7 @@ import { SolidObjects } from "./SolidObjects.js";
 import { Purple } from "./Purple.js"
 import { Task } from "./Task.js";
 import { LevelInfo } from "./LevelInfo.js";
-import { GameOverScene } from "./gameover.js";
+import { GameOverScene } from "./GameOver.js";
 
 
 
