@@ -1,15 +1,17 @@
 import { Scene, Actor, Vector, Camera, Color, CollisionType, Label, Font, ScreenElement} from "excalibur";
-import { Resources } from "./resources.js";
+import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";   
-import { Chest } from "./chest.js";
-import { Key }  from "./key.js"; 
-import { StressEnemy } from "./stress-enemy.js";
-import { StressNPC } from "./stressnpc.js";
+import { Chest } from "./Chest.js";
+import { Key }  from "./Key.js"; 
+import { StressEnemy } from "./StressEnemy.js";
+import { StressNPC } from "./StressNPC.js";
 import { Puzzlepiece4 } from "./puzzlepiece4.js";
-import { SolidObjects } from "./solidObjects.js";
-import { Purple } from "./purple.js"
-import { Task } from "./task.js";
-import { LevelInfo } from "./levelInfo.js";
+import { SolidObjects } from "./SolidObjects.js";
+import { Purple } from "./Purple.js"
+import { Task } from "./Task.js";
+import { LevelInfo } from "./LevelInfo.js";
+import { GameOverScene } from "./gameover.js";
+
 
 
 export class LevelFour extends Scene {
@@ -112,15 +114,17 @@ export class LevelFour extends Scene {
                 }, 2000)
     }
 
+   
      onPreUpdate(engine){
         
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
 
         if (this.levelInfo){
-            this.levelInfo.updateLevelNumber('Level four')
-            this.levelInfo.updateLevelName('Stress')
+            this.levelInfo.updateLevelNumber("Level four")
+            this.levelInfo.updateLevelName('Stress') 
         }
+
         }
     }
 
@@ -166,11 +170,14 @@ onCollisionStart(event) {
 
     if (event.other.owner instanceof StressEnemy) {
         this.enemyKilled = true;
-          this.engine.goToScene("gameover");
+
+        window.restartScene = "level4"; 
+        this.engine.goToScene("gameover");
+
 
         console.log("StressEnemy killed!");
-        
         event.other.owner.kill();
+        
 
         }
 
@@ -196,6 +203,8 @@ onCollisionStart(event) {
             }, 1500)
 
             } 
+
+      
      
     }
 }

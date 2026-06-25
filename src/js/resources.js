@@ -1,5 +1,5 @@
 import { ImageSource, Sound, Resource, Loader } from 'excalibur'
-import { GhostDoubt } from './ghostDoubt'
+
 
 
 // voeg hier jouw eigen resources toe
@@ -19,11 +19,11 @@ const Resources = {
     Shadow: new ImageSource('images/shadowForward.png'),
     ShadowLaughing: new ImageSource('images/shadowForwardLaughing.png'),
     ShadowLeft: new ImageSource('images/shadowLeft.png'),
-    ShadowLeftLaughing: new ImageSource('images/ShadowLeftLaughing.png'),
+    ShadowLeftLaughing: new ImageSource('images/shadowLeftLaughing.png'),
     ShadowRight: new ImageSource('images/shadowRight.png'),
     ShadowRightLaughing: new ImageSource('images/ShadowRightLaughing.png'),
 
-    GhostDoubt: new ImageSource('images/Ghost-Doubt'),
+    GhostDoubt: new ImageSource('images/Ghost-Doubt.png'),
     GhostDoubtIdle: new ImageSource('images/Ghost-Zelftwijfel.png'),
 
     Map1: new ImageSource('images/map1.png'),
@@ -61,7 +61,8 @@ const Resources = {
     SelfDoubt: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),
     Shame: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
-    StartScreen: new ImageSource('images/startScreen.png'),
+    // Dit plaatje staat niet in de map images
+    // StartScreen: new ImageSource('images/startScreen.png'),
     Chest: new ImageSource('images/chest.png')
 }
 

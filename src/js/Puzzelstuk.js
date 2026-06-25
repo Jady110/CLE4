@@ -1,7 +1,7 @@
 import { Actor, Vector, Keys, CollisionType, Camera } from "excalibur"
-import { Resources } from "./resources.js"
+import { Resources } from "./Resources.js"
 import { Player } from "./Player.js";
-import { ChestLevel2 } from "./chest.js";
+import { ChestLevel2 } from "./Chest.js";
 
 export class Puzzelstuk extends Actor {
 
