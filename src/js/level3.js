@@ -93,6 +93,9 @@ export class LevelThree extends Scene {
         this.tasksUI = new Task()
         this.add(this.tasksUI)
 
+        this.inventory = new InventoryBar()
+        this.add(this.inventory)
+
         this.levelInfo = new LevelInfo()
         this.add(this.levelInfo)
         setTimeout(() => {

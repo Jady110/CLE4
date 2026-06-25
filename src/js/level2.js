@@ -106,6 +106,9 @@ export class LevelTwo extends Scene {
         this.player.pos = new Vector(-75, 700);
         this.add(this.player);
 
+        this.inventory = new InventoryBar()
+        this.add(this.inventory)
+
         engine.showDebug(true);
 
         this.camera.strategy.lockToActor(this.player);
