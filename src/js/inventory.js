@@ -40,28 +40,5 @@ export class InventoryBar extends Actor {
         this.addChild(this.powerUp4)
     }
 
-    equipPowerup1(){
-        if (this.equipOutline){
-            this.equipOutline.pos = new Vector(-192, -10)
-            this.equipOutline.visible = true
-        }
-    }
-    equipPowerup2(){
-        if (this.equipOutline){
-            this.equipOutline.pos = new Vector(-100, -10)
-            this.equipOutline.visible = true
-        }
-    }
-    equipPowerup3(){
-        if (this.equipOutline){
-            this.equipOutline.pos = new Vector(0, -10)
-            this.equipOutline.visible = true
-        }
-    }
-    equipPowerup4(){
-        if (this.equipOutline){
-            this.equipOutline.pos = new Vector(90, -10)
-            this.equipOutline.visible = true
-        }
-    }
+
 }
