@@ -140,6 +140,7 @@ export class LevelOne extends Scene {
             if (this.ghostfound === 3){
                 this.engine.goToScene("level2")
             } else {
+                window.restartScene = "level1";
                 this.engine.goToScene("gameover");
             }
         }
@@ -150,6 +151,7 @@ export class LevelOne extends Scene {
             if (this.ghostfound === 3){
                 this.tasksUI.updateText('Kill the enemy')
                 this.player.lightPower = true
+                this.inventory.addPowerup1()
             }
         }
     }

@@ -81,11 +81,11 @@ export class Player extends Actor {
         
         
         //Power up level 1
-        this.lightPower = false; 
+        this.lightPower = true; 
         this.lightPowerEquipped = false
      
         //Power up level 2
-        this.shamePower = false; 
+        this.shamePower = true; 
         this.shamePowerEquipped = false
 
         //Power up level 3
@@ -149,19 +149,31 @@ export class Player extends Actor {
         if (engine.input.keyboard.wasPressed(Keys.Digit1)){
             if (this.lightPower === true){
                 this.lightPowerEquipped = true
+                this.truesightPowerEquipped = false
+                this.purplePowerEquipped = false
+                this.shamePowerEquipped = false
             }
             console.log(this.lightPower)
         }else if (engine.input.keyboard.wasPressed(Keys.Digit2)){
             if (this.shamePower === true){
                 this.shamePowerEquipped = true
+                this.lightPowerEquipped = false
+                this.truesightPowerEquipped = false
+                this.purplePowerEquipped = false
             }
         }else if (engine.input.keyboard.wasPressed(Keys.Digit3)){
             if (this.truesightPower === true){
                 this.truesightPowerEquipped = true
+                this.purplePowerEquipped = false
+                this.shamePowerEquipped = false
+                this.lightPowerEquipped = false
             }
         }else if (engine.input.keyboard.wasPressed(Keys.Digit4)){
             if (this.purplePower === true){
                 this.purplePowerEquipped = true
+                this.shamePowerEquipped = false
+                this.lightPowerEquipped = false
+                this.truesightPowerEquipped = false
             }
         }
     }
@@ -177,17 +189,20 @@ export class Player extends Actor {
             bulletLight.pos = this.pos.add(direction.scale(30));
             bulletLight.vel = bulletVel;
             this.scene.add(bulletLight);
-        } else if (this.shamePowerEquipped){
+        } 
+        if (this.shamePowerEquipped){
             const bulletShame = new Shame();
             bulletShame.pos = this.pos.add(direction.scale(30));
             bulletShame.vel = bulletVel;
             this.scene.add(bulletShame);
-        } else if (this.truesightPowerEquipped){
+        } 
+        if (this.truesightPowerEquipped){
             const bulletSight = new Truesight();
             bulletSight.pos = this.pos.add(direction.scale(30));
             bulletSight.vel = bulletVel;
             this.scene.add(bulletSight);
-        } else if (this.purplePowerEquipped){
+        } 
+        if (this.purplePowerEquipped){
             const bulletPurple = new Purple();
             bulletPurple.pos = this.pos.add(direction.scale(30));
             bulletPurple.vel = bulletVel;
