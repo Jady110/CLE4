@@ -30,5 +30,14 @@ export class GameOverScene extends Scene {
         this.image.graphics.use(Resources.LevelInfos.toSprite())
         this.image.scale = new Vector(1.6, 1.6)
         this.add(this.image)
+
+        //  if (engine.input.keyboard.wasPressed(Keys.space)){
+         
+        //  }
+
+
+    
     }
+
+    
 }
