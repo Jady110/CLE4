@@ -52,14 +52,14 @@ const Resources = {
     Light: new ImageSource('images/light.png'),
     Laughter: new ImageSource('images/powerupShame.webp'),
     Purple: new ImageSource('images/purple-powerup.png'),
-    Shame: new ImageSource('images/powerShame.png'),
+    ShamePower: new ImageSource('images/powerShame.png'),
     Truesight: new ImageSource('images/truesight.png'),
 
-    Lonelyness: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
-    Stress: new ImageSource('images/Puzzlestuk_stress.png'),
-    Fear: new ImageSource('images/Puzzelstuk_angst.png'),
-    SelfDoubt: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),
-    Shame: new ImageSource('images/Puzzelstuk_schaamte.png'),
+    LonelinessPuzzlepiece: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
+    StressPuzzlepiece: new ImageSource('images/Puzzlestuk_stress.png'),
+    FearPuzzlepieze: new ImageSource('images/Puzzelstuk_angst.png'),
+    SelfDoubtPuzzlepiece: new ImageSource('images/Puzzelstuk_zelftwijfel.png'),
+    ShamePuzzlepiece: new ImageSource('images/Puzzelstuk_schaamte.png'),
 
     // Dit plaatje staat niet in de map images
     // StartScreen: new ImageSource('images/startScreen.png'),
