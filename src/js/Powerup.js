@@ -6,14 +6,14 @@ export class PowerLaughter extends Actor {
 
     constructor() {
         super({
-            width: 800,
-            height: 1300
+            width: 130,
+            height: 170
         });
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.Laughter.toSprite());
-        this.scale = new Vector(0.05, 0.05);
+        this.graphics.use(Resources.ShamePower.toSprite());
+        this.scale = new Vector(0.3, 0.3);
 
         this.body.collisionType = CollisionType.Passive;
     }

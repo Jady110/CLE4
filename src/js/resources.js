@@ -52,7 +52,7 @@ const Resources = {
     Light: new ImageSource('images/light.png'),
     Laughter: new ImageSource('images/powerupShame.webp'),
     Purple: new ImageSource('images/purple-powerup.png'),
-    Shame: new ImageSource('images/powerShame.png'),
+    ShamePower: new ImageSource('images/powerShame.png'),
     Truesight: new ImageSource('images/truesight.png'),
 
     LonelinessPuzzlepiece: new ImageSource('images/Puzzelstuk_eenzaamheid.png'),
