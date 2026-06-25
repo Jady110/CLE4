@@ -3,12 +3,13 @@ import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
 import { SolidObjects } from "./SolidObjects.js";
 import { GhostDoubt } from "./GhostDoubt.js";
-import { PuzzelPieceDoubt } from "./puzzelPieceDoubt.js";
+import { Puzzelstuk } from "./puzzelPieceDoubt.js";
 import { Key } from "./Key.js";
 import { Heart } from "./Heart.js";
 import { HeartUI } from "./HeartUI.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { Task } from "./Task.js";
+import { Chest } from "./Chest.js";
 
 export class LevelThree extends Scene {
     constructor() {
@@ -47,10 +48,6 @@ export class LevelThree extends Scene {
         // this.lightCircle.z = 9;
 
         // this.add(this.lightCircle);
-
-
-        this.puzzelPieceDoubt = new PuzzelPieceDoubt();
-        this.add(this.puzzelPieceDoubt);
 
         this.key = new Key();
         this.add(this.key);
@@ -98,6 +95,14 @@ export class LevelThree extends Scene {
         setTimeout(() => {
             this.levelInfo.kill()
         }, 2000)
+
+
+        this.chest = new Chest();
+        this.chest.pos = new Vector(900, 300);
+        this.add(this.chest);
+
+        this.puzzelstuk = new Puzzelstuk(900, 400);
+        this.add(this.puzzelstuk);
 
         this.player.events.on('collisionstart', (event) => this.onCollision(event))
 
