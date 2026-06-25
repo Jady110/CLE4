@@ -10,6 +10,7 @@ import { HeartUI } from "./HeartUI.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { Task } from "./Task.js";
 import { Chest } from "./Chest.js";
+import { InventoryBar } from "./Inventory.js";
 
 export class LevelThree extends Scene {
     constructor() {
@@ -54,7 +55,7 @@ export class LevelThree extends Scene {
         this.key.pos = new Vector(800, 800)
         this.keyGrabbed = false
 
-        this.hearts = new HeartUI(3);
+        this.hearts = new HeartUI(3 , "level3");
         this.add(this.hearts);
 
 
@@ -101,10 +102,12 @@ export class LevelThree extends Scene {
 
 
         this.chest = new Chest();
-        this.chest.pos = new Vector(900, 300);
+        this.chest.pos = new Vector(1450, 400);
         this.add(this.chest);
+        this.chestOpened = false
 
-        this.puzzelstuk = new Puzzelstuk(900, 400);
+
+        this.puzzelstuk = new Puzzelstuk(300, 20);
         this.add(this.puzzelstuk);
 
         this.player.events.on('collisionstart', (event) => this.onCollision(event))
@@ -124,7 +127,7 @@ export class LevelThree extends Scene {
 
     onPreUpdate(engine){
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
-            this.tasksUI.updateText('Find the key and open the door')
+            this.tasksUI.updateText('Find the key')
         }
 
         if (this.levelInfo){
@@ -135,12 +138,28 @@ export class LevelThree extends Scene {
 
     onCollision(event) {
         
-        
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true
             console.log("key grabbed")
+            this.tasksUI.updateText('Find the chest')
             event.other.owner.kill()
             this.chestDoor.kill();
+        }
+
+        if (event.other.owner instanceof Chest){
+            if (this.keyGrabbed === true ){
+                event.other.owner.kill()
+                this.puzzelstuk.graphics.isVisible = true;
+                this.tasksUI.updateText('Find the puzzel')
+                this.chestOpened = true
+            }
+        }
+
+        if (event.other.owner instanceof Puzzelstuk){
+            if (this.chestOpened === true ){
+                // this.tasksUI.updateText('kill the enemy')
+                this.engine.goToScene("level4")
+            }
         }
     }
 }
