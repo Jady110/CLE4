@@ -1,5 +1,7 @@
 import { Scene, Actor, Vector, SpriteSheet, Animation, CollisionType } from "excalibur";
 import { Resources } from "./Resources.js";
+import { Player } from "./Player.js";
+
 
 export class EnemyLoneliness extends Actor {
     constructor() {
@@ -12,8 +14,7 @@ export class EnemyLoneliness extends Actor {
     }
     onInitialize(engine) {
         this.graphics.use(Resources.LonelinessEnemy.toSprite())
-
-
         this.health = 100;
     }
+    
 }

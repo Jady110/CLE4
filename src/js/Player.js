@@ -185,28 +185,28 @@ export class Player extends Actor {
         const bulletVel = direction.scale(speed);
 
         if (this.lightPowerEquipped){
-            const bulletLight = new Light();
-            bulletLight.pos = this.pos.add(direction.scale(30));
-            bulletLight.vel = bulletVel;
-            this.scene.add(bulletLight);
+            this.bulletLight = new Light();
+            this.bulletLight.pos = this.pos.add(direction.scale(30));
+            this.bulletLight.vel = bulletVel;
+            this.scene.add(this.bulletLight);
         } 
         if (this.shamePowerEquipped){
-            const bulletShame = new Shame();
-            bulletShame.pos = this.pos.add(direction.scale(30));
-            bulletShame.vel = bulletVel;
-            this.scene.add(bulletShame);
+            this.bulletShame = new Shame();
+            this.bulletShame.pos = this.pos.add(direction.scale(30));
+            this.bulletShame.vel = bulletVel;
+            this.scene.add(this.bulletShame);
         } 
         if (this.truesightPowerEquipped){
-            const bulletSight = new Truesight();
-            bulletSight.pos = this.pos.add(direction.scale(30));
-            bulletSight.vel = bulletVel;
-            this.scene.add(bulletSight);
+            this.bulletSight = new Truesight();
+            this.bulletSight.pos = this.pos.add(direction.scale(30));
+            this.bulletSight.vel = bulletVel;
+            this.scene.add(this.bulletSight);
         } 
         if (this.purplePowerEquipped){
-            const bulletPurple = new Purple();
-            bulletPurple.pos = this.pos.add(direction.scale(30));
-            bulletPurple.vel = bulletVel;
-            this.scene.add(bulletPurple);
+            this.bulletPurple = new Purple();
+            this.bulletPurple.pos = this.pos.add(direction.scale(30));
+            this.bulletPurple.vel = bulletVel;
+            this.scene.add(this.bulletPurple);
         }
     }
 }
