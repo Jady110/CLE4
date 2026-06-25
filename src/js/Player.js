@@ -5,6 +5,7 @@ import { Light } from "./Light.js";
 import { Shame } from "./Shame.js";
 import { Truesight } from "./TrueSight.js";
 import { InventoryBar } from "./Inventory.js";
+import { EnemyLoneliness } from "./EnemyLoneliness.js";
 
 
 export class Player extends Actor {
@@ -208,6 +209,23 @@ export class Player extends Actor {
             this.bulletPurple.pos = this.pos.add(direction.scale(30));
             this.bulletPurple.vel = bulletVel;
             this.scene.add(this.bulletPurple);
+        }
+
+        this.bulletLight.events.on('collisionstart', (event) => this.onCollisionLight(event))
+    }
+
+    onCollisionLight(event){
+        if (event.other.owner instanceof EnemyLoneliness){
+            event.other.owner.health -= 20
+            console.log(event.other.owner.health)
+
+            if (event.other.owner.health === 0){
+                event.other.owner.kill()
+                const engine = this.scene?.engine || event.other.owner.scene?.engine
+                if (engine) {
+                    engine.goToScene("level2")
+                }
+            }
         }
     }
 }
