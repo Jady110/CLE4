@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, SpriteSheet, Animation, CollisionType } from "excalibur";
+import { Scene, Actor, Vector, SpriteSheet, Animation, CollisionType, Events} from "excalibur";
 import { Resources } from "./Resources.js";
 
 export class StressEnemy extends Actor {
@@ -22,5 +22,14 @@ export class StressEnemy extends Actor {
                 })
                 this.enemyAnimation = Animation.fromSpriteSheet(enemySheet, [0, 1], 800)
                 this.graphics.use(this.enemyAnimation)
+
+                this.health = 100; 
+
     }
+
+    onPreUpdate(engine){
+   
+
+    }
+
 }

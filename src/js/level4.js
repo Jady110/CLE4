@@ -10,7 +10,8 @@ import { SolidObjects } from "./SolidObjects.js";
 import { Purple } from "./Purple.js"
 import { Task } from "./Task.js";
 import { LevelInfo } from "./LevelInfo.js";
-import { GameOverScene } from "./GameOver.js";
+import { GameOverScene } from "./gameover.js";
+import { HeartUI } from "./HeartUI.js";
 
 
 
@@ -102,6 +103,9 @@ export class LevelFour extends Scene {
         this.add(this.puzzlePiece4);
         this.puzzleOwned = false;
 
+        this.hearts = new HeartUI(3);
+        this.add(this.hearts);
+
         this.camera.strategy.lockToActor(this.player);
           
         this.tasksUI = new Task()
@@ -109,7 +113,7 @@ export class LevelFour extends Scene {
 
         this.levelInfo = new LevelInfo()
                 this.add(this.levelInfo)
-                setTimeout(() => {
+                setTimeout(() => {s
                     this.levelInfo.kill()
                 }, 2000)
     }
