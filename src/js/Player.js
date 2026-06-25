@@ -4,6 +4,7 @@ import { Purple } from "./Purple.js";
 import { Light } from "./Light.js";
 import { Shame } from "./Shame.js";
 import { Truesight } from "./TrueSight.js";
+import { InventoryBar } from "./Inventory.js";
 
 
 export class Player extends Actor {
