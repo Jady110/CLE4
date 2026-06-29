@@ -1,6 +1,7 @@
 import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement, randomInRange } from "excalibur";
 import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
+import { WallThree } from "./walls.js";
 import { SolidObjects } from "./SolidObjects.js";
 import { GhostDoubt } from "./GhostDoubt.js";
 import { Puzzelstuk } from "./puzzelPieceDoubt.js";
@@ -11,6 +12,8 @@ import { LevelInfo } from "./LevelInfo.js";
 import { Task } from "./Task.js";
 import { Chest } from "./Chest.js";
 import { InventoryBar } from "./Inventory.js";
+
+
 
 export class LevelThree extends Scene {
     constructor() {
@@ -45,14 +48,14 @@ export class LevelThree extends Scene {
 
         // this.lightCircle.anchor = new Vector(0.49, 0.45);
 
-        // this.lightCircle.scale = new Vector(2, 2);
+        // this.lightCircle.scale = new Vector(1.4, 1.4);
         // this.lightCircle.z = 9;
 
         // this.add(this.lightCircle);
 
         this.key = new Key();
         this.add(this.key);
-        this.key.pos = new Vector(800, 800)
+        this.key.pos = new Vector(300, 840)
         this.keyGrabbed = false
 
         this.hearts = new HeartUI(3 , "level3");
@@ -63,21 +66,17 @@ export class LevelThree extends Scene {
             this.add(new SolidObjects(x, y, w, h));
         };
 
-        this.createWall(730, 920, 1160, 50);
-        this.createWall(-60, 200, 550, 50);
-        this.createWall(-330, 400, 50, 450);
-        this.createWall(-80, 630, 500, 50);
-        this.createWall(190, 780, 50, 350);
-        this.createWall(190, 0, 50, 350);
-        this.createWall(730, -150, 1160, 50);
-        this.createWall(1280, 0, 50, 350);
-        this.createWall(1405, 200, 300, 50);
-        this.createWall(1550, 400, 50, 450);
-        this.createWall(1405, 650, 300, 50);
-        this.createWall(1280, 800, 50, 350);
+        this.wallThree = new WallThree();
+        this.add(this.wallThree);
         this.chestDoor = new SolidObjects(1280, 425, 50, 400, "greyWall");
         this.add(this.chestDoor);
         this.add(new SolidObjects(365, 200, 300, 50, "vineWall"));
+        this.add(new SolidObjects(825, 250, 300, 50, "vineWall"));
+        this.add(new SolidObjects(440, 630, 450, 50, "vineWall"));
+        this.add(new SolidObjects(700, 50, 50, 350, "vineWall"));
+        this.add(new SolidObjects(1000, 720, 50, 350, "vineWall"));
+
+
 
 
 
@@ -156,9 +155,15 @@ export class LevelThree extends Scene {
         }
 
         if (event.other.owner instanceof Puzzelstuk){
-            if (this.chestOpened === true ){
-                // this.tasksUI.updateText('kill the enemy')
-                this.engine.goToScene("level4")
+            if (this.chestOpened) {
+
+                this.player.truesightPower = true;
+
+                this.inventory.addPowerup3();
+
+                this.tasksUI.updateText("Press 3 to equip Truesight");
+
+                event.other.owner.kill();
             }
         }
     }

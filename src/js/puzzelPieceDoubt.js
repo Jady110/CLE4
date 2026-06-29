@@ -16,7 +16,7 @@ export class Puzzelstuk extends Actor {
     onInitialize(engine) {
         this.graphics.use(Resources.SelfDoubtPuzzlepiece.toSprite());
 
-        this.scale = new Vector(0.1, 0.1);
+        this.scale = new Vector(0.3, 0.3);
 
         this.body.collisionType = CollisionType.Passive;
 

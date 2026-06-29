@@ -9,7 +9,7 @@ export class GhostDoubt extends Actor {
         });
 
         this.player = player;
-
+        this.health = 200;
         this.speed = 20;
         this.scale = new Vector(2.5, 2.5);
         this.body.collisionType = CollisionType.Fixed;

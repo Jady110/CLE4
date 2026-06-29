@@ -6,6 +6,7 @@ import { Shame } from "./Shame.js";
 import { Truesight } from "./TrueSight.js";
 import { InventoryBar } from "./Inventory.js";
 import { EnemyLoneliness } from "./EnemyLoneliness.js";
+import { GhostDoubt } from "./ghostDoubt.js";
 
 
 export class Player extends Actor {
@@ -228,4 +229,26 @@ export class Player extends Actor {
             }
         }
     }
+
+    // onProjectileCollision(event) {
+
+    //     const other = event.other.owner;
+
+    //     if (other instanceof GhostDoubt) {
+
+    //         other.health -= 20;
+
+    //         if (other.health <= 0) {
+    //             other.kill();
+
+    //             this.scene.tasksUI.updateText("Level Complete!");
+
+    //             setTimeout(() => {
+    //                 this.scene.engine.goToScene("level4");
+    //             }, 1000);
+    //         }
+
+    //         event.target.owner.kill();
+    //     }
+    // }
 }
