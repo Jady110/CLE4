@@ -65,10 +65,10 @@ export class GhostDoubt extends Actor {
 
         this.quoteLabel = new Label({
             text: "",
-            pos: new Vector(-40, -50),
-            color: Color.White,
+            pos: new Vector(-60, -50),
+            color: Color.Red,
             font: new Font({
-                size: 10
+                size: 13
             })
         });
 
