@@ -205,6 +205,7 @@ export class Player extends Actor {
             this.bulletSight.pos = this.pos.add(direction.scale(30));
             this.bulletSight.vel = bulletVel;
             this.scene.add(this.bulletSight);
+            this.bulletSight.events.on('collisionstart', (event) => this.onProjectileCollision(event))
         } 
         if (this.purplePowerEquipped){
             this.bulletPurple = new Purple();
@@ -230,25 +231,19 @@ export class Player extends Actor {
         }
     }
 
-    // onProjectileCollision(event) {
 
-    //     const other = event.other.owner;
+    onProjectileCollision(event){
+        const other = event.other?.owner ?? event.other;
 
-    //     if (other instanceof GhostDoubt) {
-
-    //         other.health -= 20;
-
-    //         if (other.health <= 0) {
-    //             other.kill();
-
-    //             this.scene.tasksUI.updateText("Level Complete!");
-
-    //             setTimeout(() => {
-    //                 this.scene.engine.goToScene("level4");
-    //             }, 1000);
-    //         }
-
-    //         event.target.owner.kill();
-    //     }
-    // }
-}
+        if (other.constructor.name === "GhostDoubt"){
+            console.log("GHOST HIT");
+            other.health -= 30;
+            if (other.health <= 0){
+                other.kill();
+                const engine = this.scene?.engine || other.scene?.engine;
+                if (engine) engine.goToScene("level4");
+            }
+            event.target.owner.kill();
+        }
+    }
+} 

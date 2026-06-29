@@ -5,16 +5,16 @@ export class GhostDoubt extends Actor {
     constructor(player) {
         super({
             width: 40,
-            height: 40
+            height: 40,
+            z: 50
         });
 
         this.player = player;
-        this.health = 200;
         this.speed = 20;
         this.scale = new Vector(2.5, 2.5);
         this.body.collisionType = CollisionType.Fixed;
 
-this.quotes = [
+        this.quotes = [
             "You're not good enough...",
             "Why do you keep trying?",
             "You're going to fail anyway.",
@@ -27,6 +27,19 @@ this.quotes = [
     }
 
     onInitialize(engine) {
+        this.health = 200;
+
+        this.health = new Label({
+            text: `${this.health}`,
+            pos: new Vector(-10, -40),
+            color: Color.Red,
+            font: new Font({
+                size: 10
+            })
+        });
+
+this.addChild(this.health);
+
 
         const sheet = SpriteSheet.fromImageSource({
             image: Resources.GhostDoubtIdle,
@@ -45,14 +58,14 @@ this.quotes = [
         );
         
 
-        this.pos = new Vector(600, 300);
+        this.pos = new Vector(-800, 300);
         anim.loop = true;
         this.graphics.use(anim);
 
 
         this.quoteLabel = new Label({
             text: "",
-            pos: new Vector(-40, -40),
+            pos: new Vector(-40, -50),
             color: Color.White,
             font: new Font({
                 size: 10
@@ -64,7 +77,7 @@ this.quotes = [
             this.sayRandomQuote();
         }, 8000);
 
-        engine.showDebug(true);
+        // engine.showDebug(true);
     }
 
     sayRandomQuote() {

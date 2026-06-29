@@ -4,10 +4,10 @@ import { Resources } from "./Resources.js";
 export class Truesight extends Actor {
     constructor() {
         super({
-            width: 200,
-            height: 1000
+            width: 20,
+            height: 20
         });
-        this.scale = new Vector(0.3, 0.3);
+        this.scale = new Vector(1, 1);
         this.body.collisionType = CollisionType.Passive;
     }
 
@@ -23,7 +23,7 @@ export class Truesight extends Actor {
                 spriteHeight: Resources.Truesight.height / 2
             }
         })
-        this.trueAnimation = Animation.fromSpriteSheet(trueSheet, [0, 1, 2, 3], 300)
+        this.trueAnimation = Animation.fromSpriteSheet(trueSheet, [0, 1, 2, 3], 400)
         this.graphics.use(this.trueAnimation)
         
     

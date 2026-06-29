@@ -40,18 +40,18 @@ export class LevelThree extends Scene {
 
 
         this.camera.strategy.lockToActor(this.player);
-        // this.lightCircle = new ScreenElement({
-        //     pos: new Vector(engine.drawWidth / 2, engine.drawHeight / 2)
-        // });
+        this.lightCircle = new ScreenElement({
+            pos: new Vector(engine.drawWidth / 2, engine.drawHeight / 2)
+        });
 
-        // this.lightCircle.graphics.use(Resources.Darkness.toSprite());
+        this.lightCircle.graphics.use(Resources.Darkness.toSprite());
 
-        // this.lightCircle.anchor = new Vector(0.49, 0.45);
+        this.lightCircle.anchor = new Vector(0.49, 0.45);
 
-        // this.lightCircle.scale = new Vector(1.4, 1.4);
-        // this.lightCircle.z = 9;
+        this.lightCircle.scale = new Vector(1.4, 1.4);
+        this.lightCircle.z = 9;
 
-        // this.add(this.lightCircle);
+        this.add(this.lightCircle);
 
         this.key = new Key();
         this.add(this.key);
@@ -81,7 +81,7 @@ export class LevelThree extends Scene {
 
 
         this.enemyPosX = [1800, 700, -200];
-        this.enemyPosY = [1000, -300];
+        this.enemyPosY = [1300, -500];
 
         this.enemyGhost = new GhostDoubt(this.player);
         this.enemyGhost.pos = new Vector(50, 50);
@@ -92,6 +92,9 @@ export class LevelThree extends Scene {
 
         this.inventory = new InventoryBar()
         this.add(this.inventory)
+        this.inventory.addPowerup1()
+        this.inventory.addPowerup2()
+
 
         this.levelInfo = new LevelInfo()
         this.add(this.levelInfo)
@@ -121,12 +124,12 @@ export class LevelThree extends Scene {
             }
         });
 
-        engine.showDebug(true);
+        // engine.showDebug(true);
     }
 
     onPreUpdate(engine){
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
-            this.tasksUI.updateText('Find the key')
+            this.tasksUI.updateText('Explore the maze & \n Find the key')
         }
 
         if (this.levelInfo){
@@ -140,7 +143,7 @@ export class LevelThree extends Scene {
         if (event.other.owner instanceof Key){
             this.keyGrabbed = true
             console.log("key grabbed")
-            this.tasksUI.updateText('Find the chest')
+            this.tasksUI.updateText('Find and the chest to \n reveal the missing piece')
             event.other.owner.kill()
             this.chestDoor.kill();
         }
@@ -156,13 +159,11 @@ export class LevelThree extends Scene {
 
         if (event.other.owner instanceof Puzzelstuk){
             if (this.chestOpened) {
-
                 this.player.truesightPower = true;
-
                 this.inventory.addPowerup3();
-
-                this.tasksUI.updateText("Press 3 to equip Truesight");
-
+                this.tasksUI.updateText(
+                `Regain your confidence &\nKill the ghost}`
+                );
                 event.other.owner.kill();
             }
         }
