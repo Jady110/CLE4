@@ -92,6 +92,10 @@ export class LevelFour extends Scene {
         this.inventory = new InventoryBar()
         this.add(this.inventory)
 
+        this.inventory.addPowerup1()
+        this.inventory.addPowerup2()
+        this.inventory.addPowerup3()
+
         this.levelInfo = new LevelInfo()
                 this.add(this.levelInfo)
                 setTimeout(() => {
@@ -105,13 +109,15 @@ export class LevelFour extends Scene {
         
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
+        }
 
         if (this.levelInfo){
             this.levelInfo.updateLevelNumber("Level four")
             this.levelInfo.updateLevelName('Stress') 
         }
-
-        }
+        this.player.lightPower = true
+        this.player.shamePower = true
+        this.player.truesightPower = true
     }
 
 onCollisionStart(event) {
@@ -147,7 +153,6 @@ onCollisionStart(event) {
             setTimeout(() => {
                 this.textPower.kill()
             }, 1500)
-
 
         this.player.purplePower = true
         this.inventory.addPowerup4()
