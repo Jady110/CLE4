@@ -214,6 +214,14 @@ export class Player extends Actor {
             this.bulletPurple.pos = this.pos.add(direction.scale(30));
             this.bulletPurple.vel = bulletVel;
             this.scene.add(this.bulletPurple);
+
+              this.bulletPurple.events.on("collisionstart", (event) => this.onCollisionPurple(event)
+    );
+    setTimeout(() => {
+    if (!this.bulletPurple.isKilled()) {
+        this.bulletPurple.kill();
+    }
+}, 2000);
             
         }
 
@@ -235,6 +243,8 @@ export class Player extends Actor {
     }
 
     onCollisionPurple(event) {
+        console.log("Purple hit:", event.other.owner);
+
     if (event.other.owner instanceof StressEnemy) {
         event.other.owner.health -= 40;
         console.log(event.other.owner.health);
@@ -247,6 +257,30 @@ export class Player extends Actor {
     }
 
     if (event.other.owner instanceof StressNPC) {
+
+    if (this.scene.npcsLeft > 0) {
+        
+        this.scene.textNPCWarning = new Label({
+        text: "You must kill all NPCs first!",
+        pos: new Vector(400, 100),
+        color: Color.White,
+        font: new Font({
+            family: "Georgia, serif",
+            size: 30
+        }),
+        z: 100
+    });
+
+    this.scene.add(this.scene.textNPCWarning);
+
+    // setTimeout(() => {
+    //     this.scene.textNPCWarning.kill();
+    // }, 1500);
+
+        event.target.owner.kill();
+        return;
+    }
+
         event.other.owner.health -= 40;
         console.log(event.other.owner.health);
 
@@ -274,5 +308,19 @@ export class Player extends Actor {
                 }
                 event.target.owner.kill();
             }
+
+            if (other instanceof StressNPC) {
+                other.health -= 30;
+
+            if (other.health <= 0) {
+                other.kill();
+                this.scene.npcsLeft--; 
+            if (this.scene.npcsLeft === 0) {
+                this.scene.tasksUI.updateText("Find the key");
+}
+    }
+
+            event.target.owner.kill();
+}
         }
 }

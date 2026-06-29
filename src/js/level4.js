@@ -60,11 +60,21 @@ export class LevelFour extends Scene {
         this.stressEnemy.pos = new Vector(220, 1100);
         this.enemyKilled = false;
 
-        this.stressNPC = new StressNPC();
-        this.stressNPC.pos = new Vector(1000, 750);
-        this.add(this.stressNPC);
-        this.stressNPC.z = 1;
-        this.NPC1 = false;
+        this.stressNPC1 = new StressNPC();
+        this.stressNPC1.pos = new Vector(1000, 750);
+        this.stressNPC1.z = 1;
+        this.add(this.stressNPC1);
+
+
+        this.stressNPC2 = new StressNPC();
+        this.stressNPC2.pos = new Vector(320, 50); 
+        this.stressNPC2.z = 1;
+        this.add(this.stressNPC2);
+
+
+        this.npcsLeft = 2;
+
+
 
         this.chest = new Chest();
         this.add(this.chest);
@@ -78,7 +88,7 @@ export class LevelFour extends Scene {
 
         this.Key = new Key();
         this.add(this.Key);
-        this.Key.pos = new Vector(1050, 750);
+        this.Key.pos = new Vector(300, 750);
         this.keyGrabbed = false
 
         this.hearts = new HeartUI(3);
@@ -108,7 +118,7 @@ export class LevelFour extends Scene {
      onPreUpdate(engine){
         
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
-            this.tasksUI.updateText('Find the key')
+            this.tasksUI.updateText('Kill all NPCs')
         }
 
         if (this.levelInfo){

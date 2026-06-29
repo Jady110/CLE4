@@ -14,7 +14,7 @@ export class StressNPC extends Actor {
         this.graphics.use(Resources.StressNPC.toSprite())
 
 
-        this.health = 1; 
+        this.health = 10; 
     }
 
 
