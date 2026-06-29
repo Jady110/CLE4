@@ -4,8 +4,6 @@ import { Resources } from "./Resources.js";
 export class Shame extends Actor {
     constructor() {
         super({
-            width: 200,
-            height: 1000
         });
         this.scale = new Vector(0.15, 0.15);
         this.body.collisionType = CollisionType.Passive;

@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement, randomInRange } from "excalibur";
+import { Scene, Actor, Vector, Camera, BoundingBox, CollisionType, Color, ScreenElement, randomInRange, Label, Font } from "excalibur";
 import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
 import { WallThree } from "./walls.js";
@@ -141,6 +141,21 @@ export class LevelThree extends Scene {
     onCollision(event) {
         
         if (event.other.owner instanceof Key){
+            this.feedbackKey = new Label({
+            text: 'You Grabbed a key!',
+            pos: new Vector(300, 820),
+            color: Color.White,
+            font: new Font({ 
+                family: "Indie Flower",
+                size: 50
+            }),
+            z: 10
+            })
+            this.add(this.feedbackKey)
+            setTimeout(() => {
+            this.feedbackKey.kill()
+            }, 2000)
+
             this.keyGrabbed = true
             console.log("key grabbed")
             this.tasksUI.updateText('Find and the chest to \n reveal the missing piece')
@@ -149,6 +164,21 @@ export class LevelThree extends Scene {
         }
 
         if (event.other.owner instanceof Chest){
+            this.feedbackKey = new Label({
+            text: 'You opent the chest!',
+            pos: new Vector(1400, 400),
+            color: Color.White,
+            font: new Font({ 
+                family: "Indie Flower",
+                size: 50
+            }),
+            z: 10
+            })
+            this.add(this.feedbackKey)
+            setTimeout(() => {
+            this.feedbackKey.kill()
+            }, 2000)
+
             if (this.keyGrabbed === true ){
                 event.other.owner.kill()
                 this.puzzelstuk.graphics.isVisible = true;
