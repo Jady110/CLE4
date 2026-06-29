@@ -64,6 +64,17 @@ export class LevelOne extends Scene {
         const enemy = new EnemyLoneliness()
         this.add(enemy)
         enemy.pos = new Vector(1500, 400)
+        this.enemyText = new Label({
+            text: 'You are all alone!',
+            pos: new Vector(1420, 270),
+            color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 20
+            }),
+            z: 4
+            })
+            this.add(this.enemyText)
 
         const player = new Player()
         this.add(player)
@@ -121,20 +132,23 @@ export class LevelOne extends Scene {
             this.ghost1 = new Ghost()
             this.ghost1.pos = new Vector(150, 50)
             this.add(this.ghost1)
+            this.ghost1.updateText('Friend')
 
             this.ghost2 = new Ghost()
             this.ghost2.pos = new Vector(1500, -150)
             this.add(this.ghost2)
+            this.ghost2.updateText('Friend')
 
             this.ghost3 = new Ghost()
             this.ghost3.pos = new Vector(900, 450)
             this.add(this.ghost3)
+            this.ghost3.updateText('Family')
 
-            this.tasksUI.updateText(`Find the memories ${this.ghostfound} / 3`)
+            this.tasksUI.updateText(`Find the memories\nto get your power-up\n${this.ghostfound} / 3`)
             
             this.infoChest = new Label({
             text: 'You opened the chest!',
-            pos: new Vector(900, -250),
+            pos: new Vector(880, -250),
             color: Color.White,
             font: new Font({ 
                 family: "Georgia, serif",
@@ -143,9 +157,21 @@ export class LevelOne extends Scene {
             z: 10
             })
             this.add(this.infoChest)
+            this.infoToDo = new Label({
+            text: 'Memories have spread across the map, find them',
+            pos: new Vector(820, -200),
+            color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 30
+            }),
+            z: 10
+            })
+            this.add(this.infoToDo)
             setTimeout(() => {
             this.infoChest.kill()
-            }, 2000)
+            this.infoToDo.kill()
+            }, 3000)
             }
 
             }
@@ -156,12 +182,13 @@ export class LevelOne extends Scene {
         if (event.other.owner instanceof Ghost){
             event.other.owner.kill()
             this.ghostfound++
-            this.tasksUI.updateText(`Find the memories ${this.ghostfound} / 3`)
+            this.tasksUI.updateText(`Find the memories\nto get your power-up\n${this.ghostfound} / 3`)
             console.log(this.ghostfound)
             if (this.ghostfound === 3){
                 this.tasksUI.updateText('Kill the enemy')
                 this.player.lightPower = true
                 this.inventory.addPowerup1()
+                this.enemyText.text = 'Oh no'
             }
         }
     }
