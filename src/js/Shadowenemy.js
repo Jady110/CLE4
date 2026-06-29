@@ -1,4 +1,4 @@
-import { Actor, Vector, Keys, CollisionType, Camera, PointerEvent, SpriteSheet, Animation } from "excalibur"
+import { Actor, Vector, Keys, CollisionType, Camera, PointerEvent, SpriteSheet, Animation, Label } from "excalibur"
 import { Resources } from "./Resources.js"
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
