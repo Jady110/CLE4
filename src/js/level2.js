@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Collider, CollisionType, Color, ScreenElement } from "excalibur";
+import { Scene, Actor, Vector, Collider, CollisionType, Color, ScreenElement, Label } from "excalibur";
 import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
@@ -9,6 +9,8 @@ import { ChestLevel2 } from "./Chest.js";
 import { SolidObjects } from "./SolidObjects.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { InventoryBar } from "./Inventory.js";
+import { Task } from "./Task.js";
+import { HeartUI } from "./HeartUI.js";
 
 export class LevelTwo extends Scene {
     constructor() {
@@ -120,9 +122,19 @@ export class LevelTwo extends Scene {
                 setTimeout(() => {
                     this.levelInfo.kill()
                 }, 2000)
+        
+        this.tasksUI = new Task()
+        this.add(this.tasksUI)
+
+        this.hearts = new HeartUI(3);
+        this.add(this.hearts);
     }
 
     onPreUpdate(engine){
+        if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
+            this.tasksUI.updateText('Collect 3 funny memories\n Then ask for the key\n and open the chest.')
+        }
+
         if (this.levelInfo){
             this.levelInfo.updateLevelNumber('Level two')
             this.levelInfo.updateLevelName('Shame')
