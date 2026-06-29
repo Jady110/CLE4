@@ -54,10 +54,24 @@ export class ShadowEnemyLeft extends Actor {
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.ShadowLeft.toSprite());
-        this.scale = new Vector(1, 1);
+        const sheet = SpriteSheet.fromImageSource({
+            image: Resources.ShadowLeftLaughing,
+            grid: {
+                rows: 3,
+                columns: 3,
+                spriteWidth: Resources.ShadowLeftLaughing.width / 3,
+                spriteHeight: Resources.ShadowLeftLaughing.height / 3
+            }
+        });
 
-        this.body.collisionType = CollisionType.Passive;        
+        const anim = Animation.fromSpriteSheet(
+            sheet,
+            [0, 1, 2, 3, 4, 5, 6],
+            200
+        );        
+
+        anim.loop = true;
+        this.graphics.use(anim);
     }
 
 
