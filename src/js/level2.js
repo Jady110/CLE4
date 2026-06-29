@@ -113,7 +113,7 @@ export class LevelTwo extends Scene {
         this.add(this.inventory)
         this.inventory.addPowerup1()
 
-        engine.showDebug(true);
+        // engine.showDebug(true);
 
         this.camera.strategy.lockToActor(this.player);
 
