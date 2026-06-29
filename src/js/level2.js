@@ -20,6 +20,7 @@ export class LevelTwo extends Scene {
 
     onInitialize(engine) {
 
+        // this.laughterCounter = 0;
         this.powerCollected = false;
         this.keyCollected = false;
         this.openedChest = false;

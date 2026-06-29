@@ -20,7 +20,8 @@ export class PowerLaughter extends Actor {
 
     onCollisionStart(event) {
 
-        console.log("Player collected powerup");
+        // this.scene.laughterCounter++;
+        // console.log(`Collected: ${this.scene.laughterCounter}/3`);
         this.scene.powerCollected = true;
         this.kill();
     }
