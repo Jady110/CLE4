@@ -10,16 +10,7 @@ export class StartScene extends Scene {
     }
 
     onInitialize(engine) {
-
-        // const startScreen = new Actor();
-
-        // startScreen.graphics.use(Resources.StartScreen.toSprite());
-        // startScreen.pos = new Vector(1280 / 2, 720 / 2);
-        // startScreen.z = -1;
-
-        // this.add(startScreen);
-    
-
+        
         const title = new Label({
             text: "Ruins of The Mind",
             pos: new Vector(380, 330),
