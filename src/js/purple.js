@@ -6,6 +6,8 @@ import { StressNPC } from "./StressNPC.js";
 export class Purple extends Actor {
     constructor() {
         super({
+            height: 10,
+            width: 10
         });
         this.scale = new Vector(0.3, 0.3);
         this.body.collisionType = CollisionType.Active;

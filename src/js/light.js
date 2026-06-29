@@ -4,6 +4,8 @@ import { Resources } from "./Resources.js";
 export class Light extends Actor {
     constructor() {
         super({
+            height: 10,
+            width: 10
         });
         this.scale = new Vector(0.3, 0.3);
         this.body.collisionType = CollisionType.Passive;

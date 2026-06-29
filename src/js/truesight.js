@@ -4,6 +4,8 @@ import { Resources } from "./Resources.js";
 export class Truesight extends Actor {
     constructor() {
         super({
+            height: 10,
+            width: 10
         });
         this.scale = new Vector(1, 1);
         this.body.collisionType = CollisionType.Passive;
