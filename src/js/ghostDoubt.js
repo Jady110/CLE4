@@ -29,7 +29,7 @@ export class GhostDoubt extends Actor {
     onInitialize(engine) {
         this.health = 200;
 
-        this.health = new Label({
+        this.healthBar = new Label({
             text: `${this.health}`,
             pos: new Vector(-10, -40),
             color: Color.Red,
@@ -38,7 +38,7 @@ export class GhostDoubt extends Actor {
             })
         });
 
-this.addChild(this.health);
+        this.addChild(this.healthBar);
 
 
         const sheet = SpriteSheet.fromImageSource({
@@ -58,7 +58,7 @@ this.addChild(this.health);
         );
         
 
-        this.pos = new Vector(-800, 300);
+        this.pos = new Vector(-700, 300);
         anim.loop = true;
         this.graphics.use(anim);
 

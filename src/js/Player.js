@@ -266,6 +266,7 @@ export class Player extends Actor {
             if (other.constructor.name === "GhostDoubt"){
                 console.log("GHOST HIT");
                 other.health -= 30;
+                other.healthBar.text = `${other.health}`;
                 if (other.health <= 0){
                     other.kill();
                     const engine = this.scene?.engine || other.scene?.engine;

@@ -14,7 +14,7 @@ export class Puzzelstuk extends Actor {
     }
 
     onInitialize(engine) {
-        this.graphics.use(Resources.SelfDoubtPuzzlepiece.toSprite());
+        this.graphics.use(Resources.FearPuzzlepieze.toSprite());
 
         this.scale = new Vector(0.3, 0.3);
 
