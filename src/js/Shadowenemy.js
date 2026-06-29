@@ -30,7 +30,6 @@ export class ShadowEnemy extends Actor {
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
         }
 
         if (this.scene.powerCollected) {
@@ -40,14 +39,7 @@ export class ShadowEnemy extends Actor {
 
         } else {
             console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
         }
-    }
-
-
-    onPreUpdate(engine) {
-        // let velX = 0;
-        // let velY = 0;
     }
 }
 
@@ -77,7 +69,6 @@ export class ShadowEnemyLeft extends Actor {
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
         }
 
         if (this.scene.powerCollected) {
@@ -87,13 +78,7 @@ export class ShadowEnemyLeft extends Actor {
 
         } else {
             console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
         }
-    }
-
-    onPreUpdate(engine) {
-        // let velX = 0;
-        // let velY = 0;
     }
 }
 
@@ -123,7 +108,6 @@ export class ShadowEnemyRight extends Actor {
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
         }
 
         if (this.scene.powerCollected) {
@@ -133,13 +117,7 @@ export class ShadowEnemyRight extends Actor {
 
         } else {
             console.log("Player touched me but I'm a Shadow");
-            // this.scene.engine.goToScene("gameover");
         }
-    }
-
-    onPreUpdate(engine) {
-        // let velX = 0;
-        // let velY = 0;
     }
 }
 
@@ -158,8 +136,6 @@ export class ShadowEnemyKey extends Actor {
         this.scale = new Vector(1, 1);
 
         this.body.collisionType = CollisionType.Passive;
-
-        // this.keyCollected = false;
         
         this.key = new Key();
         this.key.pos = new Vector(25, 0);
@@ -179,7 +155,6 @@ export class ShadowEnemyKey extends Actor {
             this.scene.engine.goToScene("level3");
         } else {
             console.log("Player tried to use their previous power but it didnt work..");
-            // this.scene.engine.goToScene("gameover");
         }
 
         if (this.scene.powerCollected) {
@@ -190,6 +165,7 @@ export class ShadowEnemyKey extends Actor {
             this.key.kill();
 
             // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+            // 3 collums, 3 rows
 
         } else {
             console.log(
@@ -198,10 +174,5 @@ export class ShadowEnemyKey extends Actor {
             this.scene.dialogueText =
                 "You stare at the shadow, not sure what to say.";
         }
-}
-
-    onPreUpdate(engine) {
-        // let velX = 0;
-        // let velY = 0;
     }
 }

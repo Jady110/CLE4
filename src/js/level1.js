@@ -93,7 +93,6 @@ export class LevelOne extends Scene {
 
         this.inventory = new InventoryBar()
         this.add(this.inventory)
-
     }
 
     onPreUpdate(engine){
