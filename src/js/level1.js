@@ -106,7 +106,6 @@ export class LevelOne extends Scene {
         }
     }
 
-
     onCollision(event) {
         console.log(event.other.owner)
         if (event.other.owner instanceof Key){
@@ -132,9 +131,24 @@ export class LevelOne extends Scene {
             this.add(this.ghost3)
 
             this.tasksUI.updateText(`Find the memories ${this.ghostfound} / 3`)
+            
+            this.infoChest = new Label({
+            text: 'You opened the chest!',
+            pos: new Vector(900, -250),
+            color: Color.White,
+            font: new Font({ 
+                family: "Georgia, serif",
+                size: 50
+            }),
+            z: 10
+            })
+            this.add(this.infoChest)
+            setTimeout(() => {
+            this.infoChest.kill()
+            }, 2000)
             }
 
-        }
+            }
         if (event.other.owner instanceof EnemyLoneliness){
                 window.restartScene = "level1";
                 this.hearts.takeDamage();
