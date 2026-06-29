@@ -32,7 +32,7 @@ export class StartScene extends Scene {
         });
 
         const startText = new Label({
-            text: "Press SPACE for Level1, W for level2, A for level3, S for level4.",
+            text: "Press SPACE to start!", //W for level2, A for level3, S for level4.
             pos: new Vector(380, 400),
             color: Color.White,
             font: new Font({ 
