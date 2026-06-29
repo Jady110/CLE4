@@ -158,7 +158,7 @@ export class LevelThree extends Scene {
 
             this.keyGrabbed = true
             console.log("key grabbed")
-            this.tasksUI.updateText('Find and the chest to \n reveal the missing piece')
+            this.tasksUI.updateText('Find the chest to \n reveal the missing piece')
             event.other.owner.kill()
             this.chestDoor.kill();
         }

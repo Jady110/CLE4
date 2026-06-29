@@ -34,17 +34,4 @@ export class Puzzelstuk extends Actor {
         this.kill();
         this.scene.engine.goToScene("level3");
     }
-
-
-    onPreUpdate(engine) {
-        // let velX = 0;
-        // let velY = 0;
-
-        // if (this.pos.x < -50) {
-        //     console.log("Game Over!");
-        //     this.scene.engine.goToScene("level2");
-        // }
-
-        // this.vel = new Vector(velX, velY);
-    }
 }
