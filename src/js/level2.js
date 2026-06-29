@@ -1,4 +1,4 @@
-import { Scene, Actor, Vector, Collider, CollisionType, Color, ScreenElement } from "excalibur";
+import { Scene, Actor, Vector, Collider, CollisionType, Color, ScreenElement, Label } from "excalibur";
 import { Resources } from "./Resources.js";
 import { Player } from "./Player.js";
 import { Puzzelstuk } from "./Puzzelstuk.js";
@@ -9,6 +9,8 @@ import { ChestLevel2 } from "./Chest.js";
 import { SolidObjects } from "./SolidObjects.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { InventoryBar } from "./Inventory.js";
+import { Task } from "./Task.js";
+import { HeartUI } from "./HeartUI.js";
 
 export class LevelTwo extends Scene {
     constructor() {
@@ -32,16 +34,18 @@ export class LevelTwo extends Scene {
         map2.z = -1;
         this.add(map2);
 
-        this.lightCirlce = new ScreenElement({
+        this.lightCircle = new ScreenElement({
             pos: new Vector(
-                engine.drawWidth / 300,
-                engine.drawHeight / 10000
-            )
+                engine.drawWidth / 2,
+                engine.drawHeight / 2
+                )
         });
-
-        this.lightCirlce.graphics.use(Resources.Darkness.toSprite());
-        this.lightCirlce.z = 9;
-        this.add(this.lightCirlce);
+                
+        this.lightCircle.graphics.use(Resources.Darkness.toSprite());
+        this.lightCircle.anchor = new Vector(0.49, 0.45)
+        this.lightCircle.scale = new Vector(1.2, 1.2)
+        this.lightCircle.z = 9;
+        this.add(this.lightCircle);
 
         this.createWall = (x, y, w, h) => {
             this.add(new SolidObjects(x, y, w, h));
@@ -111,7 +115,7 @@ export class LevelTwo extends Scene {
         this.add(this.inventory)
         this.inventory.addPowerup1()
 
-        engine.showDebug(true);
+        // engine.showDebug(true);
 
         this.camera.strategy.lockToActor(this.player);
 
@@ -120,9 +124,19 @@ export class LevelTwo extends Scene {
                 setTimeout(() => {
                     this.levelInfo.kill()
                 }, 2000)
+        
+        this.tasksUI = new Task()
+        this.add(this.tasksUI)
+
+        this.hearts = new HeartUI(3);
+        this.add(this.hearts);
     }
 
     onPreUpdate(engine){
+        if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
+            this.tasksUI.updateText('Collect 3 funny memories\n Then ask for the key\n and open the chest.')
+        }
+
         if (this.levelInfo){
             this.levelInfo.updateLevelNumber('Level two')
             this.levelInfo.updateLevelName('Shame')
