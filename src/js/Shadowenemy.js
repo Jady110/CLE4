@@ -165,6 +165,7 @@ export class ShadowEnemyKey extends Actor {
             this.key.kill();
 
             // Hier een animation dat shadow lacht met spritesheet ShadowRightLaughing
+            // 3 collums, 3 rows
 
         } else {
             console.log(
