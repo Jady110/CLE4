@@ -4,8 +4,6 @@ import { Resources } from "./Resources.js";
 export class Purple extends Actor {
     constructor() {
         super({
-            width: 200,
-            height: 1000
         });
         this.scale = new Vector(0.3, 0.3);
         this.body.collisionType = CollisionType.Active;
@@ -22,7 +20,7 @@ export class Purple extends Actor {
                 spriteHeight: Resources.Purple.height / 2
             }
         })
-        this.purpleAnimation = Animation.fromSpriteSheet(purpleSheet, [0, 1, 2, 3], 800)
+        this.purpleAnimation = Animation.fromSpriteSheet(purpleSheet, [0, 1, 2, 3], 300)
         this.graphics.use(this.purpleAnimation)
     }
 }

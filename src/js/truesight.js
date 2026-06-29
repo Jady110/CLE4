@@ -23,7 +23,7 @@ export class Truesight extends Actor {
                 spriteHeight: Resources.Truesight.height / 2
             }
         })
-        this.trueAnimation = Animation.fromSpriteSheet(trueSheet, [0, 1, 2, 3], 800)
+        this.trueAnimation = Animation.fromSpriteSheet(trueSheet, [0, 1, 2, 3], 300)
         this.graphics.use(this.trueAnimation)
         
     

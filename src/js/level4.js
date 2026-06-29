@@ -5,7 +5,6 @@ import { Chest } from "./Chest.js";
 import { Key }  from "./Key.js"; 
 import { StressEnemy } from "./StressEnemy.js";
 import { StressNPC } from "./StressNPC.js";
-import { Purple } from "./Purple.js"
 import { Task } from "./Task.js";
 import { LevelInfo } from "./LevelInfo.js";
 import { GameOverScene } from "./GameOver.js";
@@ -25,7 +24,6 @@ export class LevelFour extends Scene {
     onInitialize(engine) {
 
         const map4 = new Actor();
-
         map4.graphics.use(Resources.Map4.toSprite());
         map4.pos = new Vector(640, 360);
         map4.z = -1;
@@ -73,10 +71,6 @@ export class LevelFour extends Scene {
         this.chest.pos = new Vector(640, -300);
         this.chest.z = 1;
 
-        this.purple = new Purple();
-        this.add(this.purple);
-        this.purpleCollected = false;
-
         this.Key = new Key();
         this.add(this.Key);
         this.Key.pos = new Vector(1050, 750);
@@ -92,6 +86,9 @@ export class LevelFour extends Scene {
 
         this.inventory = new InventoryBar()
         this.add(this.inventory)
+        this.inventory.addPowerup1()
+        this.inventory.addPowerup2()
+        this.inventory.addPowerup3()
 
         this.levelInfo = new LevelInfo()
                 this.add(this.levelInfo)
@@ -106,13 +103,15 @@ export class LevelFour extends Scene {
         
         if (this.tasksUI && this.tasksUI.taskText && this.tasksUI.taskText.text === '') {
             this.tasksUI.updateText('Find the key')
-
+        }
         if (this.levelInfo){
             this.levelInfo.updateLevelNumber("Level four")
             this.levelInfo.updateLevelName('Stress') 
-        }
-
-        }
+        } 
+        
+        this.player.lightPower = true;
+        this.player.shamePower = true;
+        this.player.truesightPower = true;
     }
 
 onCollisionStart(event) {
@@ -127,10 +126,12 @@ onCollisionStart(event) {
 
     if (event.other.owner instanceof Chest) {
         if (this.keyGrabbed === true) {
-            console.log("Chest opened!");
+        console.log("Chest opened!");
 
-            this.purpleCollected = true;
-            console.log("Power-up collect")
+        console.log("Power-up collect")
+
+        this.player.purplePower = true
+        this.inventory.addPowerup4()
 
         this.tasksUI.updateText('Kill the enemy')
 
@@ -148,10 +149,6 @@ onCollisionStart(event) {
             setTimeout(() => {
                 this.textPower.kill()
             }, 1500)
-
-
-        this.player.purplePower = true
-        this.inventory.addPowerup4()
         
         } else {
             console.log("Chest is locked.");
