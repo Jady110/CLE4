@@ -7,6 +7,8 @@ import { Truesight } from "./TrueSight.js";
 import { InventoryBar } from "./Inventory.js";
 import { EnemyLoneliness } from "./EnemyLoneliness.js";
 import { GhostDoubt } from "./ghostDoubt.js";
+import { StressEnemy } from "./StressEnemy.js";
+import { StressNPC } from "./StressNPC.js";
 
 
 export class Player extends Actor {
@@ -211,6 +213,7 @@ export class Player extends Actor {
             this.bulletPurple.pos = this.pos.add(direction.scale(30));
             this.bulletPurple.vel = bulletVel;
             this.scene.add(this.bulletPurple);
+            
         }
 
     }
@@ -229,6 +232,32 @@ export class Player extends Actor {
             }
         }
     }
+
+    onCollisionPurple(event) {
+    if (event.other.owner instanceof StressEnemy) {
+        event.other.owner.health -= 40;
+        console.log(event.other.owner.health);
+
+        if (event.other.owner.health <= 0) {
+            event.other.owner.kill();
+        }
+
+        event.target.owner.kill(); 
+    }
+
+    if (event.other.owner instanceof StressNPC) {
+        event.other.owner.health -= 40;
+        console.log(event.other.owner.health);
+
+        if (event.other.owner.health <= 0) {
+            event.other.owner.kill();
+        }
+
+        event.target.owner.kill();
+    }
+}
+}
+    
 
     // onProjectileCollision(event) {
 
@@ -251,4 +280,4 @@ export class Player extends Actor {
     //         event.target.owner.kill();
     //     }
     // }
-}
+

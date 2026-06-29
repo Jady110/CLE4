@@ -1,7 +1,7 @@
 import { Scene, Actor, Vector, SpriteSheet, Animation, CollisionType} from "excalibur";
 import { Resources } from "./Resources.js";
 
-
+import { Purple } from "./Purple.js";
 
 
 export class StressEnemy extends Actor {
@@ -28,6 +28,25 @@ export class StressEnemy extends Actor {
 
                 this.health = 100; 
 
+    }
+
+    onPreUpdate(engine){
+        
 
     }
+
+    onCollisionStart (evt) {
+
+    if (evt.other instanceof Purple) {
+        this.health -= 30;
+        evt.other.kill();
+    }
+    console.log(this.health);
+
+    if (this.health <= 0) {
+        this.kill();
+    }
+
+    }
+
 }
