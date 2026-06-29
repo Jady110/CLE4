@@ -14,7 +14,7 @@ export class Shame extends Actor {
 
     onInitialize(engine) {
 
-        this.graphics.use(Resources.Shame.toSprite())
+        this.graphics.use(Resources.ShamePower.toSprite())
     
     }
 }

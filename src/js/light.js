@@ -23,7 +23,7 @@ export class Light extends Actor {
                 spriteHeight: Resources.Light.height / 2
             }
         })
-        this.lightAnimation = Animation.fromSpriteSheet(lightSheet, [0, 1, 2, 3], 800)
+        this.lightAnimation = Animation.fromSpriteSheet(lightSheet, [0, 1, 2, 3], 300)
         this.graphics.use(this.lightAnimation)
     }
 }

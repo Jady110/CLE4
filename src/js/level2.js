@@ -20,7 +20,6 @@ export class LevelTwo extends Scene {
 
     onInitialize(engine) {
 
-        // this.laughterCounter = 0;
         this.powerCollected = false;
         this.keyCollected = false;
         this.openedChest = false;
@@ -110,6 +109,7 @@ export class LevelTwo extends Scene {
 
         this.inventory = new InventoryBar()
         this.add(this.inventory)
+        this.inventory.addPowerup1()
 
         engine.showDebug(true);
 
@@ -126,6 +126,13 @@ export class LevelTwo extends Scene {
         if (this.levelInfo){
             this.levelInfo.updateLevelNumber('Level two')
             this.levelInfo.updateLevelName('Shame')
+        }
+
+        this.player.lightPower = true;
+
+        if (this.chest.openedChest === true){
+            this.player.shamePower = true;
+            this.inventory.addPowerup2()
         }
     }
 }

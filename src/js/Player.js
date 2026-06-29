@@ -83,11 +83,11 @@ export class Player extends Actor {
         
         
         //Power up level 1
-        this.lightPower = true; 
+        this.lightPower = false; 
         this.lightPowerEquipped = false
      
         //Power up level 2
-        this.shamePower = true; 
+        this.shamePower = false; 
         this.shamePowerEquipped = false
 
         //Power up level 3
@@ -191,6 +191,7 @@ export class Player extends Actor {
             this.bulletLight.pos = this.pos.add(direction.scale(30));
             this.bulletLight.vel = bulletVel;
             this.scene.add(this.bulletLight);
+            this.bulletLight.events.on('collisionstart', (event) => this.onCollisionLight(event))
         } 
         if (this.shamePowerEquipped){
             this.bulletShame = new Shame();
@@ -211,7 +212,6 @@ export class Player extends Actor {
             this.scene.add(this.bulletPurple);
         }
 
-        this.bulletLight.events.on('collisionstart', (event) => this.onCollisionLight(event))
     }
 
     onCollisionLight(event){
