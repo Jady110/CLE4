@@ -34,16 +34,18 @@ export class LevelTwo extends Scene {
         map2.z = -1;
         this.add(map2);
 
-        this.lightCirlce = new ScreenElement({
+        this.lightCircle = new ScreenElement({
             pos: new Vector(
-                engine.drawWidth / 300,
-                engine.drawHeight / 10000
-            )
+                engine.drawWidth / 2,
+                engine.drawHeight / 2
+                )
         });
-
-        this.lightCirlce.graphics.use(Resources.Darkness.toSprite());
-        this.lightCirlce.z = 9;
-        this.add(this.lightCirlce);
+                
+        this.lightCircle.graphics.use(Resources.Darkness.toSprite());
+        this.lightCircle.anchor = new Vector(0.49, 0.45)
+        this.lightCircle.scale = new Vector(1.2, 1.2)
+        this.lightCircle.z = 9;
+        this.add(this.lightCircle);
 
         this.createWall = (x, y, w, h) => {
             this.add(new SolidObjects(x, y, w, h));
