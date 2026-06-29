@@ -19,6 +19,7 @@ export class LevelTwo extends Scene {
     }
 
     onInitialize(engine) {
+
         this.powerCollected = false;
         this.keyCollected = false;
         this.openedChest = false;
