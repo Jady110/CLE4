@@ -7,7 +7,7 @@ export class Purple extends Actor {
     constructor() {
         super({
             width: 200,
-            height: 1000
+            height: 100
         });
         this.scale = new Vector(0.3, 0.3);
         this.body.collisionType = CollisionType.Active;
