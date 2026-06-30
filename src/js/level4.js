@@ -174,39 +174,22 @@ onCollisionStart(event) {
 
     if (event.other.owner instanceof StressEnemy) {
         this.enemyKilled = true;
-   
         this.hearts.takeDamage()
 
         window.restartScene = "level4"; 
 
         }
 
+    
+       
+
+
     if (event.other.owner instanceof StressNPC) {
         this.NPC1 = true;
         console.log("NPC killed!");
 
-        event.other.owner.kill();
-
-        this.textNPC = new Label({
-            text: 'Killed the NPC!',
-            pos: new Vector(800, 800),
-            color: Color.White,
-            font: new Font({ 
-                family: "Georgia, serif",
-                size: 40
-            }),
-            z: 2
-        })
-        this.add(this.textNPC)
-            setTimeout(() => {
-                this.textNPC.kill()
-            }, 1500)
-
-            } 
-
-      
-     
+        this.hearts.takeDamage()     
     }
 }
-
+}
     

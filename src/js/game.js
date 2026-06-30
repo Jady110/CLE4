@@ -7,6 +7,7 @@ import { LevelThree } from "./Level3.js";
 import { LevelFour } from "./Level4.js";
 import { GameOverScene } from "./GameOver.js";
 import { StartScene } from './Start.js';
+import { levelCompletedScene } from './completed.js';
 
 export class Game extends Engine {
 
@@ -23,6 +24,7 @@ export class Game extends Engine {
         this.add("level4", new LevelFour());
         this.add("start", new StartScene());
         this.add("gameover", new GameOverScene());
+        this.add("levelCompletedScene", new levelCompletedScene());
 
         this.start(ResourceLoader).then(() => {
             this.goToScene("start");

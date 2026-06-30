@@ -251,6 +251,11 @@ export class Player extends Actor {
 
         if (event.other.owner.health <= 0) {
             event.other.owner.kill();
+
+            const engine = this.scene?.engine || event.other.owner.scene?.engine
+                if (engine) {
+                    engine.goToScene("levelCompletedScene")
+                }
         }
 
         event.target.owner.kill(); 
